@@ -30,10 +30,21 @@
 */
 
 -(void)initUI{
-    self.frame = CGRectMake(0, 0, 100, 50);
-    self.backgroundColor = [UIColor redColor];
+    self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, 190, 44);
+    _imageVoiceBackground = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 190, 44)];
+    [self addSubview:_imageVoiceBackground];
+    [self setStatusBackgroundLoading:YES];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
     [self addGestureRecognizer:tap];
+}
+-(void)setStatusBackgroundLoading:(BOOL)statusBackgroundLoading{
+    NSLog(@"statusBackgroundLoading:%d", statusBackgroundLoading);
+    _statusBackgroundLoading = statusBackgroundLoading;
+    if(statusBackgroundLoading == YES){
+        _imageVoiceBackground.image = [UIImage imageNamed:@"sound-loading"];
+    }else{
+        _imageVoiceBackground.image = [UIImage imageNamed:@"sound-normal"];
+    }
 }
 -(IBAction)tap:(id)sender{
     if(!_player) {
@@ -70,16 +81,13 @@
     _labelDuration.text = [NSString stringWithFormat:@"%d''",(NSInteger)_player.duration];
     [_labelDuration sizeToFit];
     if(!_imageViewVoice){
-        _imageViewVoice = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 10)];
+        _imageViewVoice = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 20, 20)];
         [self addSubview:_imageViewVoice];
-        _imageVoiceDefault = [UIImage imageNamed:@""];
-        _imageViewVoice.image = _imageVoiceDefault;
-        _imageViewVoice.backgroundColor = [UIColor whiteColor];
+        [self voiceToNomarl];
     }
 }
 
 -(void)showResource{
-    [self startFetchResource];
     NSString *sUrl = [self.delegate resourceForAudioView:self];
     NSURL *url = [NSURL URLWithString:sUrl];
     if(url == nil) {
@@ -94,17 +102,25 @@
     }
     [self endFetchResource];
 }
+-(void)voiceLoading{
+    [self setStatusBackgroundLoading:!_statusBackgroundLoading];
+}
 -(void)startFetchResource{
-    self.backgroundColor = [UIColor blackColor];
+    [self setStatusBackgroundLoading:YES];
     NSLog(@"==AudioView startFetchResource");
+    _timerVoiceLoading = [NSTimer timerWithTimeInterval:1.0f target:self selector:@selector(voiceLoading) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:_timerVoiceLoading forMode:NSDefaultRunLoopMode];
 }
 -(void)endFetchResource{
     NSLog(@"==AudioView endFetchResource");
-    self.backgroundColor = [UIColor greenColor];
+    [self setStatusBackgroundLoading:NO];
+    [_timerVoiceLoading invalidate];
     [self loadPlayer];
 }
 -(void)errorFetchResource{
-    self.backgroundColor = [UIColor redColor];
+    NSLog(@"errorFetchAudio:%@", [self.delegate resourceForAudioView:self]);
+    [self setStatusBackgroundLoading:NO];
+    [_timerVoiceLoading invalidate];
 }
 -(void)startPlay{
     NSLog(@"==AudioView startPlay");
@@ -114,30 +130,30 @@
 }
 -(void)endPlay{
     [_timerVoice invalidate];
-    _imageViewVoice.backgroundColor = [UIColor whiteColor];
+    [self voiceToNomarl];
     NSLog(@"==AudioView endPlay");
 }
 -(void)voiceChanged{
     if(!_imageVoice1){
-        _imageVoice1 = [UIImage imageNamed:@""];
-        _imageVoice2 = [UIImage imageNamed:@""];
-        _imageVoice3 = [UIImage imageNamed:@""];
+        _imageVoice1 = [UIImage imageNamed:@"playingwave-a"];
+        _imageVoice2 = [UIImage imageNamed:@"playingwave-b"];
+        _imageVoice3 = [UIImage imageNamed:@"playingwave-c"];
     }
     if(_indexVoice == 1){
         _imageViewVoice.image = _imageVoice1;
-        _imageViewVoice.backgroundColor = [UIColor redColor];
     }
     if(_indexVoice == 2){
         _imageViewVoice.image = _imageVoice2;
-        _imageViewVoice.backgroundColor = [UIColor purpleColor];
     }
     if(_indexVoice == 3){
         _imageViewVoice.image = _imageVoice3;
-        _imageViewVoice.backgroundColor = [UIColor blueColor];
     }
     _indexVoice++;
     if(_indexVoice >3){
         _indexVoice = 1;
     }
+}
+-(void)voiceToNomarl{
+    _imageViewVoice.image = [UIImage imageNamed:@"playingwave-c"];
 }
 @end

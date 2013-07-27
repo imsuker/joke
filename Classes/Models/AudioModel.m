@@ -15,14 +15,14 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:_url];
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     operation.outputStream = [NSOutputStream outputStreamToFileAtPath:_filePath append:NO];
-    NSLog(@"==AudioModel fetch begin");
+    NSLog(@"==AudioModel fetch begin:%@", [_url description]);
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"==AudioModel fetch success");
         if(block){
             block(@{}, nil);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"==AudioModel fetch fail");
+        NSLog(@"==AudioModel fetch fail:%@", [error description]);
         if(block){
             block(nil, error);
         }

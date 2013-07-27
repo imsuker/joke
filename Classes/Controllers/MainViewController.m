@@ -31,7 +31,6 @@
     _arrayAudioViews = [NSMutableArray array];
     // Do any additional setup after loading the view from its nib.
     AudioView *viewAudio = [[AudioView alloc] init];
-    
     viewAudio.delegate = self;
     [self.view addSubview: viewAudio];
     AudioModel *modelAudio = [[AudioModel alloc] init];
@@ -40,11 +39,25 @@
 //http://yuyin.oss.aliyuncs.com/tuixiaoyuan.mp3
 //http://yuyin.oss.aliyuncs.com/xiangwen.mp3
     modelAudio.url = [NSURL URLWithString:@"http://yuyin.oss.aliyuncs.com/meiyifuchuan.mp3"];
-    modelAudio.nameResource = @"skdfj.m23";
+    modelAudio.nameResource = @"meiyifuchuan.mp3";
     [_arrayAudioModels addObject:modelAudio];
     [_arrayAudioViews addObject:viewAudio];
     
+    AudioView *viewAudio1 = [[AudioView alloc] initWithFrame:CGRectMake(0, 50, 0, 0)];
+    viewAudio1.delegate = self;
+    [self.view addSubview: viewAudio1];
+    AudioModel *modelAudio1 = [[AudioModel alloc] init];
+    modelAudio1.url = [NSURL URLWithString:@"http://yuyin.oss.aliyuncs.com/shangren.mp3"];
+    modelAudio1.nameResource = @"shangren.mp3";
+    [_arrayAudioModels addObject:modelAudio1];
+    [_arrayAudioViews addObject:viewAudio1];
+    
+    
     [viewAudio showResource];
+    [viewAudio1 showResource];
+    
+    
+    
 }
 
 

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4303866F17A29CA700D058C6 /* playingwave-a.png in Resources */ = {isa = PBXBuildFile; fileRef = 4303866A17A29CA700D058C6 /* playingwave-a.png */; };
+		4303867017A29CA700D058C6 /* playingwave-b.png in Resources */ = {isa = PBXBuildFile; fileRef = 4303866B17A29CA700D058C6 /* playingwave-b.png */; };
+		4303867117A29CA700D058C6 /* playingwave-c.png in Resources */ = {isa = PBXBuildFile; fileRef = 4303866C17A29CA700D058C6 /* playingwave-c.png */; };
+		4303867217A29CA700D058C6 /* sound-loading.png in Resources */ = {isa = PBXBuildFile; fileRef = 4303866D17A29CA700D058C6 /* sound-loading.png */; };
+		4303867317A29CA700D058C6 /* sound-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 4303866E17A29CA700D058C6 /* sound-normal.png */; };
 		43F08C6D178FA9F000778442 /* AudioModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F08C6C178FA9F000778442 /* AudioModel.m */; };
 		43F08C70178FAA4F00778442 /* AudioView.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F08C6F178FAA4F00778442 /* AudioView.m */; };
 		43F08C72178FB7F300778442 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43F08C71178FB7F300778442 /* AVFoundation.framework */; };
@@ -33,6 +38,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4303866A17A29CA700D058C6 /* playingwave-a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "playingwave-a.png"; sourceTree = "<group>"; };
+		4303866B17A29CA700D058C6 /* playingwave-b.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "playingwave-b.png"; sourceTree = "<group>"; };
+		4303866C17A29CA700D058C6 /* playingwave-c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "playingwave-c.png"; sourceTree = "<group>"; };
+		4303866D17A29CA700D058C6 /* sound-loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sound-loading.png"; sourceTree = "<group>"; };
+		4303866E17A29CA700D058C6 /* sound-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sound-normal.png"; sourceTree = "<group>"; };
 		43F08C6B178FA9F000778442 /* AudioModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioModel.h; sourceTree = "<group>"; };
 		43F08C6C178FA9F000778442 /* AudioModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioModel.m; sourceTree = "<group>"; };
 		43F08C6E178FAA4F00778442 /* AudioView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioView.h; sourceTree = "<group>"; };
@@ -90,6 +100,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4303866917A29CA700D058C6 /* pngs */ = {
+			isa = PBXGroup;
+			children = (
+				4303866A17A29CA700D058C6 /* playingwave-a.png */,
+				4303866B17A29CA700D058C6 /* playingwave-b.png */,
+				4303866C17A29CA700D058C6 /* playingwave-c.png */,
+				4303866D17A29CA700D058C6 /* sound-loading.png */,
+				4303866E17A29CA700D058C6 /* sound-normal.png */,
+			);
+			name = pngs;
+			path = Classes/Views/pngs;
+			sourceTree = "<group>";
+		};
 		43F3C1FF178EB7F7002E0633 = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +173,7 @@
 				43F3C254178EE532002E0633 /* Controllers */,
 				43F3C255178EE532002E0633 /* Models */,
 				43F3C256178EE532002E0633 /* Views */,
+				4303866917A29CA700D058C6 /* pngs */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -275,6 +299,11 @@
 				43F3C220178EB7F7002E0633 /* Default@2x.png in Resources */,
 				43F3C222178EB7F7002E0633 /* Default-568h@2x.png in Resources */,
 				43F3C25B178EE55A002E0633 /* MainViewController.xib in Resources */,
+				4303866F17A29CA700D058C6 /* playingwave-a.png in Resources */,
+				4303867017A29CA700D058C6 /* playingwave-b.png in Resources */,
+				4303867117A29CA700D058C6 /* playingwave-c.png in Resources */,
+				4303867217A29CA700D058C6 /* sound-loading.png in Resources */,
+				4303867317A29CA700D058C6 /* sound-normal.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
