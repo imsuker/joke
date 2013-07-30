@@ -13,6 +13,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //http://yannickloriot.com/2012/03/magicalrecord-how-to-make-programming-with-core-data-pleasant/#sthash.Z3WA25jg.NjtiRIKV.dpbs
+    [MagicalRecord setupCoreDataStackWithStoreNamed:@"Joke.sqlite"];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     MainViewController *main = [[MainViewController alloc] init];

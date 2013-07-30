@@ -56,8 +56,6 @@
     [viewAudio showResource];
     [viewAudio1 showResource];
     
-    
-    
 }
 
 
