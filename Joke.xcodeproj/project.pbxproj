@@ -7,11 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4303866F17A29CA700D058C6 /* playingwave-a.png in Resources */ = {isa = PBXBuildFile; fileRef = 4303866A17A29CA700D058C6 /* playingwave-a.png */; };
-		4303867017A29CA700D058C6 /* playingwave-b.png in Resources */ = {isa = PBXBuildFile; fileRef = 4303866B17A29CA700D058C6 /* playingwave-b.png */; };
-		4303867117A29CA700D058C6 /* playingwave-c.png in Resources */ = {isa = PBXBuildFile; fileRef = 4303866C17A29CA700D058C6 /* playingwave-c.png */; };
-		4303867217A29CA700D058C6 /* sound-loading.png in Resources */ = {isa = PBXBuildFile; fileRef = 4303866D17A29CA700D058C6 /* sound-loading.png */; };
-		4303867317A29CA700D058C6 /* sound-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 4303866E17A29CA700D058C6 /* sound-normal.png */; };
 		43BBBA0A17A7EC8F005BB170 /* JokeModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 43BBBA0817A7EC8F005BB170 /* JokeModel.xcdatamodeld */; };
 		43BBBA1217A7ED00005BB170 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43BBBA1117A7ED00005BB170 /* CoreData.framework */; };
 		43BBBA4F17A7ED2D005BB170 /* MagicalImportFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BBBA1717A7ED2D005BB170 /* MagicalImportFunctions.m */; };
@@ -40,6 +35,15 @@
 		43BBBA6617A7ED2D005BB170 /* MagicalRecord+Setup.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BBBA4817A7ED2D005BB170 /* MagicalRecord+Setup.m */; };
 		43BBBA6717A7ED2D005BB170 /* MagicalRecord+ShorthandSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BBBA4A17A7ED2D005BB170 /* MagicalRecord+ShorthandSupport.m */; };
 		43BBBA6817A7ED2D005BB170 /* MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BBBA4C17A7ED2D005BB170 /* MagicalRecord.m */; };
+		43E9815D17A8F9E000910FBB /* iApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E9815C17A8F9E000910FBB /* iApi.m */; };
+		43E9816117A8FC8000910FBB /* NSString+JokeEncodeURI.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E9816017A8FC8000910FBB /* NSString+JokeEncodeURI.m */; };
+		43E9816717A901AA00910FBB /* JokeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E9816617A901AA00910FBB /* JokeModel.m */; };
+		43E9816A17A901C400910FBB /* JokeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E9816917A901C400910FBB /* JokeView.m */; };
+		43E9817117A9023300910FBB /* playingwave-a.png in Resources */ = {isa = PBXBuildFile; fileRef = 43E9816C17A9023300910FBB /* playingwave-a.png */; };
+		43E9817217A9023300910FBB /* playingwave-b.png in Resources */ = {isa = PBXBuildFile; fileRef = 43E9816D17A9023300910FBB /* playingwave-b.png */; };
+		43E9817317A9023300910FBB /* playingwave-c.png in Resources */ = {isa = PBXBuildFile; fileRef = 43E9816E17A9023300910FBB /* playingwave-c.png */; };
+		43E9817417A9023300910FBB /* sound-loading.png in Resources */ = {isa = PBXBuildFile; fileRef = 43E9816F17A9023300910FBB /* sound-loading.png */; };
+		43E9817517A9023300910FBB /* sound-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 43E9817017A9023300910FBB /* sound-normal.png */; };
 		43F08C6D178FA9F000778442 /* AudioModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F08C6C178FA9F000778442 /* AudioModel.m */; };
 		43F08C70178FAA4F00778442 /* AudioView.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F08C6F178FAA4F00778442 /* AudioView.m */; };
 		43F08C72178FB7F300778442 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43F08C71178FB7F300778442 /* AVFoundation.framework */; };
@@ -66,11 +70,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4303866A17A29CA700D058C6 /* playingwave-a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "playingwave-a.png"; sourceTree = "<group>"; };
-		4303866B17A29CA700D058C6 /* playingwave-b.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "playingwave-b.png"; sourceTree = "<group>"; };
-		4303866C17A29CA700D058C6 /* playingwave-c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "playingwave-c.png"; sourceTree = "<group>"; };
-		4303866D17A29CA700D058C6 /* sound-loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sound-loading.png"; sourceTree = "<group>"; };
-		4303866E17A29CA700D058C6 /* sound-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sound-normal.png"; sourceTree = "<group>"; };
 		43BBBA0917A7EC8F005BB170 /* JokeModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JokeModel.xcdatamodel; sourceTree = "<group>"; };
 		43BBBA1117A7ED00005BB170 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		43BBBA1617A7ED2D005BB170 /* MagicalImportFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalImportFunctions.h; sourceTree = "<group>"; };
@@ -127,6 +126,19 @@
 		43BBBA4C17A7ED2D005BB170 /* MagicalRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagicalRecord.m; sourceTree = "<group>"; };
 		43BBBA4D17A7ED2D005BB170 /* MagicalRecordShorthand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalRecordShorthand.h; sourceTree = "<group>"; };
 		43BBBA4E17A7ED2D005BB170 /* CoreData+MagicalRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CoreData+MagicalRecord.h"; sourceTree = "<group>"; };
+		43E9815B17A8F9E000910FBB /* iApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iApi.h; path = Classes/Util/iApi.h; sourceTree = "<group>"; };
+		43E9815C17A8F9E000910FBB /* iApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iApi.m; path = Classes/Util/iApi.m; sourceTree = "<group>"; };
+		43E9815F17A8FC8000910FBB /* NSString+JokeEncodeURI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+JokeEncodeURI.h"; path = "NSString+urlEncode/NSString+JokeEncodeURI.h"; sourceTree = "<group>"; };
+		43E9816017A8FC8000910FBB /* NSString+JokeEncodeURI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+JokeEncodeURI.m"; path = "NSString+urlEncode/NSString+JokeEncodeURI.m"; sourceTree = "<group>"; };
+		43E9816517A901AA00910FBB /* JokeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JokeModel.h; sourceTree = "<group>"; };
+		43E9816617A901AA00910FBB /* JokeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JokeModel.m; sourceTree = "<group>"; };
+		43E9816817A901C400910FBB /* JokeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JokeView.h; sourceTree = "<group>"; };
+		43E9816917A901C400910FBB /* JokeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JokeView.m; sourceTree = "<group>"; };
+		43E9816C17A9023300910FBB /* playingwave-a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "playingwave-a.png"; sourceTree = "<group>"; };
+		43E9816D17A9023300910FBB /* playingwave-b.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "playingwave-b.png"; sourceTree = "<group>"; };
+		43E9816E17A9023300910FBB /* playingwave-c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "playingwave-c.png"; sourceTree = "<group>"; };
+		43E9816F17A9023300910FBB /* sound-loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sound-loading.png"; sourceTree = "<group>"; };
+		43E9817017A9023300910FBB /* sound-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sound-normal.png"; sourceTree = "<group>"; };
 		43F08C6B178FA9F000778442 /* AudioModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioModel.h; sourceTree = "<group>"; };
 		43F08C6C178FA9F000778442 /* AudioModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioModel.m; sourceTree = "<group>"; };
 		43F08C6E178FAA4F00778442 /* AudioView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioView.h; sourceTree = "<group>"; };
@@ -185,19 +197,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4303866917A29CA700D058C6 /* pngs */ = {
-			isa = PBXGroup;
-			children = (
-				4303866A17A29CA700D058C6 /* playingwave-a.png */,
-				4303866B17A29CA700D058C6 /* playingwave-b.png */,
-				4303866C17A29CA700D058C6 /* playingwave-c.png */,
-				4303866D17A29CA700D058C6 /* sound-loading.png */,
-				4303866E17A29CA700D058C6 /* sound-normal.png */,
-			);
-			name = pngs;
-			path = Classes/Views/pngs;
-			sourceTree = "<group>";
-		};
 		43BBBA0717A7EC6A005BB170 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -307,6 +306,37 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
+		43E9815A17A8F9B000910FBB /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				43E9815B17A8F9E000910FBB /* iApi.h */,
+				43E9815C17A8F9E000910FBB /* iApi.m */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
+		43E9815E17A8FBB300910FBB /* NSString+urlEncode */ = {
+			isa = PBXGroup;
+			children = (
+				43E9815F17A8FC8000910FBB /* NSString+JokeEncodeURI.h */,
+				43E9816017A8FC8000910FBB /* NSString+JokeEncodeURI.m */,
+			);
+			name = "NSString+urlEncode";
+			sourceTree = "<group>";
+		};
+		43E9816B17A9023300910FBB /* pngs */ = {
+			isa = PBXGroup;
+			children = (
+				43E9816C17A9023300910FBB /* playingwave-a.png */,
+				43E9816D17A9023300910FBB /* playingwave-b.png */,
+				43E9816E17A9023300910FBB /* playingwave-c.png */,
+				43E9816F17A9023300910FBB /* sound-loading.png */,
+				43E9817017A9023300910FBB /* sound-normal.png */,
+			);
+			name = pngs;
+			path = Classes/pngs;
+			sourceTree = "<group>";
+		};
 		43F3C1FF178EB7F7002E0633 = {
 			isa = PBXGroup;
 			children = (
@@ -366,10 +396,11 @@
 		43F3C228178EB988002E0633 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				43E9816B17A9023300910FBB /* pngs */,
+				43E9815A17A8F9B000910FBB /* Util */,
 				43F3C254178EE532002E0633 /* Controllers */,
 				43F3C255178EE532002E0633 /* Models */,
 				43F3C256178EE532002E0633 /* Views */,
-				4303866917A29CA700D058C6 /* pngs */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -377,6 +408,7 @@
 		43F3C229178EDC93002E0633 /* SDK */ = {
 			isa = PBXGroup;
 			children = (
+				43E9815E17A8FBB300910FBB /* NSString+urlEncode */,
 				43BBBA1317A7ED2D005BB170 /* MagicalRecord */,
 				43F3C22A178EDC93002E0633 /* AFNetworking */,
 			);
@@ -425,6 +457,8 @@
 			children = (
 				43F08C6B178FA9F000778442 /* AudioModel.h */,
 				43F08C6C178FA9F000778442 /* AudioModel.m */,
+				43E9816517A901AA00910FBB /* JokeModel.h */,
+				43E9816617A901AA00910FBB /* JokeModel.m */,
 			);
 			name = Models;
 			path = Classes/Models;
@@ -435,6 +469,8 @@
 			children = (
 				43F08C6E178FAA4F00778442 /* AudioView.h */,
 				43F08C6F178FAA4F00778442 /* AudioView.m */,
+				43E9816817A901C400910FBB /* JokeView.h */,
+				43E9816917A901C400910FBB /* JokeView.m */,
 			);
 			name = Views;
 			path = Classes/Views;
@@ -496,11 +532,11 @@
 				43F3C220178EB7F7002E0633 /* Default@2x.png in Resources */,
 				43F3C222178EB7F7002E0633 /* Default-568h@2x.png in Resources */,
 				43F3C25B178EE55A002E0633 /* MainViewController.xib in Resources */,
-				4303866F17A29CA700D058C6 /* playingwave-a.png in Resources */,
-				4303867017A29CA700D058C6 /* playingwave-b.png in Resources */,
-				4303867117A29CA700D058C6 /* playingwave-c.png in Resources */,
-				4303867217A29CA700D058C6 /* sound-loading.png in Resources */,
-				4303867317A29CA700D058C6 /* sound-normal.png in Resources */,
+				43E9817117A9023300910FBB /* playingwave-a.png in Resources */,
+				43E9817217A9023300910FBB /* playingwave-b.png in Resources */,
+				43E9817317A9023300910FBB /* playingwave-c.png in Resources */,
+				43E9817417A9023300910FBB /* sound-loading.png in Resources */,
+				43E9817517A9023300910FBB /* sound-normal.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -552,6 +588,10 @@
 				43BBBA6617A7ED2D005BB170 /* MagicalRecord+Setup.m in Sources */,
 				43BBBA6717A7ED2D005BB170 /* MagicalRecord+ShorthandSupport.m in Sources */,
 				43BBBA6817A7ED2D005BB170 /* MagicalRecord.m in Sources */,
+				43E9815D17A8F9E000910FBB /* iApi.m in Sources */,
+				43E9816117A8FC8000910FBB /* NSString+JokeEncodeURI.m in Sources */,
+				43E9816717A901AA00910FBB /* JokeModel.m in Sources */,
+				43E9816A17A901C400910FBB /* JokeView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

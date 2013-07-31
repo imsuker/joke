@@ -12,6 +12,7 @@
 @interface MainViewController : UIViewController<AudioViewDelegate>{
     NSMutableArray *_arrayAudioModels;
     NSMutableArray *_arrayAudioViews;
+    NSString *_visitId;
 }
 
 @end

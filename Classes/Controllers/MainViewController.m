@@ -7,7 +7,9 @@
 //
 
 #import "MainViewController.h"
+#import "AFNetworking.h"
 
+#define key_default_visit_id @"1"
 
 @interface MainViewController ()
 
@@ -27,37 +29,64 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _arrayAudioModels = [NSMutableArray array];
-    _arrayAudioViews = [NSMutableArray array];
-    // Do any additional setup after loading the view from its nib.
-    AudioView *viewAudio = [[AudioView alloc] init];
-    viewAudio.delegate = self;
-    [self.view addSubview: viewAudio];
-    AudioModel *modelAudio = [[AudioModel alloc] init];
-//http://yuyin.oss.aliyuncs.com/meiyifuchuan.mp3
-//http://yuyin.oss.aliyuncs.com/shangren.mp3
-//http://yuyin.oss.aliyuncs.com/tuixiaoyuan.mp3
-//http://yuyin.oss.aliyuncs.com/xiangwen.mp3
-    modelAudio.url = [NSURL URLWithString:@"http://yuyin.oss.aliyuncs.com/meiyifuchuan.mp3"];
-    modelAudio.nameResource = @"meiyifuchuan.mp3";
-    [_arrayAudioModels addObject:modelAudio];
-    [_arrayAudioViews addObject:viewAudio];
-    
-    AudioView *viewAudio1 = [[AudioView alloc] initWithFrame:CGRectMake(0, 50, 0, 0)];
-    viewAudio1.delegate = self;
-    [self.view addSubview: viewAudio1];
-    AudioModel *modelAudio1 = [[AudioModel alloc] init];
-    modelAudio1.url = [NSURL URLWithString:@"http://yuyin.oss.aliyuncs.com/shangren.mp3"];
-    modelAudio1.nameResource = @"shangren.mp3";
-    [_arrayAudioModels addObject:modelAudio1];
-    [_arrayAudioViews addObject:viewAudio1];
+    NSUserDefaults *storage =  [NSUserDefaults standardUserDefaults];
+    _visitId = [storage stringForKey:@"visit_joke_id"];
+    if(!_visitId){
+        _visitId = key_default_visit_id;
+    }
+    [self fetchJoke];
     
     
-    [viewAudio showResource];
-    [viewAudio1 showResource];
     
+    
+    
+    
+    
+    
+//    _arrayAudioModels = [NSMutableArray array];
+//    _arrayAudioViews = [NSMutableArray array];
+//    // Do any additional setup after loading the view from its nib.
+//    AudioView *viewAudio = [[AudioView alloc] init];
+//    viewAudio.delegate = self;
+//    [self.view addSubview: viewAudio];
+//    AudioModel *modelAudio = [[AudioModel alloc] init];
+////http://yuyin.oss.aliyuncs.com/meiyifuchuan.mp3
+////http://yuyin.oss.aliyuncs.com/shangren.mp3
+////http://yuyin.oss.aliyuncs.com/tuixiaoyuan.mp3
+////http://yuyin.oss.aliyuncs.com/xiangwen.mp3
+//    modelAudio.url = [NSURL URLWithString:@"http://yuyin.oss.aliyuncs.com/meiyifuchuan.mp3"];
+//    modelAudio.nameResource = @"meiyifuchuan.mp3";
+//    [_arrayAudioModels addObject:modelAudio];
+//    [_arrayAudioViews addObject:viewAudio];
+//    
+//    AudioView *viewAudio1 = [[AudioView alloc] initWithFrame:CGRectMake(0, 50, 0, 0)];
+//    viewAudio1.delegate = self;
+//    [self.view addSubview: viewAudio1];
+//    AudioModel *modelAudio1 = [[AudioModel alloc] init];
+//    modelAudio1.url = [NSURL URLWithString:@"http://yuyin.oss.aliyuncs.com/shangren.mp3"];
+//    modelAudio1.nameResource = @"shangren.mp3";
+//    [_arrayAudioModels addObject:modelAudio1];
+//    [_arrayAudioViews addObject:viewAudio1];
+//    
+//    
+//    [viewAudio showResource];
+//    [viewAudio1 showResource];
 }
-
+//获取joke
+-(void)fetchJoke{
+    NSString *urlString = [iApi sharedInstance].content;
+    urlString = [iApi addUrl:urlString key:@"id" value:_visitId];
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    NSLog(@"==fetchJoke fetch begin:%@", [url description]);
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"==fetchJoke fetch success");
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"===fetchJoke fetch fail:%@", error);
+    }];
+    [operation start];
+}
 
 -(NSString *)resourceForAudioView:(AudioView *)viewAudio{
     NSInteger index = [_arrayAudioViews indexOfObject:viewAudio];
