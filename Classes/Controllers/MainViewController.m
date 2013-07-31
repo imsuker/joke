@@ -9,7 +9,7 @@
 #import "MainViewController.h"
 #import "AFNetworking.h"
 
-#define key_default_visit_id @"1"
+#define key_default_visit_id @"22"
 
 @interface MainViewController ()
 
@@ -78,11 +78,12 @@
     urlString = [iApi addUrl:urlString key:@"id" value:_visitId];
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     NSLog(@"==fetchJoke fetch begin:%@", [url description]);
-    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"==fetchJoke fetch success");
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        NSLog(@"==fetchJoke fetch success:%@", [JSON description]);
+        _jokemodel = [[JokeModel alloc] initWithDictionary:JSON[@"data"]];
+        
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         NSLog(@"===fetchJoke fetch fail:%@", error);
     }];
     [operation start];

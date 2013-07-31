@@ -7,7 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "JSONModel.h"
 
-@interface JokeModel : NSObject
-
+@interface JokeModel : JSONModel
+@property (nonatomic) NSString *title;
+@property (nonatomic) NSString *content;
+@property (nonatomic) NSInteger visit;
+@property (nonatomic) NSInteger collect;
+@property (nonatomic) NSInteger prev;
+@property (nonatomic) NSInteger next;
+@property (nonatomic) NSArray *pics;
+@property (nonatomic) NSArray *audios;
 @end

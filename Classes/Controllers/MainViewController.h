@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "AudioModel.h"
 #import "AudioView.h"
+#import "JokeModel.h"
 @interface MainViewController : UIViewController<AudioViewDelegate>{
     NSMutableArray *_arrayAudioModels;
     NSMutableArray *_arrayAudioViews;
     NSString *_visitId;
+    JokeModel *_jokemodel;
 }
 
 @end

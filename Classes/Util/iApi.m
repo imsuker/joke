@@ -9,7 +9,7 @@
 #import "iApi.h"
 
 //baseURl
-#define API_BASE @"http://xuyinxiaohua.com"
+#define API_BASE @"http://yuyinxiaohua.com"
 
 @implementation iApi
 #pragma mark - private method
