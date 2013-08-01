@@ -8,6 +8,7 @@
 
 #import "JokeViewController.h"
 #import "AudioViewController.h"
+#import "UIImageView+WebCache.h"
 
 @interface JokeViewController ()
 
@@ -43,11 +44,21 @@
         [self addChildViewController:audio];
         [_scrollView addSubview:audio.view];
     }];
+    NSArray *pics = _jokeModel.pics;
+    [pics enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        _yFree += 8;
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 320)];
+        imageView.frame = CGRectMake(0, _yFree, [obj[@"w"] integerValue], [obj[@"h"] integerValue]);
+        [imageView setImageWithURL:[NSURL URLWithString:obj[@"pic"]] placeholderImage:nil];
+        [_scrollView addSubview:imageView];
+        _yFree += [obj[@"h"] integerValue];
+    }];
+    _yFree += 8;
     _labelWord.text = _jokeModel.content;
     [_labelWord sizeToFit];
     _labelWord.frame = [Util adjustFrame:_labelWord.frame withY:_yFree];
     _yFree += _labelWord.bounds.size.height;
-    _labelPassed.text =[NSString stringWithFormat:@"%d路过",_jokeModel.visit];
+    _labelPassed.text =[NSString stringWithFormat:@"%d路过",_jokeModel.visit + 1];
     _buttonLike.titleLabel.text = [NSString stringWithFormat:@"%d", _jokeModel.collect];
     _buttonLike.frame = [Util adjustFrame:_buttonLike.frame withY:_yFree];
     _labelPassed.frame = [Util adjustFrame:_labelPassed.frame withY:_yFree];
