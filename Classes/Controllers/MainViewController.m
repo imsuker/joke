@@ -9,6 +9,8 @@
 #import "MainViewController.h"
 #import "AFNetworking.h"
 #import "AudioViewController.h"
+#import "JokeModel.h"
+
 
 #define default_value_key_visit_joke_id 1
 #define key_visit_joke_id @"key_visit_joke_id"
@@ -36,6 +38,8 @@
     _visitId = [[storage stringForKey:key_visit_joke_id] integerValue];
     if(!_visitId){
         _visitId = default_value_key_visit_joke_id;
+        _next = 0;
+        _prev = 0;
     }
     [self fetchJoke];
 }
@@ -48,43 +52,35 @@
     NSLog(@"==fetchJoke fetch begin:%@", [url description]);
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         NSLog(@"==fetchJoke fetch success:%@", [JSON description]);
-        _jokeModel = [[JokeModel alloc] initWithDictionary:JSON[@"data"]];
-        _jokeModel.jokeId = _visitId;
-        [self showJoke];
+        JokeModel *jokeModel = [[JokeModel alloc] initWithDictionary:JSON[@"data"]];
+        jokeModel.jokeId = _visitId;
+        [self showJoke:jokeModel];
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         NSLog(@"===fetchJoke fetch fail:%@", error);
     }];
     [operation start];
 }
--(void)showJoke{
-    _labelTitle.text = _jokeModel.title;
-    [_labelTitle sizeToFit];
-    _yFree = _labelTitle.bounds.size.height;
-    NSArray *audios = _jokeModel.audios;
-    [audios enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        AudioViewController *audio = [[AudioViewController alloc] initWithNibName:nil bundle:nil];
-        audio.urlAudio = obj;
-        audio.nameSource = [NSString stringWithFormat:@"/%d_%d.mp3",_visitId, idx];
-        audio.y = _yFree;
-        _yFree += audio.heightView;
-        NSLog(@"====AudioViewController prepared!!!");
-        [self addChildViewController:audio];
-        [_scrollView addSubview:audio.view];
-    }];
-    _labelWord.text = _jokeModel.content;
-    [_labelWord sizeToFit];
-    _labelWord.frame = [Util adjustFrame:_labelWord.frame withY:_yFree];
-    _yFree += _labelWord.bounds.size.height;
-    _scrollView.contentSize = CGSizeMake(_scrollView.bounds.size.width, _yFree);
+-(void)showJoke:(JokeModel *)jokeModel{
+    if(_jokeViewController){
+        [_jokeViewController.view removeFromSuperview];
+        [_jokeViewController removeFromParentViewController];
+    }
+    _jokeViewController = [[JokeViewController alloc] initWithNibName:@"JokeViewController" bundle:nil];
+    _prev = jokeModel.prev;
+    _next = jokeModel.next;
+    _jokeViewController.jokeModel = jokeModel;
+    [self addChildViewController:_jokeViewController];
+    _jokeViewController.view.frame = _viewJoke.bounds;
+    [_viewJoke addSubview:_jokeViewController.view];
 }
 -(IBAction)tapButtonPrev:(id)sender{
-    _visitId = _jokeModel.prev;
+    _visitId = _prev;
     if(_visitId){
         [self fetchJoke];
     }
 }
 -(IBAction)tapButtonNext:(id)sender{
-    _visitId = _jokeModel.next;
+    _visitId = _next;
     if(_visitId){
         [self fetchJoke];
     }

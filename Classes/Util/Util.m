@@ -18,10 +18,15 @@
     frame.origin.y = y;
     return frame;
 }
-+(CGRect)adjustFrmae:(CGRect)frame widthX:(NSInteger)x withY:(NSInteger)y{
++(CGRect)adjustFrame:(CGRect)frame widthX:(NSInteger)x withY:(NSInteger)y{
     frame.origin.x = x;
     frame.origin.y = y;
     return frame;
 }
 
++(void)logDealloc:(id)object{
+    NSLog(@"***************");
+    NSLog(@"%@ is dealloc!", NSStringFromClass([object class]));
+    NSLog(@"***************");
+}
 @end

@@ -9,7 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @interface Util : NSObject
+//根据位置改frame
 +(CGRect)adjustFrame:(CGRect)frame withX:(NSInteger)x;
 +(CGRect)adjustFrame:(CGRect)frame withY:(NSInteger)y;
-+(CGRect)adjustFrmae:(CGRect)frame widthX:(NSInteger)x withY:(NSInteger)y;
++(CGRect)adjustFrame:(CGRect)frame widthX:(NSInteger)x withY:(NSInteger)y;
+//打dealloc的log
++(void)logDealloc:(id)object;
 @end

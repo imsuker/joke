@@ -45,4 +45,7 @@
         }
     }
 }
+-(void)dealloc{
+    [Util logDealloc:self];
+}
 @end

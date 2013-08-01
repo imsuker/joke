@@ -163,4 +163,7 @@
 -(void)voiceToNomarl{
     _imageViewVoice.image = [UIImage imageNamed:@"playingwave-c"];
 }
+-(void)dealloc{
+    [Util logDealloc:self];
+}
 @end

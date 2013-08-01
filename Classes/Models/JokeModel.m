@@ -13,4 +13,7 @@
 -(void)setValue:(id)value forUndefinedKey:(NSString *)key{
     [super setValue:value forUndefinedKey:key];
 }
+-(void)dealloc{
+    [Util logDealloc:self];
+}
 @end

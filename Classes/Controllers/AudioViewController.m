@@ -40,11 +40,7 @@
 
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 -(void)setUrlAudio:(NSString *)urlAudio{
     _audioModel.url = [NSURL URLWithString:urlAudio];
     NSLog(@"=== audioviewController setUrlAudio:%@", urlAudio);
@@ -68,5 +64,13 @@
             }
         }
     }];
+}
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+-(void)dealloc{
+    [Util logDealloc:self];
 }
 @end
