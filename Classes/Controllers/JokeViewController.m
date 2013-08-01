@@ -47,6 +47,11 @@
     [_labelWord sizeToFit];
     _labelWord.frame = [Util adjustFrame:_labelWord.frame withY:_yFree];
     _yFree += _labelWord.bounds.size.height;
+    _labelPassed.text =[NSString stringWithFormat:@"%d路过",_jokeModel.visit];
+    _buttonLike.titleLabel.text = [NSString stringWithFormat:@"%d", _jokeModel.collect];
+    _buttonLike.frame = [Util adjustFrame:_buttonLike.frame withY:_yFree];
+    _labelPassed.frame = [Util adjustFrame:_labelPassed.frame withY:_yFree];
+    _yFree += _buttonLike.bounds.size.height;
     _scrollView.contentSize = CGSizeMake(_scrollView.bounds.size.width, _yFree);
 }
 

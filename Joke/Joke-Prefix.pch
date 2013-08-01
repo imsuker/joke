@@ -16,3 +16,12 @@
     #import "iApi.h"
     #import "Util.h"
 #endif
+
+
+//#ifndef TARGET_IPHONE_SIMULATOR
+//这个设置可以使正是发布时不在打印log
+#ifndef __OPTIMIZE__
+#define NSLog(...) NSLog(__VA_ARGS__)
+#else
+#define NSLog(...) {}
+#endif

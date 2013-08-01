@@ -161,7 +161,7 @@
     }
 }
 -(void)voiceToNomarl{
-    _imageViewVoice.image = [UIImage imageNamed:@"playingwave-c"];
+    _imageViewVoice.image = [UIImage imageNamed:@"wave-normal"];
 }
 -(void)dealloc{
     [Util logDealloc:self];

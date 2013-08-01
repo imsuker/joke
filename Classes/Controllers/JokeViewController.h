@@ -13,6 +13,8 @@
     IBOutlet UILabel *_labelTitle;
     IBOutlet UIScrollView *_scrollView;
     IBOutlet UILabel *_labelWord;
+    IBOutlet UIButton *_buttonLike;
+    IBOutlet UILabel *_labelPassed;
 }
 @property (nonatomic) JokeModel *jokeModel;
 @end
