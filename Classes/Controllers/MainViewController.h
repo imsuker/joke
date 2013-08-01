@@ -15,6 +15,10 @@
     JokeView *_jokeView;
     NSInteger _yFree;  //当前可以画内容的y值
     IBOutlet UILabel *_labelTitle;
+    IBOutlet UIScrollView *_scrollView;
+    IBOutlet UILabel *_labelWord;
+    IBOutlet UIButton *_buttonPrev;
+    IBOutlet UIButton *_buttonNext;
 }
 
 @end

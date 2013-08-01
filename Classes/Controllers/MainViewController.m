@@ -10,7 +10,8 @@
 #import "AFNetworking.h"
 #import "AudioViewController.h"
 
-#define key_default_visit_id 1
+#define default_value_key_visit_joke_id 1
+#define key_visit_joke_id @"key_visit_joke_id"
 
 @interface MainViewController ()
 
@@ -32,9 +33,9 @@
 {
     [super viewDidLoad];
     NSUserDefaults *storage =  [NSUserDefaults standardUserDefaults];
-    _visitId = [storage stringForKey:@"visit_joke_id"];
+    _visitId = [[storage stringForKey:key_visit_joke_id] integerValue];
     if(!_visitId){
-        _visitId = key_default_visit_id;
+        _visitId = default_value_key_visit_joke_id;
     }
     [self fetchJoke];
 }
@@ -56,6 +57,8 @@
     [operation start];
 }
 -(void)showJoke{
+    _labelTitle.text = _jokeModel.title;
+    [_labelTitle sizeToFit];
     _yFree = _labelTitle.bounds.size.height;
     NSArray *audios = _jokeModel.audios;
     [audios enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -66,10 +69,26 @@
         _yFree += audio.heightView;
         NSLog(@"====AudioViewController prepared!!!");
         [self addChildViewController:audio];
-        [self.view addSubview:audio.view];
+        [_scrollView addSubview:audio.view];
     }];
+    _labelWord.text = _jokeModel.content;
+    [_labelWord sizeToFit];
+    _labelWord.frame = [Util adjustFrame:_labelWord.frame withY:_yFree];
+    _yFree += _labelWord.bounds.size.height;
+    _scrollView.contentSize = CGSizeMake(_scrollView.bounds.size.width, _yFree);
 }
-
+-(IBAction)tapButtonPrev:(id)sender{
+    _visitId = _jokeModel.prev;
+    if(_visitId){
+        [self fetchJoke];
+    }
+}
+-(IBAction)tapButtonNext:(id)sender{
+    _visitId = _jokeModel.next;
+    if(_visitId){
+        [self fetchJoke];
+    }
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
