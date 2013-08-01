@@ -16,6 +16,7 @@
     if (self) {
         // Initialization code
         [self initUI];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(endPlay) name:NOTIFICATION_STOP_PLAYER object:nil];
     }
     return self;
 }
@@ -52,13 +53,12 @@
     }
     if(_player.playing){
         [self endPlay];
-        _player.currentTime = 0;
-        [_player stop];
     }else{
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_STOP_PLAYER object:nil];
         [self startPlay];
-        [_player play];
     }
 }
+
 -(void)loadPlayer{
     NSString *sUrl = [self.delegate resourceForAudioView:self];
     NSURL *url = [NSURL URLWithString:sUrl];
@@ -123,15 +123,22 @@
     [_timerVoiceLoading invalidate];
 }
 -(void)startPlay{
-    NSLog(@"==AudioView startPlay");
-    _indexVoice = 1;
-    _timerVoice = [NSTimer timerWithTimeInterval:0.5f target:self selector:@selector(voiceChanged) userInfo:nil repeats:YES];
-    [[NSRunLoop mainRunLoop]addTimer:_timerVoice forMode:NSDefaultRunLoopMode];
+    if(_player && !_player.playing){
+        NSLog(@"==AudioView startPlay");
+        _indexVoice = 1;
+        _timerVoice = [NSTimer timerWithTimeInterval:0.5f target:self selector:@selector(voiceChanged) userInfo:nil repeats:YES];
+        [[NSRunLoop mainRunLoop]addTimer:_timerVoice forMode:NSDefaultRunLoopMode];
+        [_player play];
+    }
 }
 -(void)endPlay{
-    [_timerVoice invalidate];
-    [self voiceToNomarl];
-    NSLog(@"==AudioView endPlay");
+    if(_player && _player.playing){
+        [_timerVoice invalidate];
+        [self voiceToNomarl];
+        _player.currentTime = 0;
+        [_player stop];
+        NSLog(@"==AudioView endPlay");
+    }
 }
 -(void)voiceChanged{
     if(!_imageVoice1){

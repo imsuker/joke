@@ -6,6 +6,11 @@
 //  Copyright (c) 2013 iphone. All rights reserved.
 //
 
+#define NOTIFICATION_STOP_PLAYER @"NOTIFICATION_STOP_PLAYER"
+
+
+
+
 #import <Foundation/Foundation.h>
 
 @interface iApi : NSObject
