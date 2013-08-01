@@ -10,6 +10,7 @@
 #import "JSONModel.h"
 
 @interface JokeModel : JSONModel
+@property (nonatomic) NSInteger jokeId;
 @property (nonatomic) NSString *title;
 @property (nonatomic) NSString *content;
 @property (nonatomic) NSInteger visit;

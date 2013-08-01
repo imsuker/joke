@@ -7,14 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AudioModel.h"
-#import "AudioView.h"
+#import "JokeView.h"
 #import "JokeModel.h"
-@interface MainViewController : UIViewController<AudioViewDelegate>{
-    NSMutableArray *_arrayAudioModels;
-    NSMutableArray *_arrayAudioViews;
-    NSString *_visitId;
-    JokeModel *_jokemodel;
+@interface MainViewController : UIViewController{
+    NSInteger _visitId;
+    JokeModel *_jokeModel;
+    JokeView *_jokeView;
+    NSInteger _yFree;  //当前可以画内容的y值
+    IBOutlet UILabel *_labelTitle;
 }
 
 @end

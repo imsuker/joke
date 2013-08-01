@@ -17,7 +17,7 @@
 //    [MagicalRecord setupCoreDataStackWithStoreNamed:@"Joke.sqlite"];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    MainViewController *main = [[MainViewController alloc] init];
+    MainViewController *main = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
     UINavigationController *mainNavigation = [[UINavigationController alloc] initWithRootViewController:main];
     [self.window setRootViewController:mainNavigation];
     self.window.backgroundColor = [UIColor whiteColor];

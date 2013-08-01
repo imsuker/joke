@@ -45,6 +45,7 @@
 		43E9817417A9023300910FBB /* sound-loading.png in Resources */ = {isa = PBXBuildFile; fileRef = 43E9816F17A9023300910FBB /* sound-loading.png */; };
 		43E9817517A9023300910FBB /* sound-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 43E9817017A9023300910FBB /* sound-normal.png */; };
 		43E9817817A908C400910FBB /* JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E9817717A908C400910FBB /* JSONModel.m */; };
+		43E9817B17A9116200910FBB /* AudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E9817A17A9116200910FBB /* AudioViewController.m */; };
 		43F08C6D178FA9F000778442 /* AudioModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F08C6C178FA9F000778442 /* AudioModel.m */; };
 		43F08C70178FAA4F00778442 /* AudioView.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F08C6F178FAA4F00778442 /* AudioView.m */; };
 		43F08C72178FB7F300778442 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43F08C71178FB7F300778442 /* AVFoundation.framework */; };
@@ -142,6 +143,8 @@
 		43E9817017A9023300910FBB /* sound-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sound-normal.png"; sourceTree = "<group>"; };
 		43E9817617A908C400910FBB /* JSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModel.h; sourceTree = "<group>"; };
 		43E9817717A908C400910FBB /* JSONModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModel.m; sourceTree = "<group>"; };
+		43E9817917A9116200910FBB /* AudioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioViewController.h; sourceTree = "<group>"; };
+		43E9817A17A9116200910FBB /* AudioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioViewController.m; sourceTree = "<group>"; };
 		43F08C6B178FA9F000778442 /* AudioModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioModel.h; sourceTree = "<group>"; };
 		43F08C6C178FA9F000778442 /* AudioModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioModel.m; sourceTree = "<group>"; };
 		43F08C6E178FAA4F00778442 /* AudioView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioView.h; sourceTree = "<group>"; };
@@ -450,6 +453,8 @@
 				43F3C257178EE55A002E0633 /* MainViewController.h */,
 				43F3C258178EE55A002E0633 /* MainViewController.m */,
 				43F3C259178EE55A002E0633 /* MainViewController.xib */,
+				43E9817917A9116200910FBB /* AudioViewController.h */,
+				43E9817A17A9116200910FBB /* AudioViewController.m */,
 			);
 			name = Controllers;
 			path = Classes/Controllers;
@@ -598,6 +603,7 @@
 				43E9816717A901AA00910FBB /* JokeModel.m in Sources */,
 				43E9816A17A901C400910FBB /* JokeView.m in Sources */,
 				43E9817817A908C400910FBB /* JSONModel.m in Sources */,
+				43E9817B17A9116200910FBB /* AudioViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

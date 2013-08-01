@@ -30,7 +30,7 @@
 */
 
 -(void)initUI{
-    self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, 190, 44);
+    self.frame = CGRectMake(0, 0, 190, 44);
     _imageVoiceBackground = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 190, 44)];
     [self addSubview:_imageVoiceBackground];
     [self setStatusBackgroundLoading:YES];
