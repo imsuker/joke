@@ -34,6 +34,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //设置背景样式
+    self.navigationController.navigationBar.tintColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"topmenu"]];
+    
+    //设置rightbar样式
+    UIImageView *viewRightBar = [[UIImageView alloc] initWithFrame:CGRectMake(0, 7, 30, 30)];
+    viewRightBar.image = [UIImage imageNamed:@"login-icon"];
+    UIBarButtonItem *rightBar = [[UIBarButtonItem alloc] initWithCustomView:viewRightBar];
+    self.navigationItem.rightBarButtonItem = rightBar;
+    
+    //设置左侧logo
+    UIImageView *viewLeftBar = [[UIImageView alloc] initWithFrame:CGRectMake(0, 7, 127, 30)];
+    viewLeftBar.image = [UIImage imageNamed:@"logo.png"];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:viewLeftBar];
+    
+    //初始化visitId
     NSUserDefaults *storage =  [NSUserDefaults standardUserDefaults];
     _visitId = [[storage stringForKey:key_visit_joke_id] integerValue];
     if(!_visitId){
