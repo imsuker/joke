@@ -13,6 +13,7 @@
 +(CGRect)adjustFrame:(CGRect)frame withX:(NSInteger)x;
 +(CGRect)adjustFrame:(CGRect)frame withY:(NSInteger)y;
 +(CGRect)adjustFrame:(CGRect)frame widthX:(NSInteger)x withY:(NSInteger)y;
++(CGRect)adjustFrame:(CGRect)frame withHeight:(NSInteger)height;
 //打dealloc的log
 +(void)logDealloc:(id)object;
 @end

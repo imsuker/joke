@@ -45,8 +45,8 @@
     self.navigationItem.rightBarButtonItem = rightBar;
     
     //设置左侧logo
-    UIImageView *viewLeftBar = [[UIImageView alloc] initWithFrame:CGRectMake(0, 7, 127, 30)];
-    viewLeftBar.image = [UIImage imageNamed:@"logo.png"];
+    UIView *viewLeftBar = [[UIView alloc] initWithFrame:CGRectMake(0, 7, 127, 30)];
+    viewLeftBar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"logo"]];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:viewLeftBar];
     
     //初始化visitId

@@ -23,7 +23,10 @@
     frame.origin.y = y;
     return frame;
 }
-
++(CGRect)adjustFrame:(CGRect)frame withHeight:(NSInteger)height{
+    frame.size.height = height;
+    return frame;
+}
 +(void)logDealloc:(id)object{
     NSLog(@"***************");
     NSLog(@"%@ is dealloc!", NSStringFromClass([object class]));

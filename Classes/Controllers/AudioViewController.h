@@ -14,7 +14,6 @@
     AudioModel *_audioModel;
     AudioView *_audioView;
 }
-
 @property (nonatomic) NSInteger y; //audioView所在纵坐标
 @property (nonatomic) NSString *urlAudio; //mp3的url
 @property (nonatomic) NSString *nameSource; //mp3的文件名
