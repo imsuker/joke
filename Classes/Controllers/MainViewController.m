@@ -61,20 +61,33 @@
 }
 //获取joke
 -(void)fetchJoke{
+    if(!_loadingViewController){
+        _loadingViewController = [[LoadingViewController alloc] initWithNibName:@"LoadingViewController" bundle:nil];
+        [self addChildViewController:_loadingViewController];
+        [self.view addSubview:_loadingViewController.view];
+    }
+    
     NSString *urlString = [iApi sharedInstance].content;
     urlString = [iApi addUrl:urlString key:@"id" value:[NSString stringWithFormat:@"%d",_visitId]];
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     NSLog(@"==fetchJoke fetch begin:%@", [url description]);
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        [self stopLoadingViewController];
         NSLog(@"==fetchJoke fetch success:%@", [JSON description]);
         JokeModel *jokeModel = [[JokeModel alloc] initWithDictionary:JSON[@"data"]];
         jokeModel.jokeId = _visitId;
         [self showJoke:jokeModel];
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        [self stopLoadingViewController];
         NSLog(@"===fetchJoke fetch fail:%@", error);
     }];
     [operation start];
+}
+-(void)stopLoadingViewController{
+    [_loadingViewController.view removeFromSuperview];
+    [_loadingViewController removeFromParentViewController];
+    _loadingViewController = nil;
 }
 -(void)showJoke:(JokeModel *)jokeModel{
     if(_jokeViewController){

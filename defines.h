@@ -27,7 +27,7 @@
 #define JD_FONT_COLOR_fff [UIColor colorWithRed:1 green:1 blue:1 alpha:1] /*#ffffff*/
 #define JD_FONT_COLOR_999 [UIColor colorWithRed:0.6 green:0.6 blue:0.6 alpha:1] /*#999999*/
 #define JD_FONT_COLOR_ff0000 [UIColor colorWithRed:1 green:0 blue:0 alpha:1] /*#ff0000*/
-#define JD_FONT_COLOR_a14400 [UIColor colorWithRed:0.631 green:0.267 blue:0 alpha:1] /*#a14400*
+#define JD_FONT_COLOR_a14400 [UIColor colorWithRed:0.631 green:0.267 blue:0 alpha:1] /*#a14400*/
 
 
 #endif

@@ -15,6 +15,7 @@
     #import "NSString+JokeEncodeURI.h"
     #import "iApi.h"
     #import "Util.h"
+    #import "defines.h"
 #endif
 
 

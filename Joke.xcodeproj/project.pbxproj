@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A667BF717B54E07007E04F7 /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A667BF517B54E07007E04F7 /* LoadingViewController.m */; };
+		3A667BF817B54E07007E04F7 /* LoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A667BF617B54E07007E04F7 /* LoadingViewController.xib */; };
 		3A92840A17B2A18900E3AD54 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A92840917B2A18900E3AD54 /* Default@2x.png */; };
 		3A92840C17B2A1B000E3AD54 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A92840B17B2A1B000E3AD54 /* Default-568h@2x.png */; };
 		3A92840E17B2A72C00E3AD54 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A92840D17B2A72C00E3AD54 /* icon.png */; };
@@ -105,6 +107,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A667BF417B54E07007E04F7 /* LoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingViewController.h; sourceTree = "<group>"; };
+		3A667BF517B54E07007E04F7 /* LoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingViewController.m; sourceTree = "<group>"; };
+		3A667BF617B54E07007E04F7 /* LoadingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingViewController.xib; sourceTree = "<group>"; };
 		3A92840917B2A18900E3AD54 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		3A92840B17B2A1B000E3AD54 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		3A92840D17B2A72C00E3AD54 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../icon.png; sourceTree = "<group>"; };
@@ -600,6 +605,9 @@
 				43E67C5117AA74DE00953E17 /* JokeViewController.xib */,
 				43E9817917A9116200910FBB /* AudioViewController.h */,
 				43E9817A17A9116200910FBB /* AudioViewController.m */,
+				3A667BF417B54E07007E04F7 /* LoadingViewController.h */,
+				3A667BF517B54E07007E04F7 /* LoadingViewController.m */,
+				3A667BF617B54E07007E04F7 /* LoadingViewController.xib */,
 			);
 			name = Controllers;
 			path = Classes/Controllers;
@@ -706,6 +714,7 @@
 				3A92842317B2B56400E3AD54 /* page@2x.png in Resources */,
 				3A92842517B3EA9F00E3AD54 /* contentbox@2x.png in Resources */,
 				3AEB404217B53B9100637722 /* share@2x.png in Resources */,
+				3A667BF817B54E07007E04F7 /* LoadingViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -778,6 +787,7 @@
 				43E67C8317AA97D400953E17 /* UIImage+MultiFormat.m in Sources */,
 				43E67C8417AA97D400953E17 /* UIImage+WebP.m in Sources */,
 				43E67C8517AA97D400953E17 /* UIImageView+WebCache.m in Sources */,
+				3A667BF717B54E07007E04F7 /* LoadingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

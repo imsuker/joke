@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "JokeViewController.h"
+#import "LoadingViewController.h"
 @interface MainViewController : UIViewController{
     NSInteger _visitId;
     JokeViewController *_jokeViewController;
@@ -16,6 +17,7 @@
     IBOutlet UIButton *_buttonPrev;
     IBOutlet UIButton *_buttonNext;
     IBOutlet UIView *_viewJoke;
+    LoadingViewController *_loadingViewController;
 }
 
 @end

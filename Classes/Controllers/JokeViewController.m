@@ -54,6 +54,14 @@
         [imageView setImageWithURL:[NSURL URLWithString:obj[@"pic"]] placeholderImage:nil];
         [_scrollView addSubview:imageView];
         _yFree += imageView.bounds.size.height;
+        NSString *url = obj[@"url"];
+            if(url && ![@"" isEqual:url]){
+            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapPic:)];
+            [imageView addGestureRecognizer:tap];
+            imageView.userInteractionEnabled = YES;
+            imageView.tag = 100;
+            imageView.accessibilityLanguage = [NSString stringWithFormat:@"%d", idx];
+        }
     }];
 //    _yFree += 8;
     
@@ -90,6 +98,15 @@
     _scrollView.contentSize = CGSizeMake(_scrollView.bounds.size.width, _yFree+10);
     
     _imageViewScrollViewBackground.frame = [Util adjustFrame:_imageViewScrollViewBackground.frame withHeight:_yFree + 10];//背景图片顶部距离10
+}
+-(void)tapPic:(UIGestureRecognizer *)sender{
+    UIImageView *picView = (UIImageView *)[sender.view hitTest:[sender locationInView:sender.view] withEvent:nil];
+    if(picView){
+        NSLog(@"access:%@",picView.accessibilityLanguage);
+        NSInteger index = [picView.accessibilityLanguage integerValue];
+        NSString *url = _jokeModel.pics[index][@"url"];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+    }
 }
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
     if(webView == _webViewContent){

@@ -61,7 +61,7 @@
 
 -(void)loadPlayer{
     NSString *sUrl = [self.delegate resourceForAudioView:self];
-    NSURL *url = [NSURL URLWithString:sUrl];
+    NSURL *url = [NSURL fileURLWithPath:sUrl];
     //如果本地有了，才加载
     NSError *error;
     _player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
@@ -76,7 +76,9 @@
     if(!_labelDuration){
         _labelDuration = [[UILabel alloc] init];
         [self addSubview:_labelDuration];
-        _labelDuration.frame = CGRectMake(self.bounds.size.width, 0, 0, 0);
+        _labelDuration.font = [UIFont systemFontOfSize:14.0];
+        _labelDuration.textColor = JD_FONT_COLOR_999;
+        _labelDuration.frame = CGRectMake(self.bounds.size.width + 6, 10, 0, 0);
     }
     _labelDuration.text = [NSString stringWithFormat:@"%d''",(NSInteger)_player.duration];
     [_labelDuration sizeToFit];
@@ -89,9 +91,8 @@
 
 -(void)showResource{
     NSString *sUrl = [self.delegate resourceForAudioView:self];
-    NSURL *url = [NSURL URLWithString:sUrl];
-    if(url == nil) {
-        NSLog(@"==AudioView 获取音频的filePath出错");
+    if(sUrl == nil) {
+        NSLog(@"==AudioView 获取音频的filePath出错:%@", sUrl);
         return;
     }
     //检查本地是否有该资源
