@@ -35,7 +35,7 @@
 	// Do any additional setup after loading the view.
     NSLog(@"====AudioViewController viewDidLoad");
     [self.view addSubview:_audioView];
-    self.view.frame = CGRectMake(20, _y, 320, HEIGHT_AUDIO_VIEW);
+    self.view.frame = CGRectMake(25, _y, 320, HEIGHT_AUDIO_VIEW);
     [_audioView showResource];
 
 }

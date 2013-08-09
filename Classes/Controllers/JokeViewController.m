@@ -35,8 +35,8 @@
     [_labelTitle sizeToFit];
     _yFree += _labelTitle.bounds.size.height;
     NSArray *audios = _jokeModel.audios;
-    _yFree += 8;
     [audios enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        _yFree += 8;
         AudioViewController *audio = [[AudioViewController alloc] initWithNibName:nil bundle:nil];
         audio.urlAudio = obj;
         audio.nameSource = [NSString stringWithFormat:@"/%d_%d.mp3",_jokeModel.jokeId, idx];
@@ -48,16 +48,14 @@
     }];
     NSArray *pics = _jokeModel.pics;
     [pics enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        _yFree += 8;
+        _yFree += 10;
         UIImageView *imageView = [[UIImageView alloc] init];
-        imageView.frame = [self ResizePicBounds:CGRectMake(20, _yFree, [obj[@"w"] integerValue]/2, [obj[@"h"] integerValue]/2)];
+        imageView.frame = [self ResizePicBounds:CGRectMake(30, _yFree, [obj[@"w"] integerValue]/2, [obj[@"h"] integerValue]/2)];
         [imageView setImageWithURL:[NSURL URLWithString:obj[@"pic"]] placeholderImage:nil];
         [_scrollView addSubview:imageView];
         _yFree += imageView.bounds.size.height;
     }];
-    _yFree += 8;
-    
-    
+//    _yFree += 8;
     
     [_webViewContent loadHTMLString:_jokeModel.content baseURL:nil];
     _webViewContent.frame = [Util adjustFrame:_webViewContent.frame withY:_yFree];
@@ -72,9 +70,10 @@
 - (CGRect)ResizePicBounds:(CGRect)frame{
     NSInteger width = frame.size.width;
     NSInteger height = frame.size.height;
-    if(width > 280){//如果图片的宽度大于280，则改为280
-        frame.size.width = 280;
-        frame.size.height = height*280/width;
+    NSInteger maxHeight = 320 - 30*2;
+    if(width > maxHeight){//如果图片的最大宽度
+        frame.size.width = maxHeight;
+        frame.size.height = height*maxHeight/width;
     }
     return frame;
 }
@@ -82,14 +81,15 @@
 -(void)reAdjustWebViewAndOther{
     _yFree += _webViewContent.bounds.size.height;
     
+    _yFree += 8;
     _labelPassed.text =[NSString stringWithFormat:@"%d路过",_jokeModel.visit + 1];
     _buttonLike.titleLabel.text = [NSString stringWithFormat:@"%d", _jokeModel.collect];
     _buttonLike.frame = [Util adjustFrame:_buttonLike.frame withY:_yFree];
-    _labelPassed.frame = [Util adjustFrame:_labelPassed.frame withY:_yFree];
+    _labelPassed.frame = [Util adjustFrame:_labelPassed.frame withY:_yFree + 4];
     _yFree += _buttonLike.bounds.size.height;
     _scrollView.contentSize = CGSizeMake(_scrollView.bounds.size.width, _yFree+10);
     
-    _imageViewScrollViewBackground.frame = [Util adjustFrame:_imageViewScrollViewBackground.frame withHeight:_yFree - 10];//背景图片顶部距离10
+    _imageViewScrollViewBackground.frame = [Util adjustFrame:_imageViewScrollViewBackground.frame withHeight:_yFree + 10];//背景图片顶部距离10
 }
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
     if(webView == _webViewContent){
