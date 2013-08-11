@@ -10,10 +10,9 @@
 #import "AFNetworking.h"
 #import "AudioViewController.h"
 #import "JokeModel.h"
+#import "UserModel.h"
 
 
-#define default_value_key_visit_joke_id 1
-#define key_visit_joke_id @"key_visit_joke_id"
 
 @interface MainViewController ()
 
@@ -49,14 +48,10 @@
     viewLeftBar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"logo"]];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:viewLeftBar];
     
-    //初始化visitId
-    NSUserDefaults *storage =  [NSUserDefaults standardUserDefaults];
-    _visitId = [[storage stringForKey:key_visit_joke_id] integerValue];
-    if(!_visitId){
-        _visitId = default_value_key_visit_joke_id;
-        _next = 0;
-        _prev = 0;
-    }
+    _visitId = [UserModel shareInstance].visitId;
+    _next = 0;
+    _prev = 0;
+    [self showButtonsEnable];
     [self fetchJoke];
 }
 //获取joke
@@ -97,10 +92,15 @@
     _jokeViewController = [[JokeViewController alloc] initWithNibName:@"JokeViewController" bundle:nil];
     _prev = jokeModel.prev;
     _next = jokeModel.next;
+    [self showButtonsEnable];
     _jokeViewController.jokeModel = jokeModel;
     [self addChildViewController:_jokeViewController];
     _jokeViewController.view.frame = _viewJoke.bounds;
     [_viewJoke addSubview:_jokeViewController.view];
+}
+-(void)showButtonsEnable{
+    [_buttonPrev setEnabled:_prev?YES:NO];
+    [_buttonNext setEnabled:_next?YES:NO];
 }
 -(IBAction)tapButtonPrev:(id)sender{
     _visitId = _prev;
