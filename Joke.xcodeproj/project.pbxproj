@@ -10,6 +10,9 @@
 		3A667BF717B54E07007E04F7 /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A667BF517B54E07007E04F7 /* LoadingViewController.m */; };
 		3A667BF817B54E07007E04F7 /* LoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A667BF617B54E07007E04F7 /* LoadingViewController.xib */; };
 		3A667BFB17B767D8007E04F7 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A667BFA17B767D8007E04F7 /* UserModel.m */; };
+		3A667BFE17B7E772007E04F7 /* img-error@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A667BFC17B7E772007E04F7 /* img-error@2x.png */; };
+		3A667BFF17B7E772007E04F7 /* img-loading@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A667BFD17B7E772007E04F7 /* img-loading@2x.png */; };
+		3A667C0217B7E9E1007E04F7 /* UIImageView+Joke.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A667C0117B7E9E1007E04F7 /* UIImageView+Joke.m */; };
 		3A92840A17B2A18900E3AD54 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A92840917B2A18900E3AD54 /* Default@2x.png */; };
 		3A92840C17B2A1B000E3AD54 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A92840B17B2A1B000E3AD54 /* Default-568h@2x.png */; };
 		3A92840E17B2A72C00E3AD54 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A92840D17B2A72C00E3AD54 /* icon.png */; };
@@ -113,6 +116,10 @@
 		3A667BF617B54E07007E04F7 /* LoadingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingViewController.xib; sourceTree = "<group>"; };
 		3A667BF917B767D8007E04F7 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
 		3A667BFA17B767D8007E04F7 /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
+		3A667BFC17B7E772007E04F7 /* img-error@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img-error@2x.png"; sourceTree = "<group>"; };
+		3A667BFD17B7E772007E04F7 /* img-loading@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img-loading@2x.png"; sourceTree = "<group>"; };
+		3A667C0017B7E9E0007E04F7 /* UIImageView+Joke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImageView+Joke.h"; path = "Classes/Util/UIImageView+Joke.h"; sourceTree = "<group>"; };
+		3A667C0117B7E9E1007E04F7 /* UIImageView+Joke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+Joke.m"; path = "Classes/Util/UIImageView+Joke.m"; sourceTree = "<group>"; };
 		3A92840917B2A18900E3AD54 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		3A92840B17B2A1B000E3AD54 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		3A92840D17B2A72C00E3AD54 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../icon.png; sourceTree = "<group>"; };
@@ -448,6 +455,8 @@
 				43E9815C17A8F9E000910FBB /* iApi.m */,
 				43E67C4C17AA568700953E17 /* Util.h */,
 				43E67C4D17AA568700953E17 /* Util.m */,
+				3A667C0017B7E9E0007E04F7 /* UIImageView+Joke.h */,
+				3A667C0117B7E9E1007E04F7 /* UIImageView+Joke.m */,
 				3A92841117B2AC2600E3AD54 /* defines.h */,
 			);
 			name = Util;
@@ -465,6 +474,8 @@
 		43E9816B17A9023300910FBB /* pngs */ = {
 			isa = PBXGroup;
 			children = (
+				3A667BFC17B7E772007E04F7 /* img-error@2x.png */,
+				3A667BFD17B7E772007E04F7 /* img-loading@2x.png */,
 				3AEB404117B53B9100637722 /* share@2x.png */,
 				3A92842417B3EA9F00E3AD54 /* contentbox@2x.png */,
 				3A92842217B2B56400E3AD54 /* page@2x.png */,
@@ -720,6 +731,8 @@
 				3A92842517B3EA9F00E3AD54 /* contentbox@2x.png in Resources */,
 				3AEB404217B53B9100637722 /* share@2x.png in Resources */,
 				3A667BF817B54E07007E04F7 /* LoadingViewController.xib in Resources */,
+				3A667BFE17B7E772007E04F7 /* img-error@2x.png in Resources */,
+				3A667BFF17B7E772007E04F7 /* img-loading@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -794,6 +807,7 @@
 				43E67C8517AA97D400953E17 /* UIImageView+WebCache.m in Sources */,
 				3A667BF717B54E07007E04F7 /* LoadingViewController.m in Sources */,
 				3A667BFB17B767D8007E04F7 /* UserModel.m in Sources */,
+				3A667C0217B7E9E1007E04F7 /* UIImageView+Joke.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

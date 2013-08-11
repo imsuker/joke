@@ -8,7 +8,7 @@
 
 #import "JokeViewController.h"
 #import "AudioViewController.h"
-#import "UIImageView+WebCache.h"
+#import "UIImageView+Joke.h"
 
 @interface JokeViewController ()
 
@@ -51,8 +51,8 @@
         _yFree += 10;
         UIImageView *imageView = [[UIImageView alloc] init];
         imageView.frame = [self ResizePicBounds:CGRectMake(30, _yFree, [obj[@"w"] integerValue]/2, [obj[@"h"] integerValue]/2)];
-        [imageView setImageWithURL:[NSURL URLWithString:obj[@"pic"]] placeholderImage:nil];
         [_scrollView addSubview:imageView];
+        [imageView setImageUrl:obj[@"pic"]];
         _yFree += imageView.bounds.size.height;
         NSString *url = obj[@"url"];
             if(url && ![@"" isEqual:url]){
