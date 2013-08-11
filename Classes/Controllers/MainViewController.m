@@ -72,6 +72,8 @@
         NSLog(@"==fetchJoke fetch success:%@", [JSON description]);
         JokeModel *jokeModel = [[JokeModel alloc] initWithDictionary:JSON[@"data"]];
         jokeModel.jokeId = _visitId;
+        [UserModel shareInstance].visitId = _visitId;
+        [[UserModel shareInstance] visitJoke:_visitId];
         [self showJoke:jokeModel];
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         [self stopLoadingViewController];
@@ -109,9 +111,11 @@
     }
 }
 -(IBAction)tapButtonNext:(id)sender{
-    _visitId = _next;
-    if(_visitId){
+    if(_next && [[UserModel shareInstance] hasRightToVisit:_next]){
+        _visitId = _next;
         [self fetchJoke];
+    }else{
+        //todo has no right and show 
     }
 }
 - (void)didReceiveMemoryWarning
