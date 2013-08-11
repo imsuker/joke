@@ -109,7 +109,7 @@
 -(void)startFetchResource{
     [self setStatusBackgroundLoading:YES];
     NSLog(@"==AudioView startFetchResource");
-    _timerVoiceLoading = [NSTimer timerWithTimeInterval:1.0f target:self selector:@selector(voiceLoading) userInfo:nil repeats:YES];
+    _timerVoiceLoading = [NSTimer timerWithTimeInterval:0.6f target:self selector:@selector(voiceLoading) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:_timerVoiceLoading forMode:NSDefaultRunLoopMode];
 }
 -(void)endFetchResource{
@@ -141,6 +141,12 @@
         NSLog(@"==AudioView endPlay");
     }
 }
+-(void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag{
+    if(_player == player){
+        [_timerVoice invalidate];
+        [self voiceToNomarl];
+    }
+}
 -(void)voiceChanged{
     if(!_imageVoice1){
         _imageVoice1 = [UIImage imageNamed:@"playingwave-a"];
@@ -166,5 +172,11 @@
 }
 -(void)dealloc{
     [Util logDealloc:self];
+}
+-(void)willMoveToSuperview:(UIView *)newSuperview{
+    NSLog(@"willMoveTosuperView");
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:NOTIFICATION_STOP_PLAYER object:nil];
+    [_timerVoiceLoading invalidate];
+    [_timerVoice invalidate];
 }
 @end

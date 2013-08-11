@@ -7,27 +7,28 @@
 //
 
 #import "AudioModel.h"
-#import "AFHTTPRequestOperation.h"
 
 @implementation AudioModel
 
 -(void)fectchResourceWithBlock:(void (^)(id, NSError *))block{
     NSURLRequest *request = [NSURLRequest requestWithURL:_url];
-    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    operation.outputStream = [NSOutputStream outputStreamToFileAtPath:_filePath append:NO];
+    _operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    _operation.outputStream = [NSOutputStream outputStreamToFileAtPath:_filePath append:NO];
     NSLog(@"==AudioModel fetch begin:%@", [_url description]);
-    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [_operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"==AudioModel fetch success");
         if(block){
+            NSLog(@"block is doing!!!");
             block(@{}, nil);
         }
+        NSLog(@"=====block ~~");
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"==AudioModel fetch fail:%@", [error description]);
         if(block){
             block(nil, error);
         }
     }];
-    [operation start];
+    [_operation start];
 }
 -(void)setNameResource:(NSString *)nameResource{
     _nameResource = nameResource;
@@ -46,6 +47,12 @@
     }
 }
 -(void)dealloc{
+    if(![_operation isFinished]){
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        [fileManager removeItemAtPath:_filePath error:nil];
+        [_operation cancel];
+    }
     [Util logDealloc:self];
+    
 }
 @end

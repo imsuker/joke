@@ -53,14 +53,15 @@
 }
 -(void)fetchRemoteResourceOfAudioView:(AudioView *)viewAudio{
     [_audioView startFetchResource];
+    __weak AudioView *pVideoAudio = viewAudio;
     [_audioModel fectchResourceWithBlock:^(id result, NSError *error) {
         if(result != nil){
-            if(viewAudio){
-                [viewAudio endFetchResource];
+            if(pVideoAudio){
+                [pVideoAudio endFetchResource];
             }
         }else{
-            if(viewAudio){
-                [viewAudio errorFetchResource];
+            if(pVideoAudio){
+                [pVideoAudio errorFetchResource];
             }
         }
     }];

@@ -115,6 +115,7 @@
         _visitId = _next;
         [self fetchJoke];
     }else{
+        NSLog(@"====can 't next");
         //todo has no right and show 
     }
 }

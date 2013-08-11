@@ -39,23 +39,28 @@ static UserModel *shareInstance;
     }else{
         _arrayVisitedIds = [[visited_ids componentsSeparatedByString:word_separated_visited_ids] mutableCopy];
     }
-    _visitedCountToday = [storage integerForKey:key_vistied_count_today] || 0;
+    _visitedCountToday = [storage integerForKey:key_vistied_count_today];
     [self reCountVisitDate];
+    NSLog(@"userModel initData, _visitid=%d, _visitedCountToday:%d,%d", _visitId, [storage integerForKey:key_vistied_count_today],_visitedCountToday);
 
 }
 -(void)visitJoke:(NSInteger)visitId{
     if(![_arrayVisitedIds containsObject:@(visitId)]){
         [_arrayVisitedIds addObject:@(visitId)];
         _visitedCountToday ++;
+        NSLog(@"visitedCount today:%d", _visitedCountToday);
     }
 }
 -(BOOL)hasRightToVisit:(NSInteger)visitId{
     if([_arrayVisitedIds containsObject:@(visitId)]){
+        NSLog(@"has RightToVisit:YES,because visited");
         return YES;
     }
     if(_visitedCountToday < 10){
+        NSLog(@"has RightToVisit:YES, and _visitedCountToday :%d",  _visitedCountToday);
         return YES;
     }
+    NSLog(@"====has no RightToVisit;");
     return NO;
 }
 -(void)reCountVisitDate{
@@ -68,17 +73,17 @@ static UserModel *shareInstance;
     [components setMinute:0];
     [components setSecond:0];
     NSDate *today0Clock = [calendar dateFromComponents:components];
-    NSTimeInterval interval0Clock = [today0Clock timeIntervalSince1970];
+    NSInteger interval0Clock = [today0Clock timeIntervalSince1970];
     
     
     //初始化当天的时间戳和访问总量
     NSUserDefaults *storage =  [NSUserDefaults standardUserDefaults];
-    NSTimeInterval timeinterval = [storage doubleForKey:key_last_visited_date_timeinterval];
-
+    NSInteger timeinterval = [storage integerForKey:key_last_visited_date_timeinterval];
+    NSLog(@"saved timeinterval:%d, today : %d", timeinterval, interval0Clock);
     //如果存数的数据已经不是当天，则重算访问总量
     if(interval0Clock != timeinterval){
         _visitedCountToday = 0;
-        [storage setDouble:interval0Clock forKey:key_last_visited_date_timeinterval];
+        [storage setInteger:interval0Clock forKey:key_last_visited_date_timeinterval];
         [storage setInteger:_visitedCountToday forKey:key_vistied_count_today];
         [storage synchronize];
         NSLog(@"visitedCountToday has success reset");
@@ -93,6 +98,6 @@ static UserModel *shareInstance;
     [storage setInteger:_visitId forKey:key_visit_joke_id];
     [storage setValue:[_arrayVisitedIds componentsJoinedByString:@","] forKey:key_array_visited_ids];
     [storage synchronize];
-    NSLog(@"UserModel has cussess stor！");
+    NSLog(@"UserModel has cussess store！");
 }
 @end
