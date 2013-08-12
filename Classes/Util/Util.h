@@ -16,4 +16,8 @@
 +(CGRect)adjustFrame:(CGRect)frame withHeight:(NSInteger)height;
 //打dealloc的log
 +(void)logDealloc:(id)object;
+//调增button的背景能够自动伸缩
++(void)adjustBackgroundImage:(UIButton *)button;
++(void)adjustBackgroundImage:(UIButton *)button control:(UIControlState)control;
++(UIImage *)adjustImage:(UIImage *)image;
 @end

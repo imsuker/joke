@@ -11,6 +11,7 @@
 #import "AudioViewController.h"
 #import "JokeModel.h"
 #import "UserModel.h"
+#import "VipIntroduceViewController.h"
 
 
 
@@ -42,6 +43,8 @@
     viewRightBar.image = [UIImage imageNamed:@"login-icon"];
     UIBarButtonItem *rightBar = [[UIBarButtonItem alloc] initWithCustomView:viewRightBar];
     self.navigationItem.rightBarButtonItem = rightBar;
+    UITapGestureRecognizer *tapRightBar = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapLookUser)];
+    [viewRightBar addGestureRecognizer:tapRightBar];
     
     //设置左侧logo
     UIView *viewLeftBar = [[UIView alloc] initWithFrame:CGRectMake(0, 7, 127, 30)];
@@ -118,6 +121,10 @@
         NSLog(@"====can 't next");
         //todo has no right and show 
     }
+}
+-(void)handleTapLookUser{
+    VipIntroduceViewController *vip = [[VipIntroduceViewController alloc] initWithNibName:@"VipIntroduceViewController" bundle:nil];
+    [self.navigationController pushViewController:vip animated:YES];
 }
 - (void)didReceiveMemoryWarning
 {
