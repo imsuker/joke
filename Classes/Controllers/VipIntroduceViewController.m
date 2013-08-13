@@ -7,6 +7,8 @@
 //
 
 #import "VipIntroduceViewController.h"
+#import "NavigatorBackBar.h"
+#import "NavigatorTitleLabel.h"
 
 @interface VipIntroduceViewController ()
 
@@ -32,20 +34,14 @@
     
     
     //返回按钮
-    UIImageView *backView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-    backView.image = [UIImage imageNamed:@"back"];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backView];
-    UITapGestureRecognizer *tapBack = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapBack)];
-    [backView addGestureRecognizer:tapBack];
+    NavigatorBackBar *backBar = [[NavigatorBackBar alloc] initWithNavigatorController:self.navigationController];
+    self.navigationItem.leftBarButtonItem = backBar;
     
     //标题
-    UILabel *labelTitle = [[UILabel alloc] init];
-    labelTitle.text = @"VIP皇冠会员";
-    [labelTitle sizeToFit];
-    labelTitle.backgroundColor = [UIColor clearColor];
-    labelTitle.font = [UIFont systemFontOfSize:20.0];
-    labelTitle.textColor = JD_FONT_COLOR_fff;
-    self.navigationItem.titleView = labelTitle;
+    NavigatorTitleLabel *titleLabel = [[NavigatorTitleLabel alloc] init];
+    titleLabel.text = @"VIP皇冠会员";
+    self.navigationItem.titleView = titleLabel;
+    [titleLabel sizeToFit];
     
     //内容区域的圆框背景
     UIImage *imageViewContentBackground = [Util adjustImage:[UIImage imageNamed:@"contentbox"]];

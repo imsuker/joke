@@ -20,6 +20,8 @@
 		3A86A1D817B93A7000D6CDAA /* graybtn-onpress@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A86A1D417B93A7000D6CDAA /* graybtn-onpress@2x.png */; };
 		3A86A1D917B93A7000D6CDAA /* graybtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A86A1D517B93A7000D6CDAA /* graybtn@2x.png */; };
 		3A86A1DE17BA794600D6CDAA /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A86A1DD17BA794600D6CDAA /* back@2x.png */; };
+		3A86A1E417BA7DE800D6CDAA /* NavigatorBackBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A86A1E317BA7DE700D6CDAA /* NavigatorBackBar.m */; };
+		3A86A1E717BA800900D6CDAA /* NavigatorTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A86A1E617BA800900D6CDAA /* NavigatorTitleLabel.m */; };
 		3A92840A17B2A18900E3AD54 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A92840917B2A18900E3AD54 /* Default@2x.png */; };
 		3A92840C17B2A1B000E3AD54 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A92840B17B2A1B000E3AD54 /* Default-568h@2x.png */; };
 		3A92840E17B2A72C00E3AD54 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A92840D17B2A72C00E3AD54 /* icon.png */; };
@@ -135,6 +137,10 @@
 		3A86A1D417B93A7000D6CDAA /* graybtn-onpress@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "graybtn-onpress@2x.png"; sourceTree = "<group>"; };
 		3A86A1D517B93A7000D6CDAA /* graybtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "graybtn@2x.png"; sourceTree = "<group>"; };
 		3A86A1DD17BA794600D6CDAA /* back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back@2x.png"; sourceTree = "<group>"; };
+		3A86A1E217BA7DE700D6CDAA /* NavigatorBackBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigatorBackBar.h; sourceTree = "<group>"; };
+		3A86A1E317BA7DE700D6CDAA /* NavigatorBackBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigatorBackBar.m; sourceTree = "<group>"; };
+		3A86A1E517BA800900D6CDAA /* NavigatorTitleLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigatorTitleLabel.h; sourceTree = "<group>"; };
+		3A86A1E617BA800900D6CDAA /* NavigatorTitleLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigatorTitleLabel.m; sourceTree = "<group>"; };
 		3A92840917B2A18900E3AD54 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		3A92840B17B2A1B000E3AD54 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		3A92840D17B2A72C00E3AD54 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../icon.png; sourceTree = "<group>"; };
@@ -525,7 +531,6 @@
 			children = (
 				43F3C229178EDC93002E0633 /* SDK */,
 				43F3C228178EB988002E0633 /* Classes */,
-				43F3C211178EB7F7002E0633 /* Joke */,
 				43BBBA0717A7EC6A005BB170 /* CoreData */,
 				43F3C20A178EB7F7002E0633 /* Frameworks */,
 				43F3C209178EB7F7002E0633 /* Products */,
@@ -561,7 +566,8 @@
 				43F3C21B178EB7F7002E0633 /* AppDelegate.m */,
 				43F3C212178EB7F7002E0633 /* Supporting Files */,
 			);
-			path = Joke;
+			name = Joke;
+			path = ../../Joke;
 			sourceTree = "<group>";
 		};
 		43F3C212178EB7F7002E0633 /* Supporting Files */ = {
@@ -671,6 +677,11 @@
 			children = (
 				43F08C6E178FAA4F00778442 /* AudioView.h */,
 				43F08C6F178FAA4F00778442 /* AudioView.m */,
+				3A86A1E217BA7DE700D6CDAA /* NavigatorBackBar.h */,
+				3A86A1E317BA7DE700D6CDAA /* NavigatorBackBar.m */,
+				3A86A1E517BA800900D6CDAA /* NavigatorTitleLabel.h */,
+				3A86A1E617BA800900D6CDAA /* NavigatorTitleLabel.m */,
+				43F3C211178EB7F7002E0633 /* Joke */,
 			);
 			name = Views;
 			path = Classes/Views;
@@ -838,6 +849,8 @@
 				3A667BFB17B767D8007E04F7 /* UserModel.m in Sources */,
 				3A667C0217B7E9E1007E04F7 /* UIImageView+Joke.m in Sources */,
 				3A86A1D017B93A5D00D6CDAA /* VipIntroduceViewController.m in Sources */,
+				3A86A1E417BA7DE800D6CDAA /* NavigatorBackBar.m in Sources */,
+				3A86A1E717BA800900D6CDAA /* NavigatorTitleLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,13 +1,13 @@
 //
-//  ResizeAableButton.h
+//  NavigatorTitleLabel.h
 //  Joke
 //
-//  Created by cao on 13-8-12.
+//  Created by cao on 13-8-13.
 //  Copyright (c) 2013年 iphone. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface ResizeAableButton : UIButton
+@interface NavigatorTitleLabel : UILabel
 
 @end

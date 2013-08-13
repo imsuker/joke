@@ -1,20 +1,21 @@
 //
-//  ResizeAableButton.m
+//  NavigatorTitleLabel.m
 //  Joke
 //
-//  Created by cao on 13-8-12.
+//  Created by cao on 13-8-13.
 //  Copyright (c) 2013年 iphone. All rights reserved.
 //
 
-#import "ResizeAableButton.h"
+#import "NavigatorTitleLabel.h"
 
-@implementation ResizeAableButton
+@implementation NavigatorTitleLabel
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        [self initUI];
     }
     return self;
 }
@@ -27,5 +28,9 @@
     // Drawing code
 }
 */
-
+-(void)initUI{
+    self.backgroundColor = [UIColor clearColor];
+    self.font = [UIFont systemFontOfSize:20.0];
+    self.textColor = JD_FONT_COLOR_fff;
+}
 @end
