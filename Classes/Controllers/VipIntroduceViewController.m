@@ -52,7 +52,7 @@
     _viewContent.backgroundColor = [UIColor clearColor];
     [_viewContent sendSubviewToBack:backgroundImage];
 }
-- (IBAction)handelTapLogin:(id)sender{
+- (IBAction)handleTapToLogin:(id)sender{
     LoginViewController *login = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
     [self.navigationController pushViewController:login animated:YES];
 }

@@ -74,11 +74,18 @@ static iApi * instance;
     }
     return url;
 }
-
+-(NSURL *)baseUrl{
+    return [NSURL URLWithString:API_BASE];
+}
 
 -(NSString *)content{
     NSString *url = [self prefix:nil];
     url = [iApi addUrl:url key:@"api" value:@"content"];
+    return url;
+}
+-(NSString *)login{
+    NSString *url = [self prefix:nil];
+    url = [iApi addUrl:url key:@"api" value:@"signin"];
     return url;
 }
 @end

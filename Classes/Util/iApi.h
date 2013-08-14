@@ -16,8 +16,8 @@
 @interface iApi : NSObject
 
 @property (nonatomic, readonly) NSString *content;
-
-
+@property (nonatomic, readonly) NSString *login;
+@property (nonatomic, readonly) NSURL *baseUrl;
 
 
 
