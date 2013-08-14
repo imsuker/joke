@@ -20,4 +20,8 @@
 +(void)adjustBackgroundImage:(UIButton *)button;
 +(void)adjustBackgroundImage:(UIButton *)button control:(UIControlState)control;
 +(UIImage *)adjustImage:(UIImage *)image;
+//调整输入框的背景图片
++(void)adjustTextFieldBackground:(UITextField *)textField;
+//调整输入框的左侧边距
++(void)adjustTextFieldLeftPadding:(UITextField *)textField;
 @end

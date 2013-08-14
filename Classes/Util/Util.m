@@ -42,6 +42,17 @@
     UIImage *newImage = [image resizableImageWithCapInsets:UIEdgeInsetsMake(image.size.height/2, image.size.width/2, image.size.height/2, image.size.width/2)];
     return newImage;
 }
++(void)adjustTextFieldBackground:(UITextField *)textField{
+    UIImage *backgroundImage = textField.background;
+    UIImage *resizeImage = [Util adjustImage:backgroundImage];
+    textField.background = resizeImage;
+}
++(void)adjustTextFieldLeftPadding:(UITextField *)textField{
+    UILabel *leftLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 10, 20)];
+    leftLabel.backgroundColor = [UIColor clearColor];
+    textField.leftView = leftLabel;
+    textField.leftViewMode = UITextFieldViewModeAlways;
+}
 +(void)logDealloc:(id)object{
     NSLog(@"***************");
     NSLog(@"%@ is dealloc!", NSStringFromClass([object class]));

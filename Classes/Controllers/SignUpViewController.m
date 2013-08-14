@@ -1,21 +1,22 @@
 //
-//  LoginViewController.m
+//  SignUpViewController.m
 //  Joke
 //
-//  Created by cao on 13-8-14.
+//  Created by cao on 13-8-15.
 //  Copyright (c) 2013年 iphone. All rights reserved.
 //
 
-#import "LoginViewController.h"
+#import "SignUpViewController.h"
 #import "NavigatorTitleLabel.h"
 #import "NavigatorBackBar.h"
 #import "AFNetworking.h"
+#import "SignUpSuccessViewController.h"
 
-@interface LoginViewController ()
+@interface SignUpViewController ()
 
 @end
 
-@implementation LoginViewController
+@implementation SignUpViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,6 +31,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    //返回按钮
+    NavigatorBackBar *backBar = [[NavigatorBackBar alloc] initWithNavigatorController:self.navigationController];
+    self.navigationItem.leftBarButtonItem = backBar;
     
     //标题
     NavigatorTitleLabel *titleLabel = [[NavigatorTitleLabel alloc] init];
@@ -37,51 +41,56 @@
     self.navigationItem.titleView = titleLabel;
     [titleLabel sizeToFit];
     
-    //返回按钮
-    NavigatorBackBar *backBar = [[NavigatorBackBar alloc] initWithNavigatorController:self.navigationController];
-    self.navigationItem.leftBarButtonItem = backBar;
-    
     //输入框背景图
-    [Util adjustTextFieldBackground:_textFieldAcount];
+    [Util adjustTextFieldBackground:_textFieldUserName];
     [Util adjustTextFieldBackground:_textFieldPassword];
+    [Util adjustTextFieldBackground:_textFieldEmail];
     
     //输入框内部左侧边距
-    [Util adjustTextFieldLeftPadding:_textFieldAcount];
+    [Util adjustTextFieldLeftPadding:_textFieldUserName];
     [Util adjustTextFieldLeftPadding:_textFieldPassword];
-
+    [Util adjustTextFieldLeftPadding:_textFieldEmail];
 }
-//用户点击登录后动作
--(IBAction)handleTapLogin:(id)sender{
-    NSString *acount = _textFieldAcount.text;
+
+-(IBAction)handleTapSignUp:(id)sender{
+    NSString *userName = _textFieldUserName.text;
     NSString *password = _textFieldPassword.text;
-    if([acount isEqualToString:@""] || [password isEqualToString:@""]){
-        //TODO  showerror 
+    NSString *email = _textFieldEmail.text;
+    if([@"" isEqual:userName] || [@"" isEqual:password] || [@"" isEqual:email]){
+        //TODO pop
         return;
     }
     AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[iApi sharedInstance].baseUrl];
     [client registerHTTPOperationClass:[AFJSONRequestOperation class]];
     [client setDefaultHeader:@"Accept" value:@"application/json"];
     NSDictionary *params = @{
-                             @"username" : acount,
+                             @"username" : userName,
                              @"password" : password,
-                             @"api" : @"signin"
+                             @"email" : email,
+                             @"api" : @"signup"
                              };
     [client postPath:@"/" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"login reqeust finish, result = %@", [responseObject description]);
+        NSLog(@"sign up reqeust finish, result = %@", [responseObject description]);
         NSInteger code = [responseObject[@"code"] integerValue];
         if(code == 1){
             //TODO show success
-            NSLog(@"login success");
+            NSLog(@"sign up success");
+            SignUpSuccessViewController *success = [[SignUpSuccessViewController alloc] initWithNibName:@"SignUpSuccessViewController" bundle:nil];
+            [self.navigationController pushViewController:success animated:YES];
         }else{
             NSString *errmsg = responseObject[@"data"][@"errmsg"];
-            NSLog(@"error login:%@", errmsg);
+            NSLog(@"error sign up:%@", errmsg);
             //TODO show error
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"login fail");
+        NSLog(@"sign up fail");
     }];
+
 }
 
+-(IBAction)handleTapResignKeyBoard:(id)sender{
+    [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

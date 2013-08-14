@@ -25,6 +25,12 @@
 		3A86A1EB17BBCD0100D6CDAA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A86A1E917BBCD0100D6CDAA /* LoginViewController.m */; };
 		3A86A1EC17BBCD0100D6CDAA /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A86A1EA17BBCD0100D6CDAA /* LoginViewController.xib */; };
 		3A86A1EE17BBCFAE00D6CDAA /* input@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A86A1ED17BBCFAE00D6CDAA /* input@2x.png */; };
+		3A86A1F217BBE37B00D6CDAA /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A86A1F017BBE37A00D6CDAA /* SignUpViewController.m */; };
+		3A86A1F317BBE37B00D6CDAA /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A86A1F117BBE37B00D6CDAA /* SignUpViewController.xib */; };
+		3A86A1F717BBE3A100D6CDAA /* SignUpSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A86A1F517BBE3A000D6CDAA /* SignUpSuccessViewController.m */; };
+		3A86A1F817BBE3A100D6CDAA /* SignUpSuccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A86A1F617BBE3A000D6CDAA /* SignUpSuccessViewController.xib */; };
+		3A86A1FB17BBE46500D6CDAA /* vip-big@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A86A1F917BBE46500D6CDAA /* vip-big@2x.png */; };
+		3A86A1FC17BBE46500D6CDAA /* vip@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A86A1FA17BBE46500D6CDAA /* vip@2x.png */; };
 		3A92840A17B2A18900E3AD54 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A92840917B2A18900E3AD54 /* Default@2x.png */; };
 		3A92840C17B2A1B000E3AD54 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A92840B17B2A1B000E3AD54 /* Default-568h@2x.png */; };
 		3A92840E17B2A72C00E3AD54 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A92840D17B2A72C00E3AD54 /* icon.png */; };
@@ -148,6 +154,14 @@
 		3A86A1E917BBCD0100D6CDAA /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		3A86A1EA17BBCD0100D6CDAA /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		3A86A1ED17BBCFAE00D6CDAA /* input@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "input@2x.png"; sourceTree = "<group>"; };
+		3A86A1EF17BBE37A00D6CDAA /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		3A86A1F017BBE37A00D6CDAA /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		3A86A1F117BBE37B00D6CDAA /* SignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
+		3A86A1F417BBE3A000D6CDAA /* SignUpSuccessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpSuccessViewController.h; sourceTree = "<group>"; };
+		3A86A1F517BBE3A000D6CDAA /* SignUpSuccessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpSuccessViewController.m; sourceTree = "<group>"; };
+		3A86A1F617BBE3A000D6CDAA /* SignUpSuccessViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpSuccessViewController.xib; sourceTree = "<group>"; };
+		3A86A1F917BBE46500D6CDAA /* vip-big@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vip-big@2x.png"; sourceTree = "<group>"; };
+		3A86A1FA17BBE46500D6CDAA /* vip@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vip@2x.png"; sourceTree = "<group>"; };
 		3A92840917B2A18900E3AD54 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		3A92840B17B2A1B000E3AD54 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		3A92840D17B2A72C00E3AD54 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../icon.png; sourceTree = "<group>"; };
@@ -503,6 +517,8 @@
 			isa = PBXGroup;
 			children = (
 				3A86A1ED17BBCFAE00D6CDAA /* input@2x.png */,
+				3A86A1F917BBE46500D6CDAA /* vip-big@2x.png */,
+				3A86A1FA17BBE46500D6CDAA /* vip@2x.png */,
 				3A86A1D217B93A7000D6CDAA /* bugbtn-onpress@2x.png */,
 				3A86A1DD17BA794600D6CDAA /* back@2x.png */,
 				3A86A1D317B93A7000D6CDAA /* bugbtn@2x.png */,
@@ -662,6 +678,12 @@
 				3A86A1E817BBCD0100D6CDAA /* LoginViewController.h */,
 				3A86A1E917BBCD0100D6CDAA /* LoginViewController.m */,
 				3A86A1EA17BBCD0100D6CDAA /* LoginViewController.xib */,
+				3A86A1EF17BBE37A00D6CDAA /* SignUpViewController.h */,
+				3A86A1F017BBE37A00D6CDAA /* SignUpViewController.m */,
+				3A86A1F117BBE37B00D6CDAA /* SignUpViewController.xib */,
+				3A86A1F417BBE3A000D6CDAA /* SignUpSuccessViewController.h */,
+				3A86A1F517BBE3A000D6CDAA /* SignUpSuccessViewController.m */,
+				3A86A1F617BBE3A000D6CDAA /* SignUpSuccessViewController.xib */,
 			);
 			name = Controllers;
 			path = Classes/Controllers;
@@ -786,6 +808,10 @@
 				3A86A1DE17BA794600D6CDAA /* back@2x.png in Resources */,
 				3A86A1EC17BBCD0100D6CDAA /* LoginViewController.xib in Resources */,
 				3A86A1EE17BBCFAE00D6CDAA /* input@2x.png in Resources */,
+				3A86A1F317BBE37B00D6CDAA /* SignUpViewController.xib in Resources */,
+				3A86A1F817BBE3A100D6CDAA /* SignUpSuccessViewController.xib in Resources */,
+				3A86A1FB17BBE46500D6CDAA /* vip-big@2x.png in Resources */,
+				3A86A1FC17BBE46500D6CDAA /* vip@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -865,6 +891,8 @@
 				3A86A1E417BA7DE800D6CDAA /* NavigatorBackBar.m in Sources */,
 				3A86A1E717BA800900D6CDAA /* NavigatorTitleLabel.m in Sources */,
 				3A86A1EB17BBCD0100D6CDAA /* LoginViewController.m in Sources */,
+				3A86A1F217BBE37B00D6CDAA /* SignUpViewController.m in Sources */,
+				3A86A1F717BBE3A100D6CDAA /* SignUpSuccessViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

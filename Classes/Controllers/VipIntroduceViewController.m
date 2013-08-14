@@ -11,6 +11,9 @@
 #import "NavigatorBackBar.h"
 #import "NavigatorTitleLabel.h"
 
+//TODO test
+#import "SignUpViewController.h"
+
 @interface VipIntroduceViewController ()
 
 @end
@@ -55,6 +58,11 @@
 - (IBAction)handleTapToLogin:(id)sender{
     LoginViewController *login = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
     [self.navigationController pushViewController:login animated:YES];
+}
+- (IBAction)handleTapToBuy:(id)sender{
+    //TODO  buy
+    SignUpViewController *signup = [[SignUpViewController alloc] initWithNibName:@"SignUpViewController" bundle:nil];
+    [self.navigationController pushViewController:signup animated:YES];
 }
 - (void)didReceiveMemoryWarning
 {
