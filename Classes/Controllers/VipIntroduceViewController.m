@@ -7,6 +7,7 @@
 //
 
 #import "VipIntroduceViewController.h"
+#import "LoginViewController.h"
 #import "NavigatorBackBar.h"
 #import "NavigatorTitleLabel.h"
 
@@ -51,7 +52,10 @@
     _viewContent.backgroundColor = [UIColor clearColor];
     [_viewContent sendSubviewToBack:backgroundImage];
 }
-;
+- (IBAction)handelTapLogin:(id)sender{
+    LoginViewController *login = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
+    [self.navigationController pushViewController:login animated:YES];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
