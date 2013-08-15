@@ -93,6 +93,7 @@
     if(_lastJokeViewController){
         [_lastJokeViewController.view removeFromSuperview];
         [_lastJokeViewController removeFromParentViewController];
+        _lastJokeViewController = nil;
     }
     if(_jokeViewController){
         [_jokeViewController.view removeFromSuperview];
