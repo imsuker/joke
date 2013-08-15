@@ -34,6 +34,8 @@
 		3A86A20117BD3D8100D6CDAA /* input.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A86A20017BD3D8100D6CDAA /* input.png */; };
 		3A86A20417BD3E8800D6CDAA /* graybtn-onpress.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A86A20217BD3E8800D6CDAA /* graybtn-onpress.png */; };
 		3A86A20517BD3E8800D6CDAA /* graybtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A86A20317BD3E8800D6CDAA /* graybtn.png */; };
+		3A86A20917BD407900D6CDAA /* LastJokeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A86A20717BD407700D6CDAA /* LastJokeViewController.m */; };
+		3A86A20A17BD407900D6CDAA /* LastJokeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A86A20817BD407800D6CDAA /* LastJokeViewController.xib */; };
 		3A92840A17B2A18900E3AD54 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A92840917B2A18900E3AD54 /* Default@2x.png */; };
 		3A92840C17B2A1B000E3AD54 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A92840B17B2A1B000E3AD54 /* Default-568h@2x.png */; };
 		3A92840E17B2A72C00E3AD54 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A92840D17B2A72C00E3AD54 /* icon.png */; };
@@ -168,6 +170,9 @@
 		3A86A20017BD3D8100D6CDAA /* input.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = input.png; sourceTree = "<group>"; };
 		3A86A20217BD3E8800D6CDAA /* graybtn-onpress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "graybtn-onpress.png"; sourceTree = "<group>"; };
 		3A86A20317BD3E8800D6CDAA /* graybtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graybtn.png; sourceTree = "<group>"; };
+		3A86A20617BD407600D6CDAA /* LastJokeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LastJokeViewController.h; sourceTree = "<group>"; };
+		3A86A20717BD407700D6CDAA /* LastJokeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LastJokeViewController.m; sourceTree = "<group>"; };
+		3A86A20817BD407800D6CDAA /* LastJokeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LastJokeViewController.xib; sourceTree = "<group>"; };
 		3A92840917B2A18900E3AD54 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		3A92840B17B2A1B000E3AD54 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		3A92840D17B2A72C00E3AD54 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../icon.png; sourceTree = "<group>"; };
@@ -690,6 +695,9 @@
 				3A667BF417B54E07007E04F7 /* LoadingViewController.h */,
 				3A667BF517B54E07007E04F7 /* LoadingViewController.m */,
 				3A667BF617B54E07007E04F7 /* LoadingViewController.xib */,
+				3A86A20617BD407600D6CDAA /* LastJokeViewController.h */,
+				3A86A20717BD407700D6CDAA /* LastJokeViewController.m */,
+				3A86A20817BD407800D6CDAA /* LastJokeViewController.xib */,
 				3A86A1CD17B93A5D00D6CDAA /* VipIntroduceViewController.h */,
 				3A86A1CE17B93A5D00D6CDAA /* VipIntroduceViewController.m */,
 				3A86A1CF17B93A5D00D6CDAA /* VipIntroduceViewController.xib */,
@@ -833,6 +841,7 @@
 				3A86A20117BD3D8100D6CDAA /* input.png in Resources */,
 				3A86A20417BD3E8800D6CDAA /* graybtn-onpress.png in Resources */,
 				3A86A20517BD3E8800D6CDAA /* graybtn.png in Resources */,
+				3A86A20A17BD407900D6CDAA /* LastJokeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -914,6 +923,7 @@
 				3A86A1EB17BBCD0100D6CDAA /* LoginViewController.m in Sources */,
 				3A86A1F217BBE37B00D6CDAA /* SignUpViewController.m in Sources */,
 				3A86A1F717BBE3A100D6CDAA /* SignUpSuccessViewController.m in Sources */,
+				3A86A20917BD407900D6CDAA /* LastJokeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

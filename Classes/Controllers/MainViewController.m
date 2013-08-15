@@ -90,6 +90,10 @@
     _loadingViewController = nil;
 }
 -(void)showJoke:(JokeModel *)jokeModel{
+    if(_lastJokeViewController){
+        [_lastJokeViewController.view removeFromSuperview];
+        [_lastJokeViewController removeFromParentViewController];
+    }
     if(_jokeViewController){
         [_jokeViewController.view removeFromSuperview];
         [_jokeViewController removeFromParentViewController];
@@ -119,7 +123,14 @@
         [self fetchJoke];
     }else{
         NSLog(@"====can 't next");
-        //todo has no right and show 
+        _buttonNext.enabled = NO;
+        //todo has no right and show
+        if(!_lastJokeViewController){
+            _lastJokeViewController = [[LastJokeViewController alloc] initWithNibName:@"LastJokeViewController" bundle:nil];
+            [self addChildViewController:_lastJokeViewController];
+            _lastJokeViewController.view.frame = _viewJoke.bounds;
+            [_viewJoke addSubview:_lastJokeViewController.view];
+        }
     }
 }
 -(void)handleTapLookUser{
