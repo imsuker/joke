@@ -577,6 +577,7 @@
 			children = (
 				43F3C229178EDC93002E0633 /* SDK */,
 				43F3C228178EB988002E0633 /* Classes */,
+				43F3C211178EB7F7002E0633 /* Joke */,
 				43BBBA0717A7EC6A005BB170 /* CoreData */,
 				43F3C20A178EB7F7002E0633 /* Frameworks */,
 				43F3C209178EB7F7002E0633 /* Products */,
@@ -612,8 +613,7 @@
 				43F3C21B178EB7F7002E0633 /* AppDelegate.m */,
 				43F3C212178EB7F7002E0633 /* Supporting Files */,
 			);
-			name = Joke;
-			path = ../../Joke;
+			path = Joke;
 			sourceTree = "<group>";
 		};
 		43F3C212178EB7F7002E0633 /* Supporting Files */ = {
@@ -740,7 +740,6 @@
 				3A86A1E317BA7DE700D6CDAA /* NavigatorBackBar.m */,
 				3A86A1E517BA800900D6CDAA /* NavigatorTitleLabel.h */,
 				3A86A1E617BA800900D6CDAA /* NavigatorTitleLabel.m */,
-				43F3C211178EB7F7002E0633 /* Joke */,
 			);
 			name = Views;
 			path = Classes/Views;
@@ -1000,12 +999,16 @@
 		43F3C226178EB7F7002E0633 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: jinglei Cao (YPEGRY8JKN)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: jinglei Cao (YPEGRY8JKN)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Joke/Joke-Prefix.pch";
 				INFOPLIST_FILE = "Joke/Joke-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6E575B32-6217-4991-8213-E65EC8D22D03";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6E575B32-6217-4991-8213-E65EC8D22D03";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1013,12 +1016,16 @@
 		43F3C227178EB7F7002E0633 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: jinglei Cao (YPEGRY8JKN)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: jinglei Cao (YPEGRY8JKN)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Joke/Joke-Prefix.pch";
 				INFOPLIST_FILE = "Joke/Joke-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6E575B32-6217-4991-8213-E65EC8D22D03";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6E575B32-6217-4991-8213-E65EC8D22D03";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
