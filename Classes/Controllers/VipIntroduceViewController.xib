@@ -60,11 +60,11 @@
 						</object>
 						<object class="NSCustomResource" key="IBUIHighlightedBackgroundImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">graybtn-onpress@2x.png</string>
+							<string key="NSResourceName">graybtn-onpress.png</string>
 						</object>
 						<object class="NSCustomResource" key="IBUINormalBackgroundImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">graybtn@2x.png</string>
+							<string key="NSResourceName">graybtn.png</string>
 						</object>
 						<object class="IBUIFontDescription" key="IBUIFontDescription">
 							<int key="type">1</int>
@@ -173,6 +173,7 @@ lLblkKzliLDnmoTkvY3nva4</string>
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{20, 234}, {260, 61}}</string>
 								<reference key="NSSuperview" ref="924866644"/>
+								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -345,7 +346,7 @@ lLblkKzliLDnmoTkvY3nva4</string>
 				<string key="14.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<real value="3" key="14.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<string key="4.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<real value="1" key="4.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
+				<real value="2" key="4.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<string key="8.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
@@ -362,8 +363,8 @@ lLblkKzliLDnmoTkvY3nva4</string>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<string key="bugbtn-onpress@2x.png">{520, 122}</string>
 			<string key="bugbtn@2x.png">{520, 122}</string>
-			<string key="graybtn-onpress@2x.png">{120, 90}</string>
-			<string key="graybtn@2x.png">{120, 90}</string>
+			<string key="graybtn-onpress.png">{120, 90}</string>
+			<string key="graybtn.png">{120, 90}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">2083</string>
 	</data>

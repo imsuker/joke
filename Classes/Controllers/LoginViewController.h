@@ -11,6 +11,7 @@
 @interface LoginViewController : UIViewController{
     IBOutlet UITextField *_textFieldAcount;
     IBOutlet UITextField *_textFieldPassword;
+    IBOutlet UIButton *_buttonSubmit;
 }
 
 @end

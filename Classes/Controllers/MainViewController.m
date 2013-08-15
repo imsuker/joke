@@ -47,8 +47,8 @@
     [viewRightBar addGestureRecognizer:tapRightBar];
     
     //设置左侧logo
-    UIView *viewLeftBar = [[UIView alloc] initWithFrame:CGRectMake(0, 7, 127, 30)];
-    viewLeftBar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"logo"]];
+    UIImageView *viewLeftBar = [[UIImageView alloc] initWithFrame:CGRectMake(0, 7, 127, 30)];
+    viewLeftBar.image = [UIImage imageNamed:@"logo"];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:viewLeftBar];
     
     _visitId = [UserModel shareInstance].visitId;

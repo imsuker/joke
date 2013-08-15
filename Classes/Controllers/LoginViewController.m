@@ -41,6 +41,9 @@
     NavigatorBackBar *backBar = [[NavigatorBackBar alloc] initWithNavigatorController:self.navigationController];
     self.navigationItem.leftBarButtonItem = backBar;
     
+    //提交按钮
+    [Util adjustBackgroundImage:_buttonSubmit];
+    
     //输入框背景图
     [Util adjustTextFieldBackground:_textFieldAcount];
     [Util adjustTextFieldBackground:_textFieldPassword];

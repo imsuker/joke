@@ -41,6 +41,9 @@
     self.navigationItem.titleView = titleLabel;
     [titleLabel sizeToFit];
     
+    //提交按钮
+    [Util adjustBackgroundImage:_buttonSubmit];
+    
     //输入框背景图
     [Util adjustTextFieldBackground:_textFieldUserName];
     [Util adjustTextFieldBackground:_textFieldPassword];

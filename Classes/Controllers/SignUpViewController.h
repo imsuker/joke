@@ -12,6 +12,7 @@
     IBOutlet UITextField *_textFieldUserName;
     IBOutlet UITextField *_textFieldPassword;
     IBOutlet UITextField *_textFieldEmail;
+    IBOutlet UIButton *_buttonSubmit;
 }
 
 @end

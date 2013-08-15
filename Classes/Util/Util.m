@@ -39,7 +39,7 @@
     [button setBackgroundImage:newImage forState:control];
 }
 +(UIImage *)adjustImage:(UIImage *)image{
-    UIImage *newImage = [image resizableImageWithCapInsets:UIEdgeInsetsMake(image.size.height/2, image.size.width/2, image.size.height/2, image.size.width/2)];
+    UIImage *newImage = [image resizableImageWithCapInsets:UIEdgeInsetsMake(image.size.height/2/image.scale, image.size.width/2/image.scale, image.size.height/2/image.scale, image.size.width/2/image.scale)];
     return newImage;
 }
 +(void)adjustTextFieldBackground:(UITextField *)textField{
