@@ -14,6 +14,9 @@
 }
 @property (nonatomic) NSInteger visitId;  //用户最后一次访问的visitId
 
+
+@property (nonatomic) BOOL isVIP; //是否是VIP;
+
 +(UserModel *)shareInstance;
 -(void)visitJoke:(NSInteger)visitId;  //访问一个id的时候调用，记录在用户访问的所有ids里，并记录用户当前访问的visitId;
 -(BOOL)hasRightToVisit:(NSInteger)visitId;   //是否有权限看下一个
