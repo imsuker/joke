@@ -111,9 +111,10 @@
     _scrollView.contentSize = CGSizeMake(_scrollView.bounds.size.width, _yFree+10);
     
     NSInteger heightScrollViewBackground = _yFree;
-    if(heightScrollViewBackground < self.view.bounds.size.height + 100){
-        heightScrollViewBackground = self.view.bounds.size.height + 100;
+    if(heightScrollViewBackground < self.view.bounds.size.height){
+        heightScrollViewBackground = self.view.bounds.size.height;
     }
+    heightScrollViewBackground += 100;
     _imageViewScrollViewBackground.frame = [Util adjustFrame:_imageViewScrollViewBackground.frame withHeight:heightScrollViewBackground];//背景图片顶部距离10
 }
 -(void)tapPic:(UIGestureRecognizer *)sender{

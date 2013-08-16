@@ -36,7 +36,7 @@
     [super viewDidLoad];
     
     //设置背景样式
-    self.navigationController.navigationBar.tintColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"topmenu"]];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"topmenu"] forBarMetrics:UIBarMetricsDefault];
     
     //设置rightbar样式
     UIImageView *viewRightBar = [[UIImageView alloc] initWithFrame:CGRectMake(0, 7, 30, 30)];
@@ -45,6 +45,7 @@
     self.navigationItem.rightBarButtonItem = rightBar;
     UITapGestureRecognizer *tapRightBar = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapLookUser)];
     [viewRightBar addGestureRecognizer:tapRightBar];
+    
     
     //设置左侧logo
     UIImageView *viewLeftBar = [[UIImageView alloc] initWithFrame:CGRectMake(0, 7, 127, 30)];
