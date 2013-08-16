@@ -9,6 +9,8 @@
 #import "JokeViewController.h"
 #import "AudioViewController.h"
 #import "UIImageView+Joke.h"
+#import "UserModel.h"
+#import "PopHintViewController.h"
 
 @interface JokeViewController ()
 
@@ -143,6 +145,20 @@
     }
     return YES;
 }
+
+
+
+//喜欢
+-(IBAction)handleTapLike:(id)sender{
+    if([UserModel shareInstance].isVIP){
+        
+    }else{
+        PopHintViewController *pop = [[PopHintViewController alloc] initWithPopStyle:PopStyleNotVip];
+        [self addChildViewController:pop];
+        [self.view addSubview:pop.view];
+    }
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

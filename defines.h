@@ -30,4 +30,9 @@
 #define JD_FONT_COLOR_a14400 [UIColor colorWithRed:0.631 green:0.267 blue:0 alpha:1] /*#a14400*/
 
 
+
+/**
+ * 文案
+ */
+#define JD_WORD_NOVIP @"注册成为VIP才能使用收藏"
 #endif
