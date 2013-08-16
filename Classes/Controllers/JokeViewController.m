@@ -28,6 +28,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //webview加载成功才显示路过人数和喜欢数，因此先隐藏
+    _buttonLike.hidden = YES;
+    _labelPassed.hidden = YES;
+    
+    
     // Do any additional setup after loading the view from its nib.
     _yFree = 20; //顶部空白
     
@@ -65,8 +71,10 @@
     }];
 //    _yFree += 8;
     
-    [_webViewContent loadHTMLString:_jokeModel.content baseURL:nil];
     _webViewContent.frame = [Util adjustFrame:_webViewContent.frame withY:_yFree];
+//    _webViewContent.bounds = [Util adjustFrame:_webViewContent.frame widthX:0 withY:0];
+    [_webViewContent loadHTMLString:_jokeModel.content baseURL:nil];
+
     
     //设置滚动内容的背景
     UIImage *imageScrollViewBackground = [UIImage imageNamed:@"contentbox"];
@@ -87,13 +95,18 @@
 }
 //webview的内容是异步加载，因此在加载成功后重新设定其高度和下面的内容
 -(void)reAdjustWebViewAndOther{
-    _yFree += _webViewContent.bounds.size.height;
+    _yFree += _webViewContent.frame.size.height;
     
     _yFree += 8;
-    _labelPassed.text =[NSString stringWithFormat:@"%d路过",_jokeModel.visit + 1];
+    
     _buttonLike.titleLabel.text = [NSString stringWithFormat:@"%d", _jokeModel.collect];
     _buttonLike.frame = [Util adjustFrame:_buttonLike.frame withY:_yFree];
+    _buttonLike.hidden = NO;
+    
+    _labelPassed.text =[NSString stringWithFormat:@"%d路过",_jokeModel.visit + 1];
     _labelPassed.frame = [Util adjustFrame:_labelPassed.frame withY:_yFree + 4];
+    _labelPassed.hidden = NO;
+    
     _yFree += _buttonLike.bounds.size.height;
     _scrollView.contentSize = CGSizeMake(_scrollView.bounds.size.width, _yFree+10);
     
