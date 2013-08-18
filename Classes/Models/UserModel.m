@@ -12,7 +12,9 @@
 #define word_separated_visited_ids @","
 #define key_last_visited_date_timeinterval @"key_last_visited_date_timeinterval"
 #define key_vistied_count_today @"key_visited_count_today"
-#define value_last_visited_id @"value_last_visited_id";
+#define value_last_visited_id @"value_last_visited_id"
+#define key_array_liked_ids @"key_array_liked_ids"
+#define key_logined_info @"key_logined_info"
 
 #import "UserModel.h"
 static UserModel *shareInstance;
@@ -21,6 +23,7 @@ static UserModel *shareInstance;
     if(!shareInstance){
         shareInstance = [[UserModel alloc] init];
         [shareInstance initData];
+        [shareInstance initLoginedInfo];  
     }
     return shareInstance;
 }
@@ -42,8 +45,30 @@ static UserModel *shareInstance;
     _visitedCountToday = [storage integerForKey:key_vistied_count_today];
     [self reCountVisitDate];
     NSLog(@"userModel initData, _visitid=%d, _visitedCountToday:%d,%d", _visitId, [storage integerForKey:key_vistied_count_today],_visitedCountToday);
-
+    
+    //初始化用户所有喜欢的ids串
+    _arrayLikedIds = [storage mutableArrayValueForKey:key_array_liked_ids];
 }
+-(void)initLoginedInfo{
+    NSUserDefaults *storage = [NSUserDefaults standardUserDefaults];
+    NSDictionary *info = [storage objectForKey:key_logined_info];
+    _userId = [info[@"userId"] integerValue];
+    _userName = info[@"userName"];
+    _token = info[@"token"];
+    _isLogin = YES;
+    [[UserModel shareInstance] reFetchLikedIds];
+}
+-(void)login:(NSDictionary *)info{
+    NSUserDefaults *storage = [NSUserDefaults standardUserDefaults];
+    [storage setObject:@{
+     @"userId" : info[@"userid"],
+     @"token" : info[@"token"],
+     @"userName" : info[@"username"]
+     } forKey:key_logined_info];
+    [storage synchronize];
+    [self initLoginedInfo];
+}
+
 -(void)visitJoke:(NSInteger)visitId{
     if(![_arrayVisitedIds containsObject:@(visitId)]){
         [_arrayVisitedIds addObject:@(visitId)];
@@ -100,4 +125,21 @@ static UserModel *shareInstance;
     [storage synchronize];
     NSLog(@"UserModel has cussess store！");
 }
+-(void)like:(NSInteger)visitId{
+    [_arrayLikedIds addObject:@(visitId)];
+    NSUserDefaults *storage = [NSUserDefaults standardUserDefaults];
+    [storage setObject:_arrayLikedIds forKey:key_array_liked_ids];
+    [storage synchronize];
+}
+-(BOOL)isLike:(NSInteger)visitId{
+    BOOL bLike = NO;
+    if(_isLogin && [_arrayLikedIds containsObject:@(visitId)]){
+        bLike = YES;
+    }
+    return bLike;
+}
+-(void)reFetchLikedIds{
+    //TODO
+}
+
 @end

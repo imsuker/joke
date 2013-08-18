@@ -10,6 +10,8 @@
 #import "NavigatorTitleLabel.h"
 #import "NavigatorBackBar.h"
 #import "AFNetworking.h"
+#import "PopHintViewController.h"
+#import "UserModel.h"
 
 @interface LoginViewController ()
 
@@ -73,13 +75,15 @@
         NSLog(@"login reqeust finish, result = %@", [responseObject description]);
         NSInteger code = [responseObject[@"code"] integerValue];
         if(code == 1){
-            //TODO show success
+            [[UserModel shareInstance] login:responseObject[@"data"]];  
             NSLog(@"login success");
+            [self.navigationController popToRootViewControllerAnimated:YES];
         }else{
             NSString *errmsg = responseObject[@"data"][@"errmsg"];
             NSLog(@"error login:%@", errmsg);
-            //TODO show error
-        }
+            PopHintViewController *popError = [[PopHintViewController alloc] initWithText:errmsg?errmsg:@""];
+            [self addChildViewController:popError];
+            [self.view addSubview:popError.view];        }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"login fail");
     }];

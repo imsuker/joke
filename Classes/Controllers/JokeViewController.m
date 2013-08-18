@@ -101,9 +101,16 @@
     
     _yFree += 8;
     
-    _buttonLike.titleLabel.text = [NSString stringWithFormat:@"%d", _jokeModel.collect];
-    _buttonLike.frame = [Util adjustFrame:_buttonLike.frame withY:_yFree];
+    NSInteger countLike = _jokeModel.collect?_jokeModel.collect:0;
+    if([[UserModel shareInstance] isLike:_jokeModel.jokeId]){
+        countLike ++;
+        [_buttonLike setEnabled:NO];
+    }
     _buttonLike.hidden = NO;
+    NSString *textLike = [NSString stringWithFormat:@"%d", countLike];
+    [_buttonLike setTitle:textLike forState:UIControlStateNormal];
+    _buttonLike.frame = [Util adjustFrame:_buttonLike.frame withY:_yFree];
+
     
     _labelPassed.text =[NSString stringWithFormat:@"%d路过",_jokeModel.visit + 1];
     _labelPassed.frame = [Util adjustFrame:_labelPassed.frame withY:_yFree + 4];
@@ -150,8 +157,12 @@
 
 //喜欢
 -(IBAction)handleTapLike:(id)sender{
-    if([UserModel shareInstance].isVIP){
-        
+    if([UserModel shareInstance].isLogin){
+        if(![[UserModel shareInstance] isLike:_jokeModel.jokeId]){
+            [[UserModel shareInstance] like:_jokeModel.jokeId];
+            [_buttonLike setTitle:[NSString stringWithFormat:@"%d", ++_jokeModel.collect] forState:UIControlStateNormal];
+            [_buttonLike setEnabled:NO];
+        }
     }else{
         PopHintViewController *pop = [[PopHintViewController alloc] initWithPopStyle:PopStyleNotVip];
         [self addChildViewController:pop];

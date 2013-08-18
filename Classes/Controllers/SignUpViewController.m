@@ -11,6 +11,8 @@
 #import "NavigatorBackBar.h"
 #import "AFNetworking.h"
 #import "SignUpSuccessViewController.h"
+#import "PopHintViewController.h"
+#import "UserModel.h"
 
 @interface SignUpViewController ()
 
@@ -63,7 +65,6 @@
         //TODO pop
         return;
     }
-    return;
     AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[iApi sharedInstance].baseUrl];
     [client registerHTTPOperationClass:[AFJSONRequestOperation class]];
     [client setDefaultHeader:@"Accept" value:@"application/json"];
@@ -77,14 +78,16 @@
         NSLog(@"sign up reqeust finish, result = %@", [responseObject description]);
         NSInteger code = [responseObject[@"code"] integerValue];
         if(code == 1){
-            //TODO show success
+            [[UserModel shareInstance] login:responseObject[@"data"]];
             NSLog(@"sign up success");
             SignUpSuccessViewController *success = [[SignUpSuccessViewController alloc] initWithNibName:@"SignUpSuccessViewController" bundle:nil];
             [self.navigationController pushViewController:success animated:YES];
         }else{
             NSString *errmsg = responseObject[@"data"][@"errmsg"];
             NSLog(@"error sign up:%@", errmsg);
-            //TODO show error
+            PopHintViewController *popError = [[PopHintViewController alloc] initWithText:errmsg?errmsg:@""];
+            [self addChildViewController:popError];
+            [self.view addSubview:popError.view];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"sign up fail");
