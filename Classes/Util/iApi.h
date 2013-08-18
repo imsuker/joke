@@ -18,6 +18,7 @@
 @property (nonatomic, readonly) NSString *content;
 @property (nonatomic, readonly) NSString *login;
 @property (nonatomic, readonly) NSURL *baseUrl;
+@property (nonatomic, readonly) NSString *allCollects;
 
 
 

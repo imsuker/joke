@@ -17,6 +17,7 @@
 #define key_logined_info @"key_logined_info"
 
 #import "UserModel.h"
+#import "AFNetworking.h"
 static UserModel *shareInstance;
 @implementation UserModel
 +(UserModel *)shareInstance{
@@ -52,6 +53,9 @@ static UserModel *shareInstance;
 -(void)initLoginedInfo{
     NSUserDefaults *storage = [NSUserDefaults standardUserDefaults];
     NSDictionary *info = [storage objectForKey:key_logined_info];
+    if(!info){
+        return;
+    }
     _userId = [info[@"userId"] integerValue];
     _userName = info[@"userName"];
     _token = info[@"token"];
@@ -63,12 +67,21 @@ static UserModel *shareInstance;
     [storage setObject:@{
      @"userId" : info[@"userid"],
      @"token" : info[@"token"],
-     @"userName" : info[@"username"]
+     //TODO
+     @"userName" : @"测试"
      } forKey:key_logined_info];
     [storage synchronize];
     [self initLoginedInfo];
 }
-
+-(void)logout{
+    NSUserDefaults *storage = [NSUserDefaults standardUserDefaults];
+    [storage removeObjectForKey:key_logined_info];
+    _isLogin = NO;
+    _userId = 0;
+    _userName = nil;
+    _token = nil;
+    [storage synchronize];
+}
 -(void)visitJoke:(NSInteger)visitId{
     if(![_arrayVisitedIds containsObject:@(visitId)]){
         [_arrayVisitedIds addObject:@(visitId)];
@@ -77,6 +90,9 @@ static UserModel *shareInstance;
     }
 }
 -(BOOL)hasRightToVisit:(NSInteger)visitId{
+    if(_isLogin){
+        return YES;
+    }
     if([_arrayVisitedIds containsObject:@(visitId)]){
         NSLog(@"has RightToVisit:YES,because visited");
         return YES;
@@ -126,20 +142,64 @@ static UserModel *shareInstance;
     NSLog(@"UserModel has cussess store！");
 }
 -(void)like:(NSInteger)visitId{
-    [_arrayLikedIds addObject:@(visitId)];
+    //本地添加
+    [_arrayLikedIds addObject:[NSString stringWithFormat:@"%d", visitId]];
     NSUserDefaults *storage = [NSUserDefaults standardUserDefaults];
     [storage setObject:_arrayLikedIds forKey:key_array_liked_ids];
     [storage synchronize];
+    
+    //往服务器添加
+    AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[iApi sharedInstance].baseUrl];
+    [client registerHTTPOperationClass:[AFJSONRequestOperation class]];
+    [client setDefaultHeader:@"Accept" value:@"application/json"];
+    NSDictionary *params = @{
+                             @"api" : @"collect",
+                             @"userid" : @(_userId),
+                             @"token" : _token,
+                             @"id" : @(visitId)
+                             };
+    [client postPath:@"/" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSInteger code = [responseObject[@"code"] integerValue];
+        if(code == 1){
+            //TODO
+            NSLog(@"collect post success:%d", visitId);
+        }else{
+            NSLog(@"collect post fail");
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"collect post fail");
+        //TODO
+    }];
 }
 -(BOOL)isLike:(NSInteger)visitId{
     BOOL bLike = NO;
-    if(_isLogin && [_arrayLikedIds containsObject:@(visitId)]){
+    if(_isLogin && [_arrayLikedIds containsObject:[NSString stringWithFormat:@"%d", visitId]]){
         bLike = YES;
     }
     return bLike;
 }
 -(void)reFetchLikedIds{
     //TODO
+    NSString *urlStr = [iApi sharedInstance].allCollects;
+    urlStr = [iApi addUrl:urlStr key:@"userid" value:[NSString stringWithFormat:@"%d", _userId]];
+    NSURL *url = [NSURL URLWithString:urlStr];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        //TODO
+        NSInteger code = [JSON[@"code"] integerValue];
+        if(code == 1){
+            NSArray *ids = [JSON[@"data"][@"ids"] componentsSeparatedByString:@","];
+            _arrayLikedIds = [ids mutableCopy];
+            NSLog(@"get all collect success:%@", [_arrayLikedIds description]);
+        }else{
+            NSLog(@"get all collect fail");
+        }
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        //TODO
+        NSLog(@"get all collect fail");
+    }];
+    [operation start];
 }
 
 @end

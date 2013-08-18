@@ -88,4 +88,9 @@ static iApi * instance;
     url = [iApi addUrl:url key:@"api" value:@"signin"];
     return url;
 }
+-(NSString *)allCollects{
+    NSString *url = [self prefix:nil];
+    url = [iApi addUrl:url key:@"api" value:@"allcollects"];
+    return url;
+}
 @end

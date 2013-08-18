@@ -12,7 +12,7 @@
 #import "JokeModel.h"
 #import "UserModel.h"
 #import "VipIntroduceViewController.h"
-
+#import "LogoutViewController.h"
 
 
 @interface MainViewController ()
@@ -136,8 +136,13 @@
     }
 }
 -(void)handleTapLookUser{
-    VipIntroduceViewController *vip = [[VipIntroduceViewController alloc] initWithNibName:@"VipIntroduceViewController" bundle:nil];
-    [self.navigationController pushViewController:vip animated:YES];
+    if ([UserModel shareInstance].isLogin) {
+        LogoutViewController *logout = [[LogoutViewController alloc] initWithNibName:@"LogoutViewController" bundle:nil];
+        [self.navigationController pushViewController:logout animated:YES];
+    }else{
+        VipIntroduceViewController *vip = [[VipIntroduceViewController alloc] initWithNibName:@"VipIntroduceViewController" bundle:nil];
+        [self.navigationController pushViewController:vip animated:YES];
+    }
 }
 - (void)didReceiveMemoryWarning
 {

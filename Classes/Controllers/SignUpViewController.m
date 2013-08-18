@@ -91,6 +91,7 @@
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"sign up fail");
+        //TODO
     }];
 
 }

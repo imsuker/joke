@@ -38,6 +38,8 @@
 		3A86A20A17BD407900D6CDAA /* LastJokeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A86A20817BD407800D6CDAA /* LastJokeViewController.xib */; };
 		3A8FA0FF17BEA4A7005E320E /* PopHintViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8FA0FD17BEA4A7005E320E /* PopHintViewController.m */; };
 		3A8FA10017BEA4A7005E320E /* PopHintViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A8FA0FE17BEA4A7005E320E /* PopHintViewController.xib */; };
+		3A8FA10417C137EB005E320E /* LogoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8FA10217C137E9005E320E /* LogoutViewController.m */; };
+		3A8FA10517C137EB005E320E /* LogoutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A8FA10317C137EA005E320E /* LogoutViewController.xib */; };
 		3A92840A17B2A18900E3AD54 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A92840917B2A18900E3AD54 /* Default@2x.png */; };
 		3A92840C17B2A1B000E3AD54 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A92840B17B2A1B000E3AD54 /* Default-568h@2x.png */; };
 		3A92840E17B2A72C00E3AD54 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A92840D17B2A72C00E3AD54 /* icon.png */; };
@@ -178,6 +180,9 @@
 		3A8FA0FC17BEA4A7005E320E /* PopHintViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopHintViewController.h; sourceTree = "<group>"; };
 		3A8FA0FD17BEA4A7005E320E /* PopHintViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopHintViewController.m; sourceTree = "<group>"; };
 		3A8FA0FE17BEA4A7005E320E /* PopHintViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopHintViewController.xib; sourceTree = "<group>"; };
+		3A8FA10117C137E9005E320E /* LogoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogoutViewController.h; sourceTree = "<group>"; };
+		3A8FA10217C137E9005E320E /* LogoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogoutViewController.m; sourceTree = "<group>"; };
+		3A8FA10317C137EA005E320E /* LogoutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogoutViewController.xib; sourceTree = "<group>"; };
 		3A92840917B2A18900E3AD54 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		3A92840B17B2A1B000E3AD54 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		3A92840D17B2A72C00E3AD54 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../icon.png; sourceTree = "<group>"; };
@@ -712,6 +717,9 @@
 				3A86A1E817BBCD0100D6CDAA /* LoginViewController.h */,
 				3A86A1E917BBCD0100D6CDAA /* LoginViewController.m */,
 				3A86A1EA17BBCD0100D6CDAA /* LoginViewController.xib */,
+				3A8FA10117C137E9005E320E /* LogoutViewController.h */,
+				3A8FA10217C137E9005E320E /* LogoutViewController.m */,
+				3A8FA10317C137EA005E320E /* LogoutViewController.xib */,
 				3A86A1EF17BBE37A00D6CDAA /* SignUpViewController.h */,
 				3A86A1F017BBE37A00D6CDAA /* SignUpViewController.m */,
 				3A86A1F117BBE37B00D6CDAA /* SignUpViewController.xib */,
@@ -850,6 +858,7 @@
 				3A86A20517BD3E8800D6CDAA /* graybtn.png in Resources */,
 				3A86A20A17BD407900D6CDAA /* LastJokeViewController.xib in Resources */,
 				3A8FA10017BEA4A7005E320E /* PopHintViewController.xib in Resources */,
+				3A8FA10517C137EB005E320E /* LogoutViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -933,6 +942,7 @@
 				3A86A1F717BBE3A100D6CDAA /* SignUpSuccessViewController.m in Sources */,
 				3A86A20917BD407900D6CDAA /* LastJokeViewController.m in Sources */,
 				3A8FA0FF17BEA4A7005E320E /* PopHintViewController.m in Sources */,
+				3A8FA10417C137EB005E320E /* LogoutViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
