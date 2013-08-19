@@ -12,8 +12,7 @@
 #import "JokeModel.h"
 #import "UserModel.h"
 #import "VipIntroduceViewController.h"
-#import "LogoutViewController.h"
-
+#import "SettingsViewController.h"
 
 @interface MainViewController ()
 
@@ -153,8 +152,8 @@
 }
 -(void)handleTapLookUser{
     if ([UserModel shareInstance].isLogin) {
-        LogoutViewController *logout = [[LogoutViewController alloc] initWithNibName:@"LogoutViewController" bundle:nil];
-        [self.navigationController pushViewController:logout animated:YES];
+        SettingsViewController *set = [[SettingsViewController alloc] initWithStyle:UITableViewStyleGrouped];
+        [self.navigationController pushViewController:set animated:YES];
     }else{
         VipIntroduceViewController *vip = [[VipIntroduceViewController alloc] initWithNibName:@"VipIntroduceViewController" bundle:nil];
         [self.navigationController pushViewController:vip animated:YES];
