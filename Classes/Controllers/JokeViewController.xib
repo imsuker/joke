@@ -46,7 +46,7 @@
 							<object class="IBUIImageView" id="1060694103">
 								<reference key="NSNextResponder" ref="1068411344"/>
 								<int key="NSvFlags">274</int>
-								<string key="NSFrame">{{10, 10}, {300, 320}}</string>
+								<string key="NSFrame">{{10, 10}, {300, 480}}</string>
 								<reference key="NSSuperview" ref="1068411344"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="936066346"/>
@@ -108,10 +108,9 @@
 							<object class="IBUIButton" id="378456461">
 								<reference key="NSNextResponder" ref="1068411344"/>
 								<int key="NSvFlags">265</int>
-								<string key="NSFrame">{{195, 284}, {105, 30}}</string>
+								<string key="NSFrame">{{195, 444}, {105, 30}}</string>
 								<reference key="NSSuperview" ref="1068411344"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -159,7 +158,7 @@
 							<object class="IBUILabel" id="201715690">
 								<reference key="NSNextResponder" ref="1068411344"/>
 								<int key="NSvFlags">268</int>
-								<string key="NSFrame">{{30, 288}, {72, 21}}</string>
+								<string key="NSFrame">{{30, 448}, {72, 21}}</string>
 								<reference key="NSSuperview" ref="1068411344"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="378456461"/>
@@ -185,7 +184,7 @@
 								<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 							</object>
 						</array>
-						<string key="NSFrameSize">{320, 320}</string>
+						<string key="NSFrameSize">{320, 480}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="1060694103"/>
@@ -197,11 +196,28 @@
 						<bool key="IBUIAlwaysBounceVertical">YES</bool>
 					</object>
 				</array>
-				<string key="NSFrameSize">{320, 320}</string>
+				<string key="NSFrameSize">{320, 480}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="1068411344"/>
 				<reference key="IBUIBackgroundColor" ref="225136229"/>
+				<object class="IBUIScreenMetrics" key="IBUISimulatedDestinationMetrics">
+					<string key="IBUISimulatedSizeMetricsClass">IBUIScreenMetrics</string>
+					<object class="NSMutableDictionary" key="IBUINormalizedOrientationToSizeMap">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<array key="dict.sortedKeys">
+							<integer value="1"/>
+							<integer value="3"/>
+						</array>
+						<array key="dict.values">
+							<string>{320, 480}</string>
+							<string>{480, 320}</string>
+						</array>
+					</object>
+					<string key="IBUITargetRuntime">IBCocoaTouchFramework</string>
+					<string key="IBUIDisplayName">Retina 3.5 Full Screen</string>
+					<int key="IBUIType">0</int>
+				</object>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
 		</array>
