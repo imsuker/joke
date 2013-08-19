@@ -67,11 +67,11 @@ static UserModel *shareInstance;
     [storage setObject:@{
      @"userId" : info[@"userid"],
      @"token" : info[@"token"],
-     //TODO
-     @"userName" : @"测试"
+     @"userName" : info[@"username"]
      } forKey:key_logined_info];
     [storage synchronize];
     [self initLoginedInfo];
+    [[NSNotificationCenter defaultCenter] postNotificationName:JD_NOTIFICATION_RELOADUSER object:nil];
 }
 -(void)logout{
     NSUserDefaults *storage = [NSUserDefaults standardUserDefaults];
@@ -81,6 +81,8 @@ static UserModel *shareInstance;
     _userName = nil;
     _token = nil;
     [storage synchronize];
+    [[NSNotificationCenter defaultCenter] postNotificationName:JD_NOTIFICATION_RELOADUSER object:nil];
+
 }
 -(void)visitJoke:(NSInteger)visitId{
     if(![_arrayVisitedIds containsObject:@(visitId)]){

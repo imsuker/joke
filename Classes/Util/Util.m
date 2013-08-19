@@ -27,6 +27,10 @@
     frame.size.height = height;
     return frame;
 }
++(CGRect)adjustFrame:(CGRect)frame withWidth:(NSInteger)width{
+    frame.size.width = width;
+    return frame;
+}
 +(void)adjustBackgroundImage:(UIButton *)button{
     [Util adjustBackgroundImage:button control:UIControlStateNormal];
     [Util adjustBackgroundImage:button control:UIControlStateHighlighted];

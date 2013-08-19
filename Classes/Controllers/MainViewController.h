@@ -11,13 +11,15 @@
 #import "LoadingViewController.h"
 #import "LastJokeViewController.h"
 @interface MainViewController : UIViewController{
+    IBOutlet UIButton *_buttonPrev;
+    IBOutlet UIButton *_buttonNext;
+    IBOutlet UIView *_viewJoke;
+    IBOutlet UIView *_viewLoginedRightBar;
+    IBOutlet UIView *_viewNoLoginRightBar;
     NSInteger _visitId;
     JokeViewController *_jokeViewController;
     NSInteger _prev;
     NSInteger _next;
-    IBOutlet UIButton *_buttonPrev;
-    IBOutlet UIButton *_buttonNext;
-    IBOutlet UIView *_viewJoke;
     LoadingViewController *_loadingViewController;
     LastJokeViewController *_lastJokeViewController;
 }

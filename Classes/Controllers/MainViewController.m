@@ -26,7 +26,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-;
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadUser) name:JD_NOTIFICATION_RELOADUSER object:nil];
     }
     return self;
 }
@@ -39,12 +39,7 @@
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"topmenu"] forBarMetrics:UIBarMetricsDefault];
     
     //设置rightbar样式
-    UIImageView *viewRightBar = [[UIImageView alloc] initWithFrame:CGRectMake(0, 7, 30, 30)];
-    viewRightBar.image = [UIImage imageNamed:@"login-icon"];
-    UIBarButtonItem *rightBar = [[UIBarButtonItem alloc] initWithCustomView:viewRightBar];
-    self.navigationItem.rightBarButtonItem = rightBar;
-    UITapGestureRecognizer *tapRightBar = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapLookUser)];
-    [viewRightBar addGestureRecognizer:tapRightBar];
+    [self showRightBar];
     
     
     //设置左侧logo
@@ -57,6 +52,27 @@
     _prev = 0;
     [self showButtonsEnable];
     [self fetchJoke];
+}
+-(void)showRightBar{
+    UIBarButtonItem *rightBar;
+    if([UserModel shareInstance].isLogin){
+        _viewLoginedRightBar.backgroundColor = [UIColor clearColor];
+        UILabel *labelName = (UILabel *)[_viewLoginedRightBar viewWithTag:1];
+        labelName.text = [UserModel shareInstance].userName;
+        [labelName sizeToFit];
+        rightBar = [[UIBarButtonItem alloc] initWithCustomView:_viewLoginedRightBar];
+        _viewLoginedRightBar.frame = [Util adjustFrame:_viewLoginedRightBar.frame withWidth:30 + 10 + labelName.bounds.size.width];
+        [_viewNoLoginRightBar setHidden:YES];
+        [_viewLoginedRightBar setHidden:NO];
+    }else{
+        _viewNoLoginRightBar.backgroundColor = [UIColor clearColor];
+        rightBar = [[UIBarButtonItem alloc] initWithCustomView:_viewNoLoginRightBar];
+        [_viewNoLoginRightBar setHidden:NO];
+        [_viewLoginedRightBar setHidden:YES];
+    }
+    self.navigationItem.rightBarButtonItem = rightBar;
+    UITapGestureRecognizer *tapRightBar = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapLookUser)];
+    [rightBar.customView addGestureRecognizer:tapRightBar];
 }
 //获取joke
 -(void)fetchJoke{
@@ -143,6 +159,10 @@
         VipIntroduceViewController *vip = [[VipIntroduceViewController alloc] initWithNibName:@"VipIntroduceViewController" bundle:nil];
         [self.navigationController pushViewController:vip animated:YES];
     }
+}
+
+-(void)reloadUser{
+    [self showRightBar];
 }
 - (void)didReceiveMemoryWarning
 {

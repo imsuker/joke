@@ -29,8 +29,12 @@
 #define JD_FONT_COLOR_ff0000 [UIColor colorWithRed:1 green:0 blue:0 alpha:1] /*#ff0000*/
 #define JD_FONT_COLOR_a14400 [UIColor colorWithRed:0.631 green:0.267 blue:0 alpha:1] /*#a14400*/
 
+/**
+ *
+ *  notification
+ */
 
-
+#define JD_NOTIFICATION_RELOADUSER @"jd_notification_reloaduer"
 /**
  * 文案
  */

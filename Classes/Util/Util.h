@@ -14,6 +14,7 @@
 +(CGRect)adjustFrame:(CGRect)frame withY:(NSInteger)y;
 +(CGRect)adjustFrame:(CGRect)frame widthX:(NSInteger)x withY:(NSInteger)y;
 +(CGRect)adjustFrame:(CGRect)frame withHeight:(NSInteger)height;
++(CGRect)adjustFrame:(CGRect)frame withWidth:(NSInteger)width;
 //打dealloc的log
 +(void)logDealloc:(id)object;
 //调增button的背景能够自动伸缩
