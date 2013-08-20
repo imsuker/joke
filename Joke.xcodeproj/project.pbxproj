@@ -54,6 +54,7 @@
 		3A92842117B2B4F700E3AD54 /* pageright-onpress@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A92841C17B2B4F700E3AD54 /* pageright-onpress@2x.png */; };
 		3A92842317B2B56400E3AD54 /* page@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A92842217B2B56400E3AD54 /* page@2x.png */; };
 		3A92842517B3EA9F00E3AD54 /* contentbox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A92842417B3EA9F00E3AD54 /* contentbox@2x.png */; };
+		3AD9CE3617C3D3E0002C13AD /* CollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD9CE3517C3D3E0002C13AD /* CollectViewController.m */; };
 		3AEB404217B53B9100637722 /* share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AEB404117B53B9100637722 /* share@2x.png */; };
 		43BBBA0A17A7EC8F005BB170 /* JokeModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 43BBBA0817A7EC8F005BB170 /* JokeModel.xcdatamodeld */; };
 		43BBBA1217A7ED00005BB170 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43BBBA1117A7ED00005BB170 /* CoreData.framework */; };
@@ -199,6 +200,8 @@
 		3A92841C17B2B4F700E3AD54 /* pageright-onpress@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pageright-onpress@2x.png"; sourceTree = "<group>"; };
 		3A92842217B2B56400E3AD54 /* page@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "page@2x.png"; sourceTree = "<group>"; };
 		3A92842417B3EA9F00E3AD54 /* contentbox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "contentbox@2x.png"; sourceTree = "<group>"; };
+		3AD9CE3417C3D3E0002C13AD /* CollectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectViewController.h; sourceTree = "<group>"; };
+		3AD9CE3517C3D3E0002C13AD /* CollectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectViewController.m; sourceTree = "<group>"; };
 		3AEB404117B53B9100637722 /* share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share@2x.png"; sourceTree = "<group>"; };
 		43BBBA0917A7EC8F005BB170 /* JokeModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JokeModel.xcdatamodel; sourceTree = "<group>"; };
 		43BBBA1117A7ED00005BB170 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -720,6 +723,8 @@
 				3A86A1EA17BBCD0100D6CDAA /* LoginViewController.xib */,
 				3A8FA10617C276DF005E320E /* SettingsViewController.h */,
 				3A8FA10717C276E0005E320E /* SettingsViewController.m */,
+				3AD9CE3417C3D3E0002C13AD /* CollectViewController.h */,
+				3AD9CE3517C3D3E0002C13AD /* CollectViewController.m */,
 				3A86A1EF17BBE37A00D6CDAA /* SignUpViewController.h */,
 				3A86A1F017BBE37A00D6CDAA /* SignUpViewController.m */,
 				3A86A1F117BBE37B00D6CDAA /* SignUpViewController.xib */,
@@ -945,6 +950,7 @@
 				3A8FA0FF17BEA4A7005E320E /* PopHintViewController.m in Sources */,
 				3A8FA10817C276E1005E320E /* SettingsViewController.m in Sources */,
 				3A8FA10B17C277F2005E320E /* SettingsModel.m in Sources */,
+				3AD9CE3617C3D3E0002C13AD /* CollectViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

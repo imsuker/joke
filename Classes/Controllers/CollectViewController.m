@@ -1,22 +1,23 @@
 //
-//  SettingsViewController.m
+//  CollectViewController.m
 //  Joke
 //
-//  Created by cao on 13-8-19.
+//  Created by cao on 13-8-21.
 //  Copyright (c) 2013年 iphone. All rights reserved.
 //
 
-#import "SettingsViewController.h"
+#import "CollectViewController.h"
 #import "NavigatorBackBar.h"
 #import "NavigatorTitleLabel.h"
 #import "UserModel.h"
-#import "CollectViewController.h"
+#import "AFNetworking.h"
+#import "PopHintViewController.h"
 
-@interface SettingsViewController ()
+@interface CollectViewController ()
 
 @end
 
-@implementation SettingsViewController
+@implementation CollectViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -51,9 +52,52 @@
     self.navigationItem.titleView = titleLabel;
     [titleLabel sizeToFit];
     
-    _settingModel = [[SettingsModel alloc] init];
+    _collects = [NSMutableArray array];
+    
+    [self loadData];
+    
 }
-
+-(void)loadData{
+    if(!_loadingViewController){
+        _loadingViewController = [[LoadingViewController alloc] initWithNibName:@"LoadingViewController" bundle:nil];
+        [self addChildViewController:_loadingViewController];
+        [self.view addSubview:_loadingViewController.view];
+    }
+    
+    NSString *urlString = [iApi sharedInstance].collects;
+    urlString = [iApi addUrl:urlString key:@"userid" value:[NSString stringWithFormat:@"%d",[UserModel shareInstance].userId]];
+    urlString = [iApi addUrl:urlString key:@"flag" value:@"-1"];
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    NSLog(@"==fetchCollects fetch begin:%@", [url description]);
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        [self stopLoadingViewController];
+        NSInteger code = [JSON[@"code"] integerValue];
+        if(code == 1){
+            //TODO flag
+            [_collects addObjectsFromArray:JSON[@"data"][@"items"]];
+            [self.tableView reloadData];
+        }else{
+            NSString *errmsg = JSON[@"data"][@"errmsg"];
+            PopHintViewController *pop = [[PopHintViewController alloc] initWithText:errmsg?errmsg:@""];
+            [self addChildViewController:pop];
+            [self.view addSubview:pop.view];
+        }
+        NSLog(@"==fetchCollects fetch success:%@", [JSON description]);
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        [self stopLoadingViewController];
+        NSLog(@"===fetchCollects fetch fail:%@", error);
+        PopHintViewController *pop = [[PopHintViewController alloc] initWithText:@""];
+        [self addChildViewController:pop];
+        [self.view addSubview:pop.view];
+    }];
+    [operation start];
+}
+-(void)stopLoadingViewController{
+    [_loadingViewController.view removeFromSuperview];
+    [_loadingViewController removeFromParentViewController];
+    _loadingViewController = nil;
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -65,13 +109,13 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return [_settingModel numberOfSections];
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [_settingModel numberOfRowsInSection:section];
+    return _collects.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -83,8 +127,8 @@
     if(!cell){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    NSString *name = [_settingModel nameOfRow:indexPath.row section:indexPath.section];
-    cell.textLabel.text = name;
+    NSInteger row = [indexPath row];
+    cell.textLabel.text = _collects[row][@"title"];
     return cell;
 }
 
@@ -131,23 +175,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *idItem = [_settingModel idOfRow:indexPath.row section:indexPath.section];
-    if([idItem isEqual:JD_KEY_SETTINGS_Account]){
-    }
-    if([idItem isEqual:JD_KEY_SETTINGS_Collect]){
-        CollectViewController *collect = [[CollectViewController alloc] initWithStyle:UITableViewStyleGrouped];
-        [self.navigationController pushViewController:collect animated:YES];
-    }
-    if([idItem isEqual:JD_KEY_SETTINGS_About]){
-    }
-    if([idItem isEqual:JD_KEY_SETTINGS_feedback]){
-    }
-    if([idItem isEqual:JD_KEY_SETTINGS_support]){
-    }
-    if([idItem isEqual:JD_KEY_SETTINGS_logout]){
-        [[UserModel shareInstance] logout];
-        [self.navigationController popToRootViewControllerAnimated:YES];
-    }
+    // Navigation logic may go here. Create and push another view controller.
+    /*
+     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+     // ...
+     // Pass the selected object to the new view controller.
+     [self.navigationController pushViewController:detailViewController animated:YES];
+     */
 }
 
 @end
