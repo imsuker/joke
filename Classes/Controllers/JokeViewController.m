@@ -53,6 +53,7 @@
         NSLog(@"====AudioViewController prepared!!!");
         [self addChildViewController:audio];
         [_scrollView addSubview:audio.view];
+        audio.view.autoresizingMask = UIViewAutoresizingNone;
     }];
     NSArray *pics = _jokeModel.pics;
     [pics enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
