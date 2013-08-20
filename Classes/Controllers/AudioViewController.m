@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 iphone. All rights reserved.
 //
 
-#define HEIGHT_AUDIO_VIEW 44
+#define HEIGHT_AUDIO_VIEW 50
 
 #import "AudioViewController.h"
 

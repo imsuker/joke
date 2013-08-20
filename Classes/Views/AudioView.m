@@ -7,7 +7,7 @@
 //
 
 #import "AudioView.h"
-
+#define value_voice_margin_top 14
 @implementation AudioView
 
 - (id)initWithFrame:(CGRect)frame
@@ -31,8 +31,8 @@
 */
 
 -(void)initUI{
-    self.frame = CGRectMake(0, 0, 190, 44);
-    _imageVoiceBackground = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 190, 44)];
+    self.frame = CGRectMake(0, 0, 190, 50);
+    _imageVoiceBackground = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 190, 50)];
     [self addSubview:_imageVoiceBackground];
     [self setStatusBackgroundLoading:YES];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
@@ -78,12 +78,12 @@
         [self addSubview:_labelDuration];
         _labelDuration.font = [UIFont systemFontOfSize:14.0];
         _labelDuration.textColor = JD_FONT_COLOR_999;
-        _labelDuration.frame = CGRectMake(self.bounds.size.width + 6, 10, 0, 0);
+        _labelDuration.frame = CGRectMake(self.bounds.size.width + 6, value_voice_margin_top, 0, 0);
     }
     _labelDuration.text = [NSString stringWithFormat:@"%d''",(NSInteger)_player.duration];
     [_labelDuration sizeToFit];
     if(!_imageViewVoice){
-        _imageViewVoice = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 20, 20)];
+        _imageViewVoice = [[UIImageView alloc] initWithFrame:CGRectMake(16, value_voice_margin_top, 20, 20)];
         [self addSubview:_imageViewVoice];
         [self voiceToNomarl];
     }
