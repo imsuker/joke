@@ -11,6 +11,7 @@
 #import "NavigatorTitleLabel.h"
 #import "UserModel.h"
 #import "CollectListViewController.h"
+#import "SettingsLogoutCell.h"
 
 @interface SettingsViewController ()
 
@@ -52,6 +53,8 @@
     [titleLabel sizeToFit];
     
     _settingModel = [[SettingsModel alloc] init];
+    
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 - (void)didReceiveMemoryWarning
@@ -78,15 +81,21 @@
 {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
+    NSString *name = [_settingModel nameOfRow:indexPath.row section:indexPath.section];
+    NSString *idItem = [_settingModel idOfRow:indexPath.row section:indexPath.section];
+
     // Configure the cell...
     if(!cell){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    NSString *name = [_settingModel nameOfRow:indexPath.row section:indexPath.section];
+    if([idItem isEqual:JD_KEY_SETTINGS_logout]){
+        cell = [[SettingsLogoutCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    }
     cell.textLabel.text = name;
+
     return cell;
 }
+
 
 /*
 // Override to support conditional editing of the table view.

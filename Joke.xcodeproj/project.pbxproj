@@ -57,6 +57,9 @@
 		3AD9CE3617C3D3E0002C13AD /* CollectListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD9CE3517C3D3E0002C13AD /* CollectListViewController.m */; };
 		3AD9CE3F17C50E12002C13AD /* CollectJokeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD9CE3D17C50E12002C13AD /* CollectJokeViewController.m */; };
 		3AD9CE4017C50E12002C13AD /* CollectJokeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AD9CE3E17C50E12002C13AD /* CollectJokeViewController.xib */; };
+		3AD9CE4317C51217002C13AD /* logout-onpress@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AD9CE4117C51217002C13AD /* logout-onpress@2x.png */; };
+		3AD9CE4417C51217002C13AD /* logout@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AD9CE4217C51217002C13AD /* logout@2x.png */; };
+		3AD9CE4917C516C6002C13AD /* SettingsLogoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD9CE4817C516C6002C13AD /* SettingsLogoutCell.m */; };
 		3AEB404217B53B9100637722 /* share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AEB404117B53B9100637722 /* share@2x.png */; };
 		43BBBA0A17A7EC8F005BB170 /* JokeModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 43BBBA0817A7EC8F005BB170 /* JokeModel.xcdatamodeld */; };
 		43BBBA1217A7ED00005BB170 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43BBBA1117A7ED00005BB170 /* CoreData.framework */; };
@@ -207,6 +210,10 @@
 		3AD9CE3C17C50E12002C13AD /* CollectJokeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectJokeViewController.h; sourceTree = "<group>"; };
 		3AD9CE3D17C50E12002C13AD /* CollectJokeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectJokeViewController.m; sourceTree = "<group>"; };
 		3AD9CE3E17C50E12002C13AD /* CollectJokeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectJokeViewController.xib; sourceTree = "<group>"; };
+		3AD9CE4117C51217002C13AD /* logout-onpress@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logout-onpress@2x.png"; sourceTree = "<group>"; };
+		3AD9CE4217C51217002C13AD /* logout@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logout@2x.png"; sourceTree = "<group>"; };
+		3AD9CE4717C516C6002C13AD /* SettingsLogoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsLogoutCell.h; sourceTree = "<group>"; };
+		3AD9CE4817C516C6002C13AD /* SettingsLogoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsLogoutCell.m; sourceTree = "<group>"; };
 		3AEB404117B53B9100637722 /* share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share@2x.png"; sourceTree = "<group>"; };
 		43BBBA0917A7EC8F005BB170 /* JokeModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JokeModel.xcdatamodel; sourceTree = "<group>"; };
 		43BBBA1117A7ED00005BB170 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -558,6 +565,8 @@
 			isa = PBXGroup;
 			children = (
 				3A86A1ED17BBCFAE00D6CDAA /* input@2x.png */,
+				3AD9CE4117C51217002C13AD /* logout-onpress@2x.png */,
+				3AD9CE4217C51217002C13AD /* logout@2x.png */,
 				3A86A1F917BBE46500D6CDAA /* vip-big@2x.png */,
 				3A86A1FA17BBE46500D6CDAA /* vip@2x.png */,
 				3A86A1D217B93A7000D6CDAA /* bugbtn-onpress@2x.png */,
@@ -771,6 +780,8 @@
 				3A86A1E317BA7DE700D6CDAA /* NavigatorBackBar.m */,
 				3A86A1E517BA800900D6CDAA /* NavigatorTitleLabel.h */,
 				3A86A1E617BA800900D6CDAA /* NavigatorTitleLabel.m */,
+				3AD9CE4717C516C6002C13AD /* SettingsLogoutCell.h */,
+				3AD9CE4817C516C6002C13AD /* SettingsLogoutCell.m */,
 			);
 			name = Views;
 			path = Classes/Views;
@@ -874,6 +885,8 @@
 				3A86A20A17BD407900D6CDAA /* LastJokeViewController.xib in Resources */,
 				3A8FA10017BEA4A7005E320E /* PopHintViewController.xib in Resources */,
 				3AD9CE4017C50E12002C13AD /* CollectJokeViewController.xib in Resources */,
+				3AD9CE4317C51217002C13AD /* logout-onpress@2x.png in Resources */,
+				3AD9CE4417C51217002C13AD /* logout@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -961,6 +974,7 @@
 				3A8FA10B17C277F2005E320E /* SettingsModel.m in Sources */,
 				3AD9CE3617C3D3E0002C13AD /* CollectListViewController.m in Sources */,
 				3AD9CE3F17C50E12002C13AD /* CollectJokeViewController.m in Sources */,
+				3AD9CE4917C516C6002C13AD /* SettingsLogoutCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
