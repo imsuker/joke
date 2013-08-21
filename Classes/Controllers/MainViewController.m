@@ -34,9 +34,6 @@
 {
     [super viewDidLoad];
     
-    //设置背景样式
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"topmenu"] forBarMetrics:UIBarMetricsDefault];
-    
     //设置rightbar样式
     [self showRightBar];
     

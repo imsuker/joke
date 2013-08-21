@@ -10,7 +10,7 @@
 #import "NavigatorBackBar.h"
 #import "NavigatorTitleLabel.h"
 #import "UserModel.h"
-#import "CollectViewController.h"
+#import "CollectListViewController.h"
 
 @interface SettingsViewController ()
 
@@ -135,7 +135,7 @@
     if([idItem isEqual:JD_KEY_SETTINGS_Account]){
     }
     if([idItem isEqual:JD_KEY_SETTINGS_Collect]){
-        CollectViewController *collect = [[CollectViewController alloc] initWithStyle:UITableViewStyleGrouped];
+        CollectListViewController *collect = [[CollectListViewController alloc] initWithStyle:UITableViewStyleGrouped];
         [self.navigationController pushViewController:collect animated:YES];
     }
     if([idItem isEqual:JD_KEY_SETTINGS_About]){

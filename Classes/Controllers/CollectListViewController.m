@@ -6,18 +6,19 @@
 //  Copyright (c) 2013年 iphone. All rights reserved.
 //
 
-#import "CollectViewController.h"
+#import "CollectListViewController.h"
 #import "NavigatorBackBar.h"
 #import "NavigatorTitleLabel.h"
 #import "UserModel.h"
 #import "AFNetworking.h"
 #import "PopHintViewController.h"
+#import "CollectJokeViewController.h"
 
-@interface CollectViewController ()
+@interface CollectListViewController ()
 
 @end
 
-@implementation CollectViewController
+@implementation CollectListViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -48,7 +49,7 @@
     
     //标题
     NavigatorTitleLabel *titleLabel = [[NavigatorTitleLabel alloc] init];
-    titleLabel.text = @"个人中心";
+    titleLabel.text = @"喜欢";
     self.navigationItem.titleView = titleLabel;
     [titleLabel sizeToFit];
     
@@ -182,6 +183,11 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    NSInteger row = [indexPath row];
+    NSInteger jokeId = [_collects[row][@"id"] integerValue];
+    CollectJokeViewController *joke = [[CollectJokeViewController alloc] initWithNibName:@"CollectJokeViewController" bundle:nil];
+    joke.visitId = jokeId;
+    [self.navigationController pushViewController:joke animated:YES];
 }
 
 @end

@@ -1,5 +1,5 @@
 //
-//  CollectViewController.h
+//  CollectJokeViewController.h
 //  Joke
 //
 //  Created by cao on 13-8-21.
@@ -8,10 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "LoadingViewController.h"
-
-@interface CollectViewController : UITableViewController{
+@interface CollectJokeViewController : UIViewController{
     LoadingViewController *_loadingViewController;
-    NSMutableArray *_collects;
 }
+@property (nonatomic) NSInteger visitId;
 
 @end

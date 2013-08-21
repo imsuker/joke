@@ -20,6 +20,9 @@
     // Override point for customization after application launch.
     MainViewController *main = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
     UINavigationController *mainNavigation = [[UINavigationController alloc] initWithRootViewController:main];
+    //设置背景样式
+    [mainNavigation.navigationBar setBackgroundImage:[UIImage imageNamed:@"topmenu"] forBarMetrics:UIBarMetricsDefault];
+    
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
     [self.window setRootViewController:mainNavigation];
     self.window.backgroundColor = [UIColor whiteColor];
