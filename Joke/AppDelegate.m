@@ -10,10 +10,20 @@
 #import "MainViewController.h"
 #import "UserModel.h"
 
+
 @implementation AppDelegate
 
+-(void)configBaiduMobStat{
+    BaiduMobStat *statTracker = [BaiduMobStat defaultStat];
+    statTracker.enableExceptionLog = YES;
+    statTracker.channelId = nil;
+    statTracker.logStrategy = BaiduMobStatLogStrategyAppLaunch;
+    statTracker.sessionResumeInterval = 60;
+    [statTracker startWithAppId:@"db83dba6c9"];
+}
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [self configBaiduMobStat];
     //http://yannickloriot.com/2012/03/magicalrecord-how-to-make-programming-with-core-data-pleasant/#sthash.Z3WA25jg.NjtiRIKV.dpbs
 //    [MagicalRecord setupCoreDataStackWithStoreNamed:@"Joke.sqlite"];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

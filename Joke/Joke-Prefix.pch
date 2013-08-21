@@ -16,6 +16,7 @@
     #import "iApi.h"
     #import "Util.h"
     #import "defines.h"
+    #import "BaiduMobStat.h"
 #endif
 
 
