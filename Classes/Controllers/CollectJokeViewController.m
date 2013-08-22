@@ -52,17 +52,16 @@
 -(void)fetchJoke{
     if(!_loadingViewController){
         _loadingViewController = [[LoadingViewController alloc] initWithNibName:@"LoadingViewController" bundle:nil];
-        [self addChildViewController:_loadingViewController];
-        [self.view addSubview:_loadingViewController.view];
     }
-
+    [self addChildViewController:_loadingViewController];
+    [self.view addSubview:_loadingViewController.view];
     NSString *urlString = [iApi sharedInstance].content;
     urlString = [iApi addUrl:urlString key:@"id" value:[NSString stringWithFormat:@"%d",_visitId]];
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     NSLog(@"==fetchJoke fetch begin:%@", [url description]);
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        [LoadingViewController Stop:_loadingViewController];
+        [LoadingViewController stop:_loadingViewController];
         NSLog(@"==fetchJoke fetch success:%@", [JSON description]);
         JokeModel *jokeModel = [[JokeModel alloc] initWithDictionary:JSON[@"data"]];
         jokeModel.jokeId = _visitId;
@@ -70,7 +69,7 @@
         [[UserModel shareInstance] visitJoke:_visitId];
         [self showJoke:jokeModel];
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        [LoadingViewController Stop:_loadingViewController];
+        [LoadingViewController stop:_loadingViewController];
         NSLog(@"===fetchJoke fetch fail:%@", error);
     }];
     [operation start];

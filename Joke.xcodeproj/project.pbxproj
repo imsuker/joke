@@ -77,6 +77,8 @@
 		3AD9CE7817C51E99002C13AD /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AD9CE7717C51E99002C13AD /* libz.1.2.5.dylib */; };
 		3AD9CE7A17C51EA8002C13AD /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AD9CE7917C51EA8002C13AD /* libstdc++.dylib */; };
 		3AD9CE7C17C51EB8002C13AD /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AD9CE7B17C51EB8002C13AD /* CoreTelephony.framework */; };
+		3AD9CE8017C66C1E002C13AD /* PullRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD9CE7F17C66C1E002C13AD /* PullRefreshTableViewController.m */; };
+		3AD9CE8217C66E6B002C13AD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AD9CE8117C66E6A002C13AD /* QuartzCore.framework */; };
 		3AEB404217B53B9100637722 /* share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AEB404117B53B9100637722 /* share@2x.png */; };
 		43BBBA0A17A7EC8F005BB170 /* JokeModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 43BBBA0817A7EC8F005BB170 /* JokeModel.xcdatamodeld */; };
 		43BBBA1217A7ED00005BB170 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43BBBA1117A7ED00005BB170 /* CoreData.framework */; };
@@ -260,6 +262,9 @@
 		3AD9CE7717C51E99002C13AD /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		3AD9CE7917C51EA8002C13AD /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
 		3AD9CE7B17C51EB8002C13AD /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		3AD9CE7E17C66C1E002C13AD /* PullRefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullRefreshTableViewController.h; sourceTree = "<group>"; };
+		3AD9CE7F17C66C1E002C13AD /* PullRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullRefreshTableViewController.m; sourceTree = "<group>"; };
+		3AD9CE8117C66E6A002C13AD /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3AEB404117B53B9100637722 /* share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share@2x.png"; sourceTree = "<group>"; };
 		43BBBA0917A7EC8F005BB170 /* JokeModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JokeModel.xcdatamodel; sourceTree = "<group>"; };
 		43BBBA1117A7ED00005BB170 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -417,6 +422,7 @@
 			files = (
 				3AD9CE7C17C51EB8002C13AD /* CoreTelephony.framework in Frameworks */,
 				3AD9CE7A17C51EA8002C13AD /* libstdc++.dylib in Frameworks */,
+				3AD9CE8217C66E6B002C13AD /* QuartzCore.framework in Frameworks */,
 				3AD9CE7817C51E99002C13AD /* libz.1.2.5.dylib in Frameworks */,
 				3AD9CE7617C51E82002C13AD /* SystemConfiguration.framework in Frameworks */,
 				3AD9CE7417C51E75002C13AD /* CoreLocation.framework in Frameworks */,
@@ -505,6 +511,15 @@
 				3AD9CE6517C51E38002C13AD /* JSONRepresentation.h */,
 			);
 			path = JSON;
+			sourceTree = "<group>";
+		};
+		3AD9CE7D17C66C1E002C13AD /* PullRefreshTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3AD9CE7E17C66C1E002C13AD /* PullRefreshTableViewController.h */,
+				3AD9CE7F17C66C1E002C13AD /* PullRefreshTableViewController.m */,
+			);
+			path = PullRefreshTableViewController;
 			sourceTree = "<group>";
 		};
 		43BBBA0717A7EC6A005BB170 /* CoreData */ = {
@@ -737,6 +752,7 @@
 		43F3C20A178EB7F7002E0633 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3AD9CE8117C66E6A002C13AD /* QuartzCore.framework */,
 				3AD9CE7B17C51EB8002C13AD /* CoreTelephony.framework */,
 				3AD9CE7917C51EA8002C13AD /* libstdc++.dylib */,
 				3AD9CE7717C51E99002C13AD /* libz.1.2.5.dylib */,
@@ -795,6 +811,7 @@
 		43F3C229178EDC93002E0633 /* SDK */ = {
 			isa = PBXGroup;
 			children = (
+				3AD9CE7D17C66C1E002C13AD /* PullRefreshTableViewController */,
 				3AD9CE4A17C51E38002C13AD /* BaiduMobStat */,
 				3AD9CE4D17C51E38002C13AD /* TouchJSON */,
 				43E67C5A17AA97D400953E17 /* SDWebImage */,
@@ -1107,6 +1124,7 @@
 				3AD9CE6E17C51E38002C13AD /* CJSONDeserializer.m in Sources */,
 				3AD9CE6F17C51E38002C13AD /* CJSONScanner.m in Sources */,
 				3AD9CE7017C51E38002C13AD /* CJSONSerializer.m in Sources */,
+				3AD9CE8017C66C1E002C13AD /* PullRefreshTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

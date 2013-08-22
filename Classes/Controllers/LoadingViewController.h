@@ -10,6 +10,6 @@
 @interface LoadingViewController : UIViewController{
     IBOutlet UIView *_blackView;
 }
-+(void)Stop:(LoadingViewController *)loadingViewController;
++(void)stop:(LoadingViewController *)loadingViewController;
 
 @end

@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "LoadingViewController.h"
-
-@interface CollectListViewController : UITableViewController{
+#import "PullRefreshTableViewController.h"
+@interface CollectListViewController : PullRefreshTableViewController{
     LoadingViewController *_loadingViewController;
     NSMutableArray *_collects;
+    NSInteger _flag;
 }
 
 @end

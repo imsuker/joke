@@ -63,7 +63,9 @@
         //TODO  showerror 
         return;
     }
-    _loadingViewController = [[LoadingViewController alloc] initWithNibName:@"LoadingViewControler" bundle:nil];
+    if(!_loadingViewController){
+        _loadingViewController = [[LoadingViewController alloc] initWithNibName:@"LoadingViewController" bundle:nil];
+    }
     [self addChildViewController:_loadingViewController];
     [self.view addSubview:_loadingViewController.view];
     
@@ -78,7 +80,7 @@
     [client postPath:@"/" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"login reqeust finish, result = %@", [responseObject description]);
         NSInteger code = [responseObject[@"code"] integerValue];
-        [LoadingViewController Stop:_loadingViewController];
+        [LoadingViewController stop:_loadingViewController];
         if(code == 1){
             [[UserModel shareInstance] login:responseObject[@"data"]];  
             NSLog(@"login success");
@@ -91,7 +93,7 @@
             [self.view addSubview:popError.view];        }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"login fail");
-        [LoadingViewController Stop:_loadingViewController];
+        [LoadingViewController stop:_loadingViewController];
         //TODO
     }];
 }

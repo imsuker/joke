@@ -32,6 +32,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    _flag = -1; 
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -61,22 +63,31 @@
 -(void)loadData{
     if(!_loadingViewController){
         _loadingViewController = [[LoadingViewController alloc] initWithNibName:@"LoadingViewController" bundle:nil];
-        [self addChildViewController:_loadingViewController];
-        [self.view addSubview:_loadingViewController.view];
     }
+    [self addChildViewController:_loadingViewController];
+    [self.view addSubview:_loadingViewController.view];
     
+    [self fetchData];
+}
+-(void)fetchData{
     NSString *urlString = [iApi sharedInstance].collects;
     urlString = [iApi addUrl:urlString key:@"userid" value:[NSString stringWithFormat:@"%d",[UserModel shareInstance].userId]];
-    urlString = [iApi addUrl:urlString key:@"flag" value:@"-1"];
+    urlString = [iApi addUrl:urlString key:@"flag" value:[NSString stringWithFormat:@"%d", _flag]];
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     NSLog(@"==fetchCollects fetch begin:%@", [url description]);
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        [LoadingViewController Stop:_loadingViewController];
+        [LoadingViewController stop:_loadingViewController];
         NSInteger code = [JSON[@"code"] integerValue];
+        [self stopLoading];
         if(code == 1){
             //TODO flag
             [_collects addObjectsFromArray:JSON[@"data"][@"items"]];
+            if(JSON[@"data"][@"flag"]){
+                _flag = [JSON[@"data"][@"flag"] integerValue];
+            }else{
+                self.hasMore = NO;
+            }
             [self.tableView reloadData];
         }else{
             NSString *errmsg = JSON[@"data"][@"errmsg"];
@@ -86,7 +97,8 @@
         }
         NSLog(@"==fetchCollects fetch success:%@", [JSON description]);
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        [LoadingViewController Stop:_loadingViewController];
+        [self stopLoading];
+        [LoadingViewController stop:_loadingViewController];
         NSLog(@"===fetchCollects fetch fail:%@", error);
         PopHintViewController *pop = [[PopHintViewController alloc] initWithText:@""];
         [self addChildViewController:pop];
@@ -94,7 +106,6 @@
     }];
     [operation start];
 }
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -184,6 +195,10 @@
     CollectJokeViewController *joke = [[CollectJokeViewController alloc] initWithNibName:@"CollectJokeViewController" bundle:nil];
     joke.visitId = jokeId;
     [self.navigationController pushViewController:joke animated:YES];
+}
+
+-(void)refresh{
+    [self fetchData];
 }
 
 @end
