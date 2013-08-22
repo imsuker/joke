@@ -173,6 +173,38 @@ static UserModel *shareInstance;
         NSLog(@"collect post fail");
         //TODO
     }];
+    
+    
+}
+-(void)unlike:(NSInteger)visitId{
+    [_arrayLikedIds removeObject:[NSString stringWithFormat:@"%d", visitId]];
+    NSUserDefaults *storage = [NSUserDefaults standardUserDefaults];
+    [storage setObject:_arrayLikedIds forKey:key_array_liked_ids];
+    [storage synchronize];
+    
+    //往服务器添加
+    AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[iApi sharedInstance].baseUrl];
+    [client registerHTTPOperationClass:[AFJSONRequestOperation class]];
+    [client setDefaultHeader:@"Accept" value:@"application/json"];
+    NSDictionary *params = @{
+                             @"api" : @"uncollect",
+                             @"userid" : @(_userId),
+                             @"token" : _token,
+                             @"id" : @(visitId)
+                             };
+    [client postPath:@"/" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSInteger code = [responseObject[@"code"] integerValue];
+        if(code == 1){
+            //TODO
+            NSLog(@"collect post success:%d", visitId);
+        }else{
+            NSLog(@"collect post fail");
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"collect post fail");
+        //TODO
+    }];
 }
 -(BOOL)isLike:(NSInteger)visitId{
     BOOL bLike = NO;

@@ -29,7 +29,15 @@
     }
     return self;
 }
-
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    if(_isFromLogin){
+        _isFromLogin = NO;
+        if(_lastJokeViewController){
+            [self tapButtonNext:nil];
+        }
+    }
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -121,7 +129,9 @@
     [_buttonNext setEnabled:_next?YES:NO];
 }
 -(IBAction)tapButtonPrev:(id)sender{
-    _visitId = _prev;
+    if(!_lastJokeViewController){  // 如果当前非笑话内容，则上一条依然显示当前内容
+        _visitId = _prev;
+    }
     if(_visitId){
         [self fetchJoke];
     }

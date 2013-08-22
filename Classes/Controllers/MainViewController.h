@@ -24,4 +24,6 @@
     LastJokeViewController *_lastJokeViewController;
 }
 
+
+@property (nonatomic) BOOL isFromLogin;  //如果刚登陆完切回来，则继续下一条
 @end

@@ -163,6 +163,8 @@
             [[UserModel shareInstance] like:_jokeModel.jokeId];
             [_buttonLike setTitle:[NSString stringWithFormat:@"%d", ++_jokeModel.collect] forState:UIControlStateNormal];
             [_buttonLike setEnabled:NO];
+        }else{
+            
         }
     }else{
         PopHintViewController *pop = [[PopHintViewController alloc] initWithPopStyle:PopStyleNotVip];
@@ -170,6 +172,7 @@
         [self.view addSubview:pop.view];
     }
 }
+
 
 - (void)didReceiveMemoryWarning
 {

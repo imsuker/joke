@@ -12,6 +12,7 @@
 #import "AFNetworking.h"
 #import "PopHintViewController.h"
 #import "UserModel.h"
+#import "MainViewController.h"
 
 @interface LoginViewController ()
 
@@ -84,6 +85,8 @@
         if(code == 1){
             [[UserModel shareInstance] login:responseObject[@"data"]];  
             NSLog(@"login success");
+            MainViewController *main = (MainViewController *)self.navigationController.viewControllers[0];
+            main.isFromLogin = YES;
             [self.navigationController popToRootViewControllerAnimated:YES];
         }else{
             NSString *errmsg = responseObject[@"data"][@"errmsg"];
