@@ -65,6 +65,11 @@
         //TODO pop
         return;
     }
+    _loadingViewController = [[LoadingViewController alloc] initWithNibName:@"LoadingViewController" bundle:nil];
+    [self addChildViewController:_loadingViewController];
+    [self.view addSubview:_loadingViewController.view];
+    
+    
     AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[iApi sharedInstance].baseUrl];
     [client registerHTTPOperationClass:[AFJSONRequestOperation class]];
     [client setDefaultHeader:@"Accept" value:@"application/json"];
@@ -77,6 +82,7 @@
     [client postPath:@"/" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"sign up reqeust finish, result = %@", [responseObject description]);
         NSInteger code = [responseObject[@"code"] integerValue];
+        [LoadingViewController Stop:_loadingViewController];
         if(code == 1){
             [[UserModel shareInstance] login:responseObject[@"data"]];
             NSLog(@"sign up success");
@@ -90,11 +96,13 @@
             [self.view addSubview:popError.view];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [LoadingViewController Stop:_loadingViewController];
         NSLog(@"sign up fail");
         //TODO
     }];
 
 }
+
 
 -(IBAction)handleTapResignKeyBoard:(id)sender{
     [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];

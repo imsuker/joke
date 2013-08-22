@@ -72,7 +72,7 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     NSLog(@"==fetchCollects fetch begin:%@", [url description]);
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        [self stopLoadingViewController];
+        [LoadingViewController Stop:_loadingViewController];
         NSInteger code = [JSON[@"code"] integerValue];
         if(code == 1){
             //TODO flag
@@ -86,7 +86,7 @@
         }
         NSLog(@"==fetchCollects fetch success:%@", [JSON description]);
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        [self stopLoadingViewController];
+        [LoadingViewController Stop:_loadingViewController];
         NSLog(@"===fetchCollects fetch fail:%@", error);
         PopHintViewController *pop = [[PopHintViewController alloc] initWithText:@""];
         [self addChildViewController:pop];
@@ -94,11 +94,7 @@
     }];
     [operation start];
 }
--(void)stopLoadingViewController{
-    [_loadingViewController.view removeFromSuperview];
-    [_loadingViewController removeFromParentViewController];
-    _loadingViewController = nil;
-}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

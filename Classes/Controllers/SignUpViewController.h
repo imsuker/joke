@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LoadingViewController.h"
 
 @interface SignUpViewController : UIViewController{
     IBOutlet UITextField *_textFieldUserName;
     IBOutlet UITextField *_textFieldPassword;
     IBOutlet UITextField *_textFieldEmail;
     IBOutlet UIButton *_buttonSubmit;
+    LoadingViewController *_loadingViewController;
 }
 
 @end

@@ -30,7 +30,10 @@
     _blackView.layer.cornerRadius = 10;
     _blackView.layer.masksToBounds = YES;
 }
-
++(void)Stop:(LoadingViewController *)loadingViewController{
+    [loadingViewController.view removeFromSuperview];
+    [loadingViewController removeFromParentViewController];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
