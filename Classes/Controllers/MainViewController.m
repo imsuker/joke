@@ -13,6 +13,7 @@
 #import "UserModel.h"
 #import "VipIntroduceViewController.h"
 #import "SettingsViewController.h"
+#import <ShareSDK/ShareSDK.h>
 
 @interface MainViewController ()
 
@@ -162,6 +163,48 @@
     }
 }
 
+-(IBAction)handleTapShare:(id)sender{
+    [ShareSDK waitAppSettingComplete:^{
+        NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"ShareSDK"
+                                                              ofType:@"jpg"];
+        
+        //构造分享内容
+        id<ISSContent> publishContent = [ShareSDK content:@"分享内容"
+                                           defaultContent:@"默认分享内容，没内容时显示"
+                                                    image:[ShareSDK imageWithPath:imagePath]
+                                                    title:@"ShareSDK"
+                                                      url:@"http://www.sharesdk.cn"
+                                              description:@"这是一条测试信息"
+                                                mediaType:SSPublishContentMediaTypeNews];
+        id<ISSShareOptions> shareOptions = [ShareSDK defaultShareOptionsWithTitle:@"内容分享"
+                                                                  oneKeyShareList:nil
+                                                                   qqButtonHidden:YES
+                                                            wxSessionButtonHidden:YES
+                                                           wxTimelineButtonHidden:YES
+                                                             showKeyboardOnAppear:NO
+                                                                shareViewDelegate:nil
+                                                              friendsViewDelegate:nil
+                                                            picViewerViewDelegate:nil];
+        [shareOptions setCameraButtonHidden:YES];
+        [shareOptions setTopicButtonHidden:YES];
+        [ShareSDK showShareActionSheet:nil
+                             shareList:[ShareSDK getShareListWithType:ShareTypeQQ, ShareTypeSinaWeibo, ShareTypeWeixiSession, ShareTypeWeixiTimeline, nil]
+                               content:publishContent
+                         statusBarTips:YES
+                           authOptions:nil
+                          shareOptions: shareOptions
+                                result:^(ShareType type, SSPublishContentState state, id<ISSStatusInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
+                                    if (state == SSPublishContentStateSuccess)
+                                    {
+                                        NSLog(@"分享成功");
+                                    }
+                                    else if (state == SSPublishContentStateFail)
+                                    {
+                                        NSLog(@"分享失败,错误码:%d,错误描述:%@", [error errorCode], [error errorDescription]);
+                                    }
+                                }];
+    }];
+}
 -(void)reloadUser{
     [self showRightBar];
 }

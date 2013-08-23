@@ -9,6 +9,10 @@
 #import "AppDelegate.h"
 #import "MainViewController.h"
 #import "UserModel.h"
+#import <ShareSDK/ShareSDK.h>
+#import "WXApi.h"
+#import <TencentOpenAPI/QQApiInterface.h>
+#import <TencentOpenAPI/TencentOAuth.h>
 
 
 @implementation AppDelegate
@@ -21,8 +25,25 @@
     statTracker.sessionResumeInterval = 60;
     [statTracker startWithAppId:@"db83dba6c9"];
 }
+- (void)initializePlatForTrusteeship
+{
+    //导入QQ互联和QQ好友分享需要的外部库类型，如果不需要QQ空间SSO和QQ好友分享可以不调用此方法
+    [ShareSDK importQQClass:[QQApiInterface class]
+            tencentOAuthCls:[TencentOAuth class]];
+    
+    //导入腾讯微博需要的外部库类型，如果不需要腾讯微博SSO可以不调用此方法
+//    [ShareSDK importTencentWeiboClass:[WBApi class]];
+    
+    //导入微信需要的外部库类型，如果不需要微信分享可以不调用此方法
+    [ShareSDK importWeChatClass:[WXApi class]];
+    
+    
+    
+}
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [ShareSDK registerApp:@"api20" useAppTrusteeship:YES];
+    [self initializePlatForTrusteeship];
     [self configBaiduMobStat];
     //http://yannickloriot.com/2012/03/magicalrecord-how-to-make-programming-with-core-data-pleasant/#sthash.Z3WA25jg.NjtiRIKV.dpbs
 //    [MagicalRecord setupCoreDataStackWithStoreNamed:@"Joke.sqlite"];
@@ -69,5 +90,21 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     [[UserModel shareInstance] save];
 }
+- (BOOL)application:(UIApplication *)application
+      handleOpenURL:(NSURL *)url
+{
+    return [ShareSDK handleOpenURL:url
+                        wxDelegate:self];
+}
 
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation
+{
+    return [ShareSDK handleOpenURL:url
+                 sourceApplication:sourceApplication
+                        annotation:annotation
+                        wxDelegate:self];
+}
 @end
