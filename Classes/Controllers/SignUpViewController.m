@@ -89,9 +89,9 @@
             SignUpSuccessViewController *success = [[SignUpSuccessViewController alloc] initWithNibName:@"SignUpSuccessViewController" bundle:nil];
             [self.navigationController pushViewController:success animated:YES];
         }else{
-            NSString *errmsg = responseObject[@"data"][@"errmsg"];
-            NSLog(@"error sign up:%@", errmsg);
-            PopHintViewController *popError = [[PopHintViewController alloc] initWithText:errmsg?errmsg:@""];
+            NSString *error = responseObject[@"error"];
+            NSLog(@"error sign up:%@", error);
+            PopHintViewController *popError = [[PopHintViewController alloc] initWithText:error];
             [self addChildViewController:popError];
             [self.view addSubview:popError.view];
         }

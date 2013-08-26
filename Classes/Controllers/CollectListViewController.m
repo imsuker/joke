@@ -90,8 +90,9 @@
             }
             [self.tableView reloadData];
         }else{
-            NSString *errmsg = JSON[@"data"][@"errmsg"];
-            PopHintViewController *pop = [[PopHintViewController alloc] initWithText:errmsg?errmsg:@""];
+            NSString *error = JSON[@"error"];
+            error = nil;
+            PopHintViewController *pop = [[PopHintViewController alloc] initWithText:error];
             [self addChildViewController:pop];
             [self.view addSubview:pop.view];
         }

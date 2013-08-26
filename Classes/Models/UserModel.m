@@ -145,10 +145,13 @@ static UserModel *shareInstance;
 }
 -(void)like:(NSInteger)visitId{
     //本地添加
-    [_arrayLikedIds addObject:[NSString stringWithFormat:@"%d", visitId]];
-    NSUserDefaults *storage = [NSUserDefaults standardUserDefaults];
-    [storage setObject:_arrayLikedIds forKey:key_array_liked_ids];
-    [storage synchronize];
+    if(![_arrayLikedIds containsObject:[NSString stringWithFormat:@"%d", visitId]]){
+        [_arrayLikedIds addObject:[NSString stringWithFormat:@"%d", visitId]];
+        NSUserDefaults *storage = [NSUserDefaults standardUserDefaults];
+        [storage setObject:_arrayLikedIds forKey:key_array_liked_ids];
+        [storage synchronize];
+    }
+
     
     //往服务器添加
     AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[iApi sharedInstance].baseUrl];

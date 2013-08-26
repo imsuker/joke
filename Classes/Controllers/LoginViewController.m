@@ -89,9 +89,10 @@
             main.isFromLogin = YES;
             [self.navigationController popToRootViewControllerAnimated:YES];
         }else{
-            NSString *errmsg = responseObject[@"data"][@"errmsg"];
-            NSLog(@"error login:%@", errmsg);
-            PopHintViewController *popError = [[PopHintViewController alloc] initWithText:errmsg?errmsg:@""];
+            NSString *error = responseObject[@"error"];
+            NSLog(@"error login:%@", error);
+            error = nil;
+            PopHintViewController *popError = [[PopHintViewController alloc] initWithText:error];
             [self addChildViewController:popError];
             [self.view addSubview:popError.view];        }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
