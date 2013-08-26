@@ -104,8 +104,8 @@
     
     NSInteger countLike = _jokeModel.collect?_jokeModel.collect:0;
     if([[UserModel shareInstance] isLike:_jokeModel.jokeId]){
-        countLike ++;
-        [_buttonLike setEnabled:NO];
+//        countLike ++;
+        [_buttonLike setSelected:YES];
     }
     _buttonLike.hidden = NO;
     NSString *textLike = [NSString stringWithFormat:@"%d", countLike];
@@ -162,9 +162,11 @@
         if(![[UserModel shareInstance] isLike:_jokeModel.jokeId]){
             [[UserModel shareInstance] like:_jokeModel.jokeId];
             [_buttonLike setTitle:[NSString stringWithFormat:@"%d", ++_jokeModel.collect] forState:UIControlStateNormal];
-            [_buttonLike setEnabled:NO];
+            [_buttonLike setSelected:YES];
         }else{
-            
+            [[UserModel shareInstance] unlike:_jokeModel.jokeId];
+            [_buttonLike setTitle:[NSString stringWithFormat:@"%d", --_jokeModel.collect] forState:UIControlStateNormal];
+            [_buttonLike setSelected:NO];
         }
     }else{
         PopHintViewController *pop = [[PopHintViewController alloc] initWithPopStyle:PopStyleNotVip];
