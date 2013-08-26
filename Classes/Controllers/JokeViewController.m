@@ -71,6 +71,9 @@
             imageView.tag = 100;
             imageView.accessibilityLanguage = [NSString stringWithFormat:@"%d", idx];
         }
+        if(idx == 0){
+            _urlPic = obj[@"pic"];
+        }
     }];
 //    _yFree += 8;
     

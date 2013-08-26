@@ -40,9 +40,32 @@
     
     
 }
+- (void)initializePlat
+{
+    //添加新浪微博应用
+    [ShareSDK connectSinaWeiboWithAppKey:@"2751833878"
+                               appSecret:@"83caed51473c4c1c574ea8c93a1715ba"
+                             redirectUri:@"http://yuyinxiaohua.com"];
+    
+//    //添加腾讯微博应用
+//    [ShareSDK connectTencentWeiboWithAppKey:@"801307650"
+//                                  appSecret:@"ae36f4ee3946e1cbb98d6965b0b2ff5c"
+//                                redirectUri:@"http://www.sharesdk.cn"];
+    
+    //添加QQ空间应用
+    [ShareSDK connectQZoneWithAppKey:@"100489494"
+                           appSecret:@"0b6c77c945334e85ec399061815fcaae"];
+    //添加微信应用
+    [ShareSDK connectWeChatWithAppId:@"wxe26f90bc9a0ffe07"
+                           wechatCls:[WXApi class]];
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [ShareSDK registerApp:@"api20" useAppTrusteeship:YES];
+    [ShareSDK registerApp:@"7c634688270"];
+    [self initializePlat];
+    
+    //    [ShareSDK registerApp:@"api20" useAppTrusteeship:YES];
     [self initializePlatForTrusteeship];
     [self configBaiduMobStat];
     //http://yannickloriot.com/2012/03/magicalrecord-how-to-make-programming-with-core-data-pleasant/#sthash.Z3WA25jg.NjtiRIKV.dpbs

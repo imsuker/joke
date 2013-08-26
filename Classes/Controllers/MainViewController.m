@@ -165,18 +165,23 @@
 
 -(IBAction)handleTapShare:(id)sender{
     [ShareSDK waitAppSettingComplete:^{
-        NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"ShareSDK"
-                                                              ofType:@"jpg"];
-        
+//        NSString *contentWeibo = [NSString stringWithFormat:@"我在【语音笑话网】听的这个笑话《%@》很搞笑，你也来听听吧 （分享自 @语音笑话网） http://www.yuyinxiaohua.com/archives/%d",_jokeViewController.jokeModel.title,_visitId];
+        NSString *url = [NSString stringWithFormat:@"http://www.yuyinxiaohua.com/archives/%d", _visitId];
+        NSString *contentQQ = [NSString stringWithFormat:@"我在【语音笑话网】听的这个笑话《%@》很搞笑，你也来听听吧 %@",_jokeViewController.jokeModel.title, url];
+        NSString *urlPic = _jokeViewController.urlPic;
+        if(urlPic == nil) {
+            urlPic = @"";
+        }
         //构造分享内容
-        id<ISSContent> publishContent = [ShareSDK content:@"分享内容"
-                                           defaultContent:@"默认分享内容，没内容时显示"
-                                                    image:[ShareSDK imageWithPath:imagePath]
-                                                    title:@"ShareSDK"
-                                                      url:@"http://www.sharesdk.cn"
-                                              description:@"这是一条测试信息"
+        id<ISSContent> publishContent = [ShareSDK content:contentQQ
+                                           defaultContent:@"语音笑话网"
+//                                                    image:[ShareSDK imageWithUrl:urlPic]
+                                                    image:nil
+                                                    title:@"语音笑话网"
+                                                      url:url
+                                              description:@"最用心讲笑话的语音笑话网站，真人语音讲笑话、语音笑话大全"
                                                 mediaType:SSPublishContentMediaTypeNews];
-        id<ISSShareOptions> shareOptions = [ShareSDK defaultShareOptionsWithTitle:@"内容分享"
+        id<ISSShareOptions> shareOptions = [ShareSDK defaultShareOptionsWithTitle:@"分享到"
                                                                   oneKeyShareList:nil
                                                                    qqButtonHidden:YES
                                                             wxSessionButtonHidden:YES
@@ -188,7 +193,7 @@
         [shareOptions setCameraButtonHidden:YES];
         [shareOptions setTopicButtonHidden:YES];
         [ShareSDK showShareActionSheet:nil
-                             shareList:[ShareSDK getShareListWithType:ShareTypeQQ, ShareTypeSinaWeibo, ShareTypeWeixiSession, ShareTypeWeixiTimeline, nil]
+                             shareList:[ShareSDK getShareListWithType:ShareTypeQQSpace, ShareTypeSinaWeibo, ShareTypeWeixiSession, ShareTypeWeixiTimeline, nil]
                                content:publishContent
                          statusBarTips:YES
                            authOptions:nil

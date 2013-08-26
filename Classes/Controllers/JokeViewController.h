@@ -18,4 +18,6 @@
     IBOutlet UIImageView *_imageViewScrollViewBackground;
 }
 @property (nonatomic) JokeModel *jokeModel;
+
+@property (nonatomic) NSString *urlPic;  //记录第一张图，用于分享
 @end
