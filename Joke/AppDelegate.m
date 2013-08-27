@@ -13,6 +13,7 @@
 #import "WXApi.h"
 #import <TencentOpenAPI/QQApiInterface.h>
 #import <TencentOpenAPI/TencentOAuth.h>
+#import <QQConnection/QQConnection.h>
 
 
 @implementation AppDelegate

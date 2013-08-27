@@ -13,6 +13,7 @@
 		3A667BFE17B7E772007E04F7 /* img-error@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A667BFC17B7E772007E04F7 /* img-error@2x.png */; };
 		3A667BFF17B7E772007E04F7 /* img-loading@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A667BFD17B7E772007E04F7 /* img-loading@2x.png */; };
 		3A667C0217B7E9E1007E04F7 /* UIImageView+Joke.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A667C0117B7E9E1007E04F7 /* UIImageView+Joke.m */; };
+		3A7CEB1117CD0CFA0062274A /* QQConnection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A7CEB1017CD0CFA0062274A /* QQConnection.framework */; };
 		3A86A1D017B93A5D00D6CDAA /* VipIntroduceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A86A1CE17B93A5D00D6CDAA /* VipIntroduceViewController.m */; };
 		3A86A1D117B93A5D00D6CDAA /* VipIntroduceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A86A1CF17B93A5D00D6CDAA /* VipIntroduceViewController.xib */; };
 		3A86A1D617B93A7000D6CDAA /* bugbtn-onpress@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A86A1D217B93A7000D6CDAA /* bugbtn-onpress@2x.png */; };
@@ -189,6 +190,7 @@
 		3A667BFD17B7E772007E04F7 /* img-loading@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img-loading@2x.png"; sourceTree = "<group>"; };
 		3A667C0017B7E9E0007E04F7 /* UIImageView+Joke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImageView+Joke.h"; path = "Classes/Util/UIImageView+Joke.h"; sourceTree = "<group>"; };
 		3A667C0117B7E9E1007E04F7 /* UIImageView+Joke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+Joke.m"; path = "Classes/Util/UIImageView+Joke.m"; sourceTree = "<group>"; };
+		3A7CEB1017CD0CFA0062274A /* QQConnection.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QQConnection.framework; sourceTree = "<group>"; };
 		3A86A1CD17B93A5D00D6CDAA /* VipIntroduceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VipIntroduceViewController.h; sourceTree = "<group>"; };
 		3A86A1CE17B93A5D00D6CDAA /* VipIntroduceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VipIntroduceViewController.m; sourceTree = "<group>"; };
 		3A86A1CF17B93A5D00D6CDAA /* VipIntroduceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VipIntroduceViewController.xib; sourceTree = "<group>"; };
@@ -484,6 +486,7 @@
 				3AD9CEA917C7BD6A002C13AD /* AGCommon.framework in Frameworks */,
 				3AD9CEAB17C7BD6A002C13AD /* ShareSDKCoreService.framework in Frameworks */,
 				3AD9CEB117C7C0C2002C13AD /* ShareSDKiPhoneDefaultShareViewUI.framework in Frameworks */,
+				3A7CEB1117CD0CFA0062274A /* QQConnection.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -586,6 +589,7 @@
 		3AD9CE8417C7B1A4002C13AD /* Connection */ = {
 			isa = PBXGroup;
 			children = (
+				3A7CEB1017CD0CFA0062274A /* QQConnection.framework */,
 				3AD9CE8517C7B1A4002C13AD /* QZoneConnection.framework */,
 				3AD9CE8617C7B1A4002C13AD /* SinaWeiboConnection.framework */,
 				3AD9CE8717C7B1A4002C13AD /* WeChatConnection.framework */,
