@@ -38,7 +38,6 @@
     [ShareSDK importWeChatClass:[WXApi class]];
     
     
-    
 }
 - (void)initializePlat
 {
@@ -62,10 +61,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [ShareSDK registerApp:@"7c634688270"];
-    [self initializePlat];
+//    [ShareSDK registerApp:@"7c634688270"];
+//    [self initializePlat];
     
-    //    [ShareSDK registerApp:@"api20" useAppTrusteeship:YES];
+    [ShareSDK registerApp:@"7c634688270" useAppTrusteeship:YES];
     [self initializePlatForTrusteeship];
     [self configBaiduMobStat];
     //http://yannickloriot.com/2012/03/magicalrecord-how-to-make-programming-with-core-data-pleasant/#sthash.Z3WA25jg.NjtiRIKV.dpbs
