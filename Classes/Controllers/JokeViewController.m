@@ -73,6 +73,7 @@
         }
         if(idx == 0){
             _urlPic = obj[@"pic"];
+            _imageViewPic = imageView;
         }
     }];
 //    _yFree += 8;

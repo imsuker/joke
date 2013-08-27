@@ -19,5 +19,6 @@
 }
 @property (nonatomic) JokeModel *jokeModel;
 
-@property (nonatomic) NSString *urlPic;  //记录第一张图，用于分享
+@property (nonatomic) NSString *urlPic;  //记录第一张图，用于QQ空间分享
+@property (nonatomic) UIImageView *imageViewPic; //记录第一张图的imageview,用于微博分享拿图
 @end
