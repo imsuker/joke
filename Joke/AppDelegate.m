@@ -57,6 +57,10 @@
     //添加微信应用
     [ShareSDK connectWeChatWithAppId:@"wxe26f90bc9a0ffe07"
                            wechatCls:[WXApi class]];
+    
+    //导入QQ互联和QQ好友分享需要的外部库类型，如果不需要QQ空间SSO和QQ好友分享可以不调用此方法
+    [ShareSDK importQQClass:[QQApiInterface class]
+            tencentOAuthCls:[TencentOAuth class]];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions

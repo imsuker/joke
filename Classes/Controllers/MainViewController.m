@@ -198,14 +198,14 @@
                                                                    qqButtonHidden:YES
                                                             wxSessionButtonHidden:YES
                                                            wxTimelineButtonHidden:YES
-                                                             showKeyboardOnAppear:NO
+                                                             showKeyboardOnAppear:NO    
                                                                 shareViewDelegate:nil
                                                               friendsViewDelegate:nil
                                                             picViewerViewDelegate:nil];
         [shareOptions setCameraButtonHidden:YES];
         [shareOptions setTopicButtonHidden:YES];
         [ShareSDK showShareActionSheet:nil
-                             shareList:[ShareSDK getShareListWithType:ShareTypeQQSpace, ShareTypeSinaWeibo, ShareTypeWeixiSession, ShareTypeWeixiTimeline, nil]
+                             shareList:[ShareSDK getShareListWithType:ShareTypeWeixiTimeline, ShareTypeQQSpace, ShareTypeSinaWeibo, ShareTypeWeixiSession, ShareTypeQQ, nil]
                                content:publishContent
                          statusBarTips:YES
                            authOptions:nil
