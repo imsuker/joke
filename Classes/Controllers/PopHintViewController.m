@@ -38,6 +38,12 @@
     if(popStyle == PopStyleNotVip){
         _text = JD_WORD_NOVIP;
     }
+    if(popStyle == PopStyleBadNetWork){
+        _text = JD_WORD_BADNETWORK;
+    }
+    if(popStyle == PopStyleBadInput){
+        _text = JD_WORD_BADINPUT;
+    }
     return self;
 }
 
@@ -48,6 +54,9 @@
     _viewBlack.layer.cornerRadius = 10;
     _viewBlack.layer.masksToBounds = YES;
     self.text = _text;
+    if(_text == nil){
+        _text = JD_WORD_BADNETWORK;
+    }
     [UIView animateWithDuration:1.0 delay:1.0 options:UIViewAnimationOptionCurveLinear animations:^{
         self.view.alpha = 0.0;
     } completion:^(BOOL finished) {
@@ -60,8 +69,11 @@
     _text = text;
     if(text){
         _label.text = text;
+        CGFloat width = _label.frame.size.width;
         [_label sizeToFit];
-        _label.frame = [Util adjustFrame:_label.frame withY:(_viewBlack.bounds.size.height - _label.bounds.size.height)/2];
+        _label.textAlignment = UITextAlignmentCenter;
+        _label.frame = CGRectMake(_label.frame.origin.x, (_viewBlack.bounds.size.height - _label.bounds.size.height)/2, width, _label.frame.size.height);
+//        _label.frame = [Util adjustFrame:_label.frame wi withY:(_viewBlack.bounds.size.height - _label.bounds.size.height)/2];
     }
 }
 - (void)didReceiveMemoryWarning

@@ -172,6 +172,8 @@
         if(urlPic == nil) {
             urlPic = @"";
         }
+        
+        //TODO 根据分享类型修改分享内容
         //构造分享内容
         id<ISSContent> publishContent = [ShareSDK content:contentQQ
                                            defaultContent:@"语音笑话网"

@@ -61,7 +61,9 @@
     NSString *acount = _textFieldAcount.text;
     NSString *password = _textFieldPassword.text;
     if([acount isEqualToString:@""] || [password isEqualToString:@""]){
-        //TODO  showerror 
+        PopHintViewController *popError = [[PopHintViewController alloc] initWithPopStyle:PopStyleBadInput];
+        [self addChildViewController:popError];
+        [self.view addSubview:popError.view];
         return;
     }
     if(!_loadingViewController){
@@ -69,7 +71,7 @@
     }
     [self addChildViewController:_loadingViewController];
     [self.view addSubview:_loadingViewController.view];
-    
+    [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];
     AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[iApi sharedInstance].baseUrl];
     [client registerHTTPOperationClass:[AFJSONRequestOperation class]];
     [client setDefaultHeader:@"Accept" value:@"application/json"];
@@ -91,14 +93,15 @@
         }else{
             NSString *error = responseObject[@"error"];
             NSLog(@"error login:%@", error);
-            error = nil;
             PopHintViewController *popError = [[PopHintViewController alloc] initWithText:error];
             [self addChildViewController:popError];
             [self.view addSubview:popError.view];        }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"login fail");
         [LoadingViewController stop:_loadingViewController];
-        //TODO
+        PopHintViewController *popError = [[PopHintViewController alloc] initWithPopStyle:PopStyleBadNetWork];
+        [self addChildViewController:popError];
+        [self.view addSubview:popError.view];
     }];
 }
 

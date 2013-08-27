@@ -6,7 +6,9 @@
 //  Copyright (c) 2013年 iphone. All rights reserved.
 //
 enum PopStyle {
-    PopStyleNotVip
+    PopStyleNotVip,
+    PopStyleBadNetWork,
+    PopStyleBadInput
 };
 typedef enum PopStyle PopStyle;
 
