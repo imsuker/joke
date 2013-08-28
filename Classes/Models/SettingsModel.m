@@ -69,4 +69,13 @@
     NSArray *items = _allItems[section];
     return items[row][@"name"];
 }
+-(NSIndexPath *)indexPathOfFeedback{
+    NSIndexPath *path;
+    if([UserModel shareInstance].isLogin){
+       
+    }else{
+    }
+     path = [NSIndexPath indexPathForRow:1 inSection:1];
+    return path;
+}
 @end

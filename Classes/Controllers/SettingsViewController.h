@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "SettingsModel.h"
-
+#import "UMFeedback.h"
 
 @interface SettingsViewController : UITableViewController{
     SettingsModel *_settingModel;
+    NSInteger _newFeedback;
 }
-
 @end

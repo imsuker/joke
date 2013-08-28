@@ -22,4 +22,5 @@
 -(NSInteger)numberOfRowsInSection:(NSInteger)section;
 -(NSString *)idOfRow:(NSInteger)row section:(NSInteger)section;
 -(NSString *)nameOfRow:(NSInteger)row section:(NSInteger)section;
+-(NSIndexPath *)indexPathOfFeedback;
 @end

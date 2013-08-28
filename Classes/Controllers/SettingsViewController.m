@@ -14,7 +14,9 @@
 #import "SettingsLogoutCell.h"
 #import "MyAccountViewController.h"
 #import "VipIntroduceViewController.h"
+#import "UMFeedbackViewController.h"
 
+#define JD_KEY_UMENG_APPKEY @"521d51b256240bf69103cc78"
 @interface SettingsViewController ()
 
 @end
@@ -57,6 +59,10 @@
     _settingModel = [[SettingsModel alloc] init];
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(feedback) name:UMFBCheckFinishedNotification object:nil];
+    _newFeedback = 0;
+    [UMFeedback checkWithAppkey:JD_KEY_UMENG_APPKEY];
 }
 
 - (void)didReceiveMemoryWarning
@@ -94,6 +100,12 @@
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%d条", [UserModel shareInstance].countLikedIds];
         cell.detailTextLabel.textColor = JD_FONT_COLOR_999;
     }
+    if([idItem isEqual:JD_KEY_SETTINGS_feedback]){
+        cell.detailTextLabel.textColor = JD_FONT_COLOR_999;
+        NSString *count = _newFeedback != 0?[NSString stringWithFormat:@"%d条",_newFeedback] : @"";
+        cell.detailTextLabel.text = count;
+    }
+    
     if([idItem isEqual:JD_KEY_SETTINGS_logout]){
         cell = [[SettingsLogoutCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     }
@@ -163,6 +175,14 @@
     if([idItem isEqual:JD_KEY_SETTINGS_About]){
     }
     if([idItem isEqual:JD_KEY_SETTINGS_feedback]){
+        UMFeedbackViewController *feedback = [[UMFeedbackViewController alloc] initWithNibName:@"UMFeedbackViewController" bundle:nil];
+        feedback.appkey = JD_KEY_UMENG_APPKEY;
+        [self.navigationController pushViewController:feedback animated:YES];
+        [feedback.mContactView setHidden:YES];
+        if(_newFeedback !=0){
+            _newFeedback = 0;
+            [self updateFeedBack];
+        }
     }
     if([idItem isEqual:JD_KEY_SETTINGS_support]){
     }
@@ -172,4 +192,18 @@
     }
 }
 
+-(void)feedback{
+    NSLog(@"finish get feedback:%d", [UMFeedback sharedInstance].newReplies.count);
+    _newFeedback = [UMFeedback sharedInstance].newReplies.count;
+    if(_newFeedback == 0){
+        return;
+    }
+    [self updateFeedBack];
+}
+-(void)updateFeedBack{
+    NSIndexPath *pathForFeedback = [_settingModel indexPathOfFeedback];
+    [self.tableView beginUpdates];
+    [self.tableView reloadRowsAtIndexPaths:@[pathForFeedback] withRowAnimation:UITableViewRowAnimationNone];
+    [self.tableView endUpdates];
+}
 @end
