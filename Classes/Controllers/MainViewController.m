@@ -6,12 +6,11 @@
 //  Copyright (c) 2013 iphone. All rights reserved.
 //
 
-#import "MainViewController.h"
+#import "MainViewController.h"  
 #import "AFNetworking.h"
 #import "AudioViewController.h"
 #import "JokeModel.h"
 #import "UserModel.h"
-#import "VipIntroduceViewController.h"
 #import "SettingsViewController.h"
 #import <ShareSDK/ShareSDK.h>
 
@@ -154,13 +153,8 @@
     }
 }
 -(void)handleTapLookUser{
-    if ([UserModel shareInstance].isLogin) {
-        SettingsViewController *set = [[SettingsViewController alloc] initWithStyle:UITableViewStyleGrouped];
-        [self.navigationController pushViewController:set animated:YES];
-    }else{
-        VipIntroduceViewController *vip = [[VipIntroduceViewController alloc] initWithNibName:@"VipIntroduceViewController" bundle:nil];
-        [self.navigationController pushViewController:vip animated:YES];
-    }
+    SettingsViewController *set = [[SettingsViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    [self.navigationController pushViewController:set animated:YES];
 }
 
 -(IBAction)handleTapShare:(id)sender{

@@ -14,6 +14,9 @@
 		3A667BFF17B7E772007E04F7 /* img-loading@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A667BFD17B7E772007E04F7 /* img-loading@2x.png */; };
 		3A667C0217B7E9E1007E04F7 /* UIImageView+Joke.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A667C0117B7E9E1007E04F7 /* UIImageView+Joke.m */; };
 		3A7CEB1117CD0CFA0062274A /* QQConnection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A7CEB1017CD0CFA0062274A /* QQConnection.framework */; };
+		3A7CEB1417CE41940062274A /* MyAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7CEB1317CE41940062274A /* MyAccountViewController.m */; };
+		3A7CEB1817CE46EF0062274A /* ChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7CEB1617CE46EF0062274A /* ChangePasswordViewController.m */; };
+		3A7CEB1917CE46EF0062274A /* ChangePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A7CEB1717CE46EF0062274A /* ChangePasswordViewController.xib */; };
 		3A86A1D017B93A5D00D6CDAA /* VipIntroduceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A86A1CE17B93A5D00D6CDAA /* VipIntroduceViewController.m */; };
 		3A86A1D117B93A5D00D6CDAA /* VipIntroduceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A86A1CF17B93A5D00D6CDAA /* VipIntroduceViewController.xib */; };
 		3A86A1D617B93A7000D6CDAA /* bugbtn-onpress@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A86A1D217B93A7000D6CDAA /* bugbtn-onpress@2x.png */; };
@@ -191,6 +194,11 @@
 		3A667C0017B7E9E0007E04F7 /* UIImageView+Joke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImageView+Joke.h"; path = "Classes/Util/UIImageView+Joke.h"; sourceTree = "<group>"; };
 		3A667C0117B7E9E1007E04F7 /* UIImageView+Joke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+Joke.m"; path = "Classes/Util/UIImageView+Joke.m"; sourceTree = "<group>"; };
 		3A7CEB1017CD0CFA0062274A /* QQConnection.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QQConnection.framework; sourceTree = "<group>"; };
+		3A7CEB1217CE41940062274A /* MyAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAccountViewController.h; sourceTree = "<group>"; };
+		3A7CEB1317CE41940062274A /* MyAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAccountViewController.m; sourceTree = "<group>"; };
+		3A7CEB1517CE46EF0062274A /* ChangePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePasswordViewController.h; sourceTree = "<group>"; };
+		3A7CEB1617CE46EF0062274A /* ChangePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePasswordViewController.m; sourceTree = "<group>"; };
+		3A7CEB1717CE46EF0062274A /* ChangePasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangePasswordViewController.xib; sourceTree = "<group>"; };
 		3A86A1CD17B93A5D00D6CDAA /* VipIntroduceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VipIntroduceViewController.h; sourceTree = "<group>"; };
 		3A86A1CE17B93A5D00D6CDAA /* VipIntroduceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VipIntroduceViewController.m; sourceTree = "<group>"; };
 		3A86A1CF17B93A5D00D6CDAA /* VipIntroduceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VipIntroduceViewController.xib; sourceTree = "<group>"; };
@@ -1016,6 +1024,11 @@
 				3A86A1F417BBE3A000D6CDAA /* SignUpSuccessViewController.h */,
 				3A86A1F517BBE3A000D6CDAA /* SignUpSuccessViewController.m */,
 				3A86A1F617BBE3A000D6CDAA /* SignUpSuccessViewController.xib */,
+				3A7CEB1217CE41940062274A /* MyAccountViewController.h */,
+				3A7CEB1317CE41940062274A /* MyAccountViewController.m */,
+				3A7CEB1517CE46EF0062274A /* ChangePasswordViewController.h */,
+				3A7CEB1617CE46EF0062274A /* ChangePasswordViewController.m */,
+				3A7CEB1717CE46EF0062274A /* ChangePasswordViewController.xib */,
 			);
 			name = Controllers;
 			path = Classes/Controllers;
@@ -1160,6 +1173,7 @@
 				3AD9CEAA17C7BD6A002C13AD /* Resource.bundle in Resources */,
 				3AD9CEAC17C7BD6A002C13AD /* ShareSDKLocalizable.strings in Resources */,
 				3AD9CEB017C7C0C2002C13AD /* ShareSDKiPhoneDefaultShareViewUI.bundle in Resources */,
+				3A7CEB1917CE46EF0062274A /* ChangePasswordViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1259,6 +1273,8 @@
 				3AD9CE6F17C51E38002C13AD /* CJSONScanner.m in Sources */,
 				3AD9CE7017C51E38002C13AD /* CJSONSerializer.m in Sources */,
 				3AD9CE8017C66C1E002C13AD /* PullRefreshTableViewController.m in Sources */,
+				3A7CEB1417CE41940062274A /* MyAccountViewController.m in Sources */,
+				3A7CEB1817CE46EF0062274A /* ChangePasswordViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

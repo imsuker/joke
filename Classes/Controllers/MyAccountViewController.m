@@ -1,25 +1,26 @@
 //
-//  SettingsViewController.m
+//  MyAccountViewController.m
 //  Joke
 //
-//  Created by cao on 13-8-19.
+//  Created by cao on 13-8-28.
 //  Copyright (c) 2013年 iphone. All rights reserved.
 //
 
-#import "SettingsViewController.h"
+#define JD_KEY_MYACCOUNT_USERNAME @"username"
+#define JD_KEY_MYACCOUNT_EMAIL @"email"
+#define JD_KEY_MYACCOUNT_CHANGEPASSWORD @"changepassword"
+
+#import "MyAccountViewController.h"
 #import "NavigatorBackBar.h"
 #import "NavigatorTitleLabel.h"
 #import "UserModel.h"
-#import "CollectListViewController.h"
-#import "SettingsLogoutCell.h"
-#import "MyAccountViewController.h"
-#import "VipIntroduceViewController.h"
+#import "ChangePasswordViewController.h"
 
-@interface SettingsViewController ()
+@interface MyAccountViewController ()
 
 @end
 
-@implementation SettingsViewController
+@implementation MyAccountViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -39,6 +40,7 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
     //背景颜色
     self.tableView.backgroundView = nil;
     self.tableView.backgroundColor = [UIColor clearColor];
@@ -50,12 +52,25 @@
     
     //标题
     NavigatorTitleLabel *titleLabel = [[NavigatorTitleLabel alloc] init];
-    titleLabel.text = @"个人中心";
+    titleLabel.text = @"我的账号";
     self.navigationItem.titleView = titleLabel;
     [titleLabel sizeToFit];
     
-    _settingModel = [[SettingsModel alloc] init];
-    
+    _rows = @[
+              @{
+                  @"id" : JD_KEY_MYACCOUNT_USERNAME,
+                  @"name" : [UserModel shareInstance].userName,
+              },
+              @{
+                  @"id" : JD_KEY_MYACCOUNT_EMAIL,
+                  @"name" : [UserModel shareInstance].email
+                  },
+              @{
+                  @"id" : JD_KEY_MYACCOUNT_CHANGEPASSWORD,
+                  @"name" : @"修改密码"
+                  }
+              
+              ];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
@@ -70,34 +85,30 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return [_settingModel numberOfSections];
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [_settingModel numberOfRowsInSection:section];
+    return _rows.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    NSString *name = [_settingModel nameOfRow:indexPath.row section:indexPath.section];
-    NSString *idItem = [_settingModel idOfRow:indexPath.row section:indexPath.section];
-
+    NSInteger row = [indexPath row];
+    NSString *name = _rows[row][@"name"];
+    
     // Configure the cell...
     if(!cell){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    if([idItem isEqual:JD_KEY_SETTINGS_logout]){
-        cell = [[SettingsLogoutCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-    }
     cell.textLabel.text = name;
-
+    
     return cell;
 }
-
 
 /*
 // Override to support conditional editing of the table view.
@@ -142,29 +153,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *idItem = [_settingModel idOfRow:indexPath.row section:indexPath.section];
-    if([idItem isEqual:JD_KEY_SETTINGS_Account]){
-        if([UserModel shareInstance].isLogin){
-            MyAccountViewController *myaccount = [[MyAccountViewController alloc] initWithStyle:UITableViewStyleGrouped];
-            [self.navigationController pushViewController:myaccount animated:YES];
-        }else{
-            VipIntroduceViewController *vip = [[VipIntroduceViewController alloc] initWithNibName:@"VipIntroduceViewController" bundle:nil];
-            [self.navigationController pushViewController:vip animated:YES];
-        }
-    }
-    if([idItem isEqual:JD_KEY_SETTINGS_Collect]){
-        CollectListViewController *collect = [[CollectListViewController alloc] initWithStyle:UITableViewStyleGrouped];
-        [self.navigationController pushViewController:collect animated:YES];
-    }
-    if([idItem isEqual:JD_KEY_SETTINGS_About]){
-    }
-    if([idItem isEqual:JD_KEY_SETTINGS_feedback]){
-    }
-    if([idItem isEqual:JD_KEY_SETTINGS_support]){
-    }
-    if([idItem isEqual:JD_KEY_SETTINGS_logout]){
-        [[UserModel shareInstance] logout];
-        [self.navigationController popToRootViewControllerAnimated:YES];
+
+    NSInteger row = [indexPath row];
+    if([_rows[row][@"id"] isEqual:JD_KEY_MYACCOUNT_CHANGEPASSWORD]){
+        ChangePasswordViewController *change =[[ChangePasswordViewController alloc] initWithNibName:@"ChangePasswordViewController" bundle:nil];
+        [self.navigationController pushViewController:change animated:YES];
     }
 }
 

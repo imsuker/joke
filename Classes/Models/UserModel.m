@@ -59,6 +59,7 @@ static UserModel *shareInstance;
     _userId = [info[@"userId"] integerValue];
     _userName = info[@"userName"];
     _token = info[@"token"];
+    _email = info[@"email"];
     _isLogin = YES;
     [[UserModel shareInstance] reFetchLikedIds];
 }
@@ -67,7 +68,8 @@ static UserModel *shareInstance;
     [storage setObject:@{
      @"userId" : info[@"userid"],
      @"token" : info[@"token"],
-     @"userName" : info[@"username"]
+     @"userName" : info[@"username"],
+     @"email" : info[@"email"]?info[@"email"]:@""
      } forKey:key_logined_info];
     [storage synchronize];
     [self initLoginedInfo];

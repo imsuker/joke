@@ -20,7 +20,7 @@
 -(void)initData{
     NSDictionary *account = @{
                               @"id" : JD_KEY_SETTINGS_Account,
-                              @"name" : @"我的账户"
+                              @"name" : @"我的账号"
                               };
     NSDictionary *collect = @{
                               @"id": JD_KEY_SETTINGS_Collect,
@@ -50,6 +50,7 @@
                       ];
     }else{
         _allItems = @[
+                      @[account],
                       @[about,feedback,support]
                       ];
     }
