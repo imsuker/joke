@@ -50,6 +50,9 @@ static UserModel *shareInstance;
     //初始化用户所有喜欢的ids串
     _arrayLikedIds = [storage mutableArrayValueForKey:key_array_liked_ids];
 }
+-(NSInteger)countLikedIds{
+    return _arrayLikedIds.count;
+}
 -(void)initLoginedInfo{
     NSUserDefaults *storage = [NSUserDefaults standardUserDefaults];
     NSDictionary *info = [storage objectForKey:key_logined_info];

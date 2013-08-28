@@ -24,7 +24,7 @@
                               };
     NSDictionary *collect = @{
                               @"id": JD_KEY_SETTINGS_Collect,
-                              @"name" : @"我的喜欢"
+                              @"name" : @"我喜欢的"
                               };
     NSDictionary *about = @{
                             @"id": JD_KEY_SETTINGS_About,

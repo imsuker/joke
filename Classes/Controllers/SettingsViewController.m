@@ -88,7 +88,11 @@
 
     // Configure the cell...
     if(!cell){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
+    }
+    if([idItem isEqual:JD_KEY_SETTINGS_Collect]){
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%d条", [UserModel shareInstance].countLikedIds];
+        cell.detailTextLabel.textColor = JD_FONT_COLOR_999;
     }
     if([idItem isEqual:JD_KEY_SETTINGS_logout]){
         cell = [[SettingsLogoutCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
