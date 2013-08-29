@@ -15,6 +15,7 @@
 #import "MyAccountViewController.h"
 #import "VipIntroduceViewController.h"
 #import "UMFeedbackViewController.h"
+#import "AboutUsViewController.h"
 
 #define JD_KEY_UMENG_APPKEY @"521d51b256240bf69103cc78"
 @interface SettingsViewController ()
@@ -173,6 +174,8 @@
         [self.navigationController pushViewController:collect animated:YES];
     }
     if([idItem isEqual:JD_KEY_SETTINGS_About]){
+        AboutUsViewController *about = [[AboutUsViewController alloc] initWithNibName:@"AboutUsViewController" bundle:nil];
+        [self.navigationController presentModalViewController:about animated:YES];
     }
     if([idItem isEqual:JD_KEY_SETTINGS_feedback]){
         UMFeedbackViewController *feedback = [[UMFeedbackViewController alloc] initWithNibName:@"UMFeedbackViewController" bundle:nil];
@@ -185,11 +188,32 @@
         }
     }
     if([idItem isEqual:JD_KEY_SETTINGS_support]){
+        if(NSClassFromString(@"SKStoreProductViewController") == nil){
+            [self supportAppStore];
+            return;
+        }
+        SKStoreProductViewController *sk = [[SKStoreProductViewController alloc] init];
+        sk.delegate = self;
+        [sk loadProductWithParameters:@{SKStoreProductParameterITunesItemIdentifier:@"533055152"} completionBlock:^(BOOL result, NSError *error) {
+            if(error){
+                [self supportAppStore];
+            }else{
+                [self presentModalViewController:sk animated:YES];
+            }
+        }];
+        
     }
     if([idItem isEqual:JD_KEY_SETTINGS_logout]){
         [[UserModel shareInstance] logout];
         [self.navigationController popToRootViewControllerAnimated:YES];
     }
+}
+-(void)supportAppStore{
+    NSString *evaluateString = [NSString stringWithFormat:@"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=533055152"];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:evaluateString]];
+}
+-(void)productViewControllerDidFinish:(SKStoreProductViewController *)viewController{
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 -(void)feedback{

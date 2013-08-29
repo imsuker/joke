@@ -48,6 +48,9 @@
 		3A7CEB5F17CE53CD0062274A /* UMFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7CEB3F17CE53CD0062274A /* UMFeedbackViewController.m */; };
 		3A7CEB6017CE53CD0062274A /* UMFeedbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A7CEB4017CE53CD0062274A /* UMFeedbackViewController.xib */; };
 		3A7CEB6117CE53CD0062274A /* libUMFeedback.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A7CEB4117CE53CD0062274A /* libUMFeedback.a */; };
+		3A7CEB6517CF95B90062274A /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7CEB6317CF95B80062274A /* AboutUsViewController.m */; };
+		3A7CEB6617CF95B90062274A /* AboutUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A7CEB6417CF95B80062274A /* AboutUsViewController.xib */; };
+		3A7CEB6817CF9EC20062274A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A7CEB6717CF9EC10062274A /* StoreKit.framework */; };
 		3A86A1D017B93A5D00D6CDAA /* VipIntroduceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A86A1CE17B93A5D00D6CDAA /* VipIntroduceViewController.m */; };
 		3A86A1D117B93A5D00D6CDAA /* VipIntroduceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A86A1CF17B93A5D00D6CDAA /* VipIntroduceViewController.xib */; };
 		3A86A1D617B93A7000D6CDAA /* bugbtn-onpress@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A86A1D217B93A7000D6CDAA /* bugbtn-onpress@2x.png */; };
@@ -267,6 +270,10 @@
 		3A7CEB4017CE53CD0062274A /* UMFeedbackViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMFeedbackViewController.xib; sourceTree = "<group>"; };
 		3A7CEB4117CE53CD0062274A /* libUMFeedback.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMFeedback.a; sourceTree = "<group>"; };
 		3A7CEB4217CE53CD0062274A /* UMFeedback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMFeedback.h; sourceTree = "<group>"; };
+		3A7CEB6217CF95B70062274A /* AboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUsViewController.h; sourceTree = "<group>"; };
+		3A7CEB6317CF95B80062274A /* AboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUsViewController.m; sourceTree = "<group>"; };
+		3A7CEB6417CF95B80062274A /* AboutUsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutUsViewController.xib; sourceTree = "<group>"; };
+		3A7CEB6717CF9EC10062274A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		3A86A1CD17B93A5D00D6CDAA /* VipIntroduceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VipIntroduceViewController.h; sourceTree = "<group>"; };
 		3A86A1CE17B93A5D00D6CDAA /* VipIntroduceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VipIntroduceViewController.m; sourceTree = "<group>"; };
 		3A86A1CF17B93A5D00D6CDAA /* VipIntroduceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VipIntroduceViewController.xib; sourceTree = "<group>"; };
@@ -535,6 +542,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A7CEB6817CF9EC20062274A /* StoreKit.framework in Frameworks */,
 				3AD9CEA017C7B2A8002C13AD /* libsqlite3.dylib in Frameworks */,
 				3AD9CE9E17C7B278002C13AD /* libicucore.dylib in Frameworks */,
 				3AD9CE7C17C51EB8002C13AD /* CoreTelephony.framework in Frameworks */,
@@ -1023,6 +1031,7 @@
 		43F3C20A178EB7F7002E0633 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3A7CEB6717CF9EC10062274A /* StoreKit.framework */,
 				3AD9CE9F17C7B2A8002C13AD /* libsqlite3.dylib */,
 				3AD9CE9D17C7B278002C13AD /* libicucore.dylib */,
 				3AD9CE8117C66E6A002C13AD /* QuartzCore.framework */,
@@ -1167,6 +1176,9 @@
 				3A7CEB1517CE46EF0062274A /* ChangePasswordViewController.h */,
 				3A7CEB1617CE46EF0062274A /* ChangePasswordViewController.m */,
 				3A7CEB1717CE46EF0062274A /* ChangePasswordViewController.xib */,
+				3A7CEB6217CF95B70062274A /* AboutUsViewController.h */,
+				3A7CEB6317CF95B80062274A /* AboutUsViewController.m */,
+				3A7CEB6417CF95B80062274A /* AboutUsViewController.xib */,
 			);
 			name = Controllers;
 			path = Classes/Controllers;
@@ -1337,6 +1349,7 @@
 				3A7CEB5A17CE53CD0062274A /* umeng_logo.png in Resources */,
 				3A7CEB5C17CE53CD0062274A /* UMContactViewController.xib in Resources */,
 				3A7CEB6017CE53CD0062274A /* UMFeedbackViewController.xib in Resources */,
+				3A7CEB6617CF95B90062274A /* AboutUsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1443,6 +1456,7 @@
 				3A7CEB5D17CE53CD0062274A /* UMFeedbackTableViewCellLeft.m in Sources */,
 				3A7CEB5E17CE53CD0062274A /* UMFeedbackTableViewCellRight.m in Sources */,
 				3A7CEB5F17CE53CD0062274A /* UMFeedbackViewController.m in Sources */,
+				3A7CEB6517CF95B90062274A /* AboutUsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

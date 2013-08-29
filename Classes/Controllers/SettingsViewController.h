@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "SettingsModel.h"
 #import "UMFeedback.h"
+#import <StoreKit/StoreKit.h>
 
-@interface SettingsViewController : UITableViewController{
+
+@interface SettingsViewController : UITableViewController<SKStoreProductViewControllerDelegate>{
     SettingsModel *_settingModel;
     NSInteger _newFeedback;
 }
