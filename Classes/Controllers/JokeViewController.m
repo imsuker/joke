@@ -37,11 +37,11 @@
     
     
     // Do any additional setup after loading the view from its nib.
-    _yFree = 20; //顶部空白
+    _yFree = 0; //顶部空白
     
     _labelTitle.text = _jokeModel.title;
     [_labelTitle sizeToFit];
-    _yFree += _labelTitle.bounds.size.height;
+    _yFree += _labelTitle.frame.size.height + _labelTitle.frame.origin.y;
     NSArray *audios = _jokeModel.audios;
     [audios enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         _yFree += 8;

@@ -33,7 +33,7 @@
     // Do any additional setup after loading the view from its nib.
     
     NavigatorTitleLabel *titleLabel = [[NavigatorTitleLabel alloc] init];
-    titleLabel.text = @"VIP皇冠会员";
+    titleLabel.text = @"修改密码";
     self.navigationItem.titleView = titleLabel;
     [titleLabel sizeToFit];
     
