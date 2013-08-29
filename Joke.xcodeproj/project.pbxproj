@@ -51,6 +51,11 @@
 		3A7CEB6517CF95B90062274A /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7CEB6317CF95B80062274A /* AboutUsViewController.m */; };
 		3A7CEB6617CF95B90062274A /* AboutUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A7CEB6417CF95B80062274A /* AboutUsViewController.xib */; };
 		3A7CEB6817CF9EC20062274A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A7CEB6717CF9EC10062274A /* StoreKit.framework */; };
+		3A7CEB6C17CFA78E0062274A /* libPushSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A7CEB6B17CFA78E0062274A /* libPushSDK.a */; };
+		3A7CEB6E17CFA7B70062274A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A7CEB6D17CFA7B50062274A /* CFNetwork.framework */; };
+		3A7CEB7017CFA7E90062274A /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A7CEB6F17CFA7E80062274A /* CoreFoundation.framework */; };
+		3A7CEB7217CFA8A90062274A /* PushConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A7CEB7117CFA8A90062274A /* PushConfig.plist */; };
+		3A7CEB7417CFADFE0062274A /* libPushSDK-Simulator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A7CEB7317CFADFE0062274A /* libPushSDK-Simulator.a */; };
 		3A86A1D017B93A5D00D6CDAA /* VipIntroduceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A86A1CE17B93A5D00D6CDAA /* VipIntroduceViewController.m */; };
 		3A86A1D117B93A5D00D6CDAA /* VipIntroduceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A86A1CF17B93A5D00D6CDAA /* VipIntroduceViewController.xib */; };
 		3A86A1D617B93A7000D6CDAA /* bugbtn-onpress@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A86A1D217B93A7000D6CDAA /* bugbtn-onpress@2x.png */; };
@@ -274,6 +279,12 @@
 		3A7CEB6317CF95B80062274A /* AboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUsViewController.m; sourceTree = "<group>"; };
 		3A7CEB6417CF95B80062274A /* AboutUsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutUsViewController.xib; sourceTree = "<group>"; };
 		3A7CEB6717CF9EC10062274A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		3A7CEB6A17CFA78E0062274A /* APService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APService.h; sourceTree = "<group>"; };
+		3A7CEB6B17CFA78E0062274A /* libPushSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPushSDK.a; sourceTree = "<group>"; };
+		3A7CEB6D17CFA7B50062274A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		3A7CEB6F17CFA7E80062274A /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		3A7CEB7117CFA8A90062274A /* PushConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PushConfig.plist; sourceTree = "<group>"; };
+		3A7CEB7317CFADFE0062274A /* libPushSDK-Simulator.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPushSDK-Simulator.a"; path = "../../../../../Downloads/JPush-iOS-SDK-OpenUDID-1.4.0/lib/libPushSDK-Simulator.a"; sourceTree = "<group>"; };
 		3A86A1CD17B93A5D00D6CDAA /* VipIntroduceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VipIntroduceViewController.h; sourceTree = "<group>"; };
 		3A86A1CE17B93A5D00D6CDAA /* VipIntroduceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VipIntroduceViewController.m; sourceTree = "<group>"; };
 		3A86A1CF17B93A5D00D6CDAA /* VipIntroduceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VipIntroduceViewController.xib; sourceTree = "<group>"; };
@@ -542,6 +553,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43F3C20E178EB7F7002E0633 /* Foundation.framework in Frameworks */,
+				43F3C210178EB7F7002E0633 /* CoreGraphics.framework in Frameworks */,
+				3A7CEB7017CFA7E90062274A /* CoreFoundation.framework in Frameworks */,
+				3A7CEB6E17CFA7B70062274A /* CFNetwork.framework in Frameworks */,
 				3A7CEB6817CF9EC20062274A /* StoreKit.framework in Frameworks */,
 				3AD9CEA017C7B2A8002C13AD /* libsqlite3.dylib in Frameworks */,
 				3AD9CE9E17C7B278002C13AD /* libicucore.dylib in Frameworks */,
@@ -558,8 +573,6 @@
 				43E67C8717AA994000953E17 /* ImageIO.framework in Frameworks */,
 				43BBBA1217A7ED00005BB170 /* CoreData.framework in Frameworks */,
 				3A7CEB6117CE53CD0062274A /* libUMFeedback.a in Frameworks */,
-				43F3C20E178EB7F7002E0633 /* Foundation.framework in Frameworks */,
-				43F3C210178EB7F7002E0633 /* CoreGraphics.framework in Frameworks */,
 				3AD9CE6617C51E38002C13AD /* libBaiduMobStat.a in Frameworks */,
 				3AD9CE9417C7B1A4002C13AD /* QZoneConnection.framework in Frameworks */,
 				3AD9CE9517C7B1A4002C13AD /* SinaWeiboConnection.framework in Frameworks */,
@@ -572,6 +585,8 @@
 				3AD9CEAB17C7BD6A002C13AD /* ShareSDKCoreService.framework in Frameworks */,
 				3AD9CEB117C7C0C2002C13AD /* ShareSDKiPhoneDefaultShareViewUI.framework in Frameworks */,
 				3A7CEB1117CD0CFA0062274A /* QQConnection.framework in Frameworks */,
+				3A7CEB6C17CFA78E0062274A /* libPushSDK.a in Frameworks */,
+				3A7CEB7417CFADFE0062274A /* libPushSDK-Simulator.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -644,6 +659,16 @@
 				3A7CEB3617CE53CD0062274A /* umeng_logo.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		3A7CEB6917CFA78D0062274A /* Jpush */ = {
+			isa = PBXGroup;
+			children = (
+				3A7CEB6A17CFA78E0062274A /* APService.h */,
+				3A7CEB7317CFADFE0062274A /* libPushSDK-Simulator.a */,
+				3A7CEB6B17CFA78E0062274A /* libPushSDK.a */,
+			);
+			path = Jpush;
 			sourceTree = "<group>";
 		};
 		3A86A1FF17BD3D7F00D6CDAA /* pngs_xib */ = {
@@ -1031,6 +1056,8 @@
 		43F3C20A178EB7F7002E0633 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3A7CEB6F17CFA7E80062274A /* CoreFoundation.framework */,
+				3A7CEB6D17CFA7B50062274A /* CFNetwork.framework */,
 				3A7CEB6717CF9EC10062274A /* StoreKit.framework */,
 				3AD9CE9F17C7B2A8002C13AD /* libsqlite3.dylib */,
 				3AD9CE9D17C7B278002C13AD /* libicucore.dylib */,
@@ -1073,6 +1100,7 @@
 				43F3C214178EB7F7002E0633 /* InfoPlist.strings */,
 				43F3C217178EB7F7002E0633 /* main.m */,
 				43F3C219178EB7F7002E0633 /* Joke-Prefix.pch */,
+				3A7CEB7117CFA8A90062274A /* PushConfig.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1093,6 +1121,7 @@
 		43F3C229178EDC93002E0633 /* SDK */ = {
 			isa = PBXGroup;
 			children = (
+				3A7CEB6917CFA78D0062274A /* Jpush */,
 				3A7CEB1A17CE53CD0062274A /* UmengFeedBack */,
 				3AD9CE8317C7B1A4002C13AD /* ShareSDK */,
 				3AD9CE7D17C66C1E002C13AD /* PullRefreshTableViewController */,
@@ -1350,6 +1379,7 @@
 				3A7CEB5C17CE53CD0062274A /* UMContactViewController.xib in Resources */,
 				3A7CEB6017CE53CD0062274A /* UMFeedbackViewController.xib in Resources */,
 				3A7CEB6617CF95B90062274A /* AboutUsViewController.xib in Resources */,
+				3A7CEB7217CFA8A90062274A /* PushConfig.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1533,6 +1563,7 @@
 		43F3C226178EB7F7002E0633 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer: jinglei Cao (YPEGRY8JKN)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: jinglei Cao (YPEGRY8JKN)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1545,6 +1576,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Joke/Joke-Prefix.pch";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "Joke/Joke-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
@@ -1553,6 +1585,8 @@
 					"\"$(SRCROOT)/SDK/ShareSDK/Extend/libWeiboSDK\"",
 					"\"$(SRCROOT)/SDK/ShareSDK/Extend/SDKExport\"",
 					"\"$(SRCROOT)/SDK/UmengFeedBack\"",
+					"\"$(SRCROOT)/SDK/Jpush\"",
+					"\"$(SRCROOT)/../../../Downloads/JPush-iOS-SDK-OpenUDID-1.4.0/lib\"",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1565,6 +1599,7 @@
 		43F3C227178EB7F7002E0633 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer: jinglei Cao (YPEGRY8JKN)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: jinglei Cao (YPEGRY8JKN)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1577,6 +1612,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Joke/Joke-Prefix.pch";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "Joke/Joke-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
@@ -1585,6 +1621,8 @@
 					"\"$(SRCROOT)/SDK/ShareSDK/Extend/libWeiboSDK\"",
 					"\"$(SRCROOT)/SDK/ShareSDK/Extend/SDKExport\"",
 					"\"$(SRCROOT)/SDK/UmengFeedBack\"",
+					"\"$(SRCROOT)/SDK/Jpush\"",
+					"\"$(SRCROOT)/../../../Downloads/JPush-iOS-SDK-OpenUDID-1.4.0/lib\"",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
