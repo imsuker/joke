@@ -13,6 +13,7 @@
 #import "UserModel.h"
 #import "SettingsViewController.h"
 #import <ShareSDK/ShareSDK.h>
+#import "PopHintViewController.h"
 
 @interface MainViewController ()
 
@@ -144,6 +145,10 @@
         NSLog(@"====can 't next");
         _buttonNext.enabled = NO;
         //todo has no right and show
+        PopHintViewController *pop = [[PopHintViewController alloc] initWithText:@"每天只能听10条文章，明天再来吧~"];
+        [self addChildViewController:pop];
+        [self.view addSubview:pop.view];
+        return;
         if(!_lastJokeViewController){
             _lastJokeViewController = [[LastJokeViewController alloc] initWithNibName:@"LastJokeViewController" bundle:nil];
             [self addChildViewController:_lastJokeViewController];

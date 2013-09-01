@@ -44,13 +44,13 @@
                              };
     if([UserModel shareInstance].isLogin){
         _allItems = @[
-                      @[account,collect],
+                      //@[account,collect],
                       @[about,feedback,support],
                       @[logout]
                       ];
     }else{
         _allItems = @[
-                      @[account],
+                      //@[account],
                       @[about,feedback,support]
                       ];
     }

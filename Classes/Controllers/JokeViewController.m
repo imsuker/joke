@@ -162,6 +162,12 @@
 
 //喜欢
 -(IBAction)handleTapLike:(id)sender{
+    if([_buttonLike isSelected]){
+        return;
+    }
+    [_buttonLike setTitle:[NSString stringWithFormat:@"%d", ++_jokeModel.collect] forState:UIControlStateNormal];
+    [_buttonLike setSelected:YES];
+    return;
     if([UserModel shareInstance].isLogin){
         if(![[UserModel shareInstance] isLike:_jokeModel.jokeId]){
             [[UserModel shareInstance] like:_jokeModel.jokeId];
