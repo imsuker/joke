@@ -19,6 +19,7 @@
 }
 -(void)initUI{
     UIImageView *backView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+    backView.userInteractionEnabled = YES;
     backView.image = [UIImage imageNamed:@"back"];
     UITapGestureRecognizer *tapBack = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapBack)];
     self.customView = backView;
