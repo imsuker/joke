@@ -72,6 +72,10 @@
     // Dispose of any resources that can be recreated.
 }
 -(void)dealloc{
+    //奇怪，不知道为什么ios5下，_audioview和audioModel没有dealloc
+    [_audioView removeFromSuperview];
+    _audioView = nil;
+    _audioModel = nil;
     [Util logDealloc:self];
 }
 @end
