@@ -39,7 +39,7 @@
     [self addGestureRecognizer:tap];
 }
 -(void)setStatusBackgroundLoading:(BOOL)statusBackgroundLoading{
-    NSLog(@"statusBackgroundLoading:%d", statusBackgroundLoading);
+//    NSLog(@"statusBackgroundLoading:%d", statusBackgroundLoading);
     _statusBackgroundLoading = statusBackgroundLoading;
     if(statusBackgroundLoading == YES){
         _imageVoiceBackground.image = [UIImage imageNamed:@"sound-loading"];
