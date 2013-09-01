@@ -82,7 +82,7 @@
     [client postPath:@"/" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"sign up reqeust finish, result = %@", [responseObject description]);
         NSInteger code = [responseObject[@"code"] integerValue];
-        [LoadingViewController stop:_loadingViewController];
+        [_loadingViewController stop];
         if(code == 1){
             [[UserModel shareInstance] login:responseObject[@"data"]];
             NSLog(@"sign up success");
@@ -96,7 +96,7 @@
             [self.view addSubview:popError.view];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [LoadingViewController stop:_loadingViewController];
+        [_loadingViewController stop];
         NSLog(@"sign up fail");
         //TODO
     }];

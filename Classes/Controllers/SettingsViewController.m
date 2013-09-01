@@ -194,7 +194,12 @@
         }
         SKStoreProductViewController *sk = [[SKStoreProductViewController alloc] init];
         sk.delegate = self;
-        [sk loadProductWithParameters:@{SKStoreProductParameterITunesItemIdentifier:@"533055152"} completionBlock:^(BOOL result, NSError *error) {
+        LoadingViewController *loadingView = [[LoadingViewController alloc] initWithNibName:@"LoadingViewController" bundle:nil];
+        [self addChildViewController:loadingView];
+        [self.view addSubview:loadingView.view];
+        __weak LoadingViewController *weakLoadingView = loadingView;
+        [sk loadProductWithParameters:@{SKStoreProductParameterITunesItemIdentifier:JD_CONFIG_APPLE_ID} completionBlock:^(BOOL result, NSError *error) {
+            [weakLoadingView stop];
             if(error){
                 [self supportAppStore];
             }else{
@@ -209,7 +214,7 @@
     }
 }
 -(void)supportAppStore{
-    NSString *evaluateString = [NSString stringWithFormat:@"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=533055152"];
+    NSString *evaluateString = [NSString stringWithFormat:@"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%@",JD_CONFIG_APPLE_ID];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:evaluateString]];
 }
 -(void)productViewControllerDidFinish:(SKStoreProductViewController *)viewController{

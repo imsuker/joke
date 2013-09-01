@@ -41,4 +41,15 @@
 #define JD_WORD_NOVIP @"注册成为VIP才能使用收藏"
 #define JD_WORD_BADNETWORK @"您的网络好像有问题~"
 #define JD_WORD_BADINPUT @"输入有误~"
+
+
+/**
+ *
+ */
+#define JD_CONFIG_APPLE_ID @"697940572"
+//#define JD_CONFIG_APPLE_ID @"533055152"   //明星衣橱
+
+
+
+
 #endif

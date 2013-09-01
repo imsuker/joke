@@ -83,7 +83,7 @@
     [client postPath:@"/" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"login reqeust finish, result = %@", [responseObject description]);
         NSInteger code = [responseObject[@"code"] integerValue];
-        [LoadingViewController stop:_loadingViewController];
+        [_loadingViewController stop];
         if(code == 1){
             [[UserModel shareInstance] login:responseObject[@"data"]];  
             NSLog(@"login success");
@@ -98,7 +98,7 @@
             [self.view addSubview:popError.view];        }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"login fail");
-        [LoadingViewController stop:_loadingViewController];
+        [_loadingViewController stop];
         PopHintViewController *popError = [[PopHintViewController alloc] initWithPopStyle:PopStyleBadNetWork];
         [self addChildViewController:popError];
         [self.view addSubview:popError.view];

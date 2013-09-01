@@ -91,7 +91,7 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     NSLog(@"==fetchJoke fetch begin:%@", [url description]);
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        [LoadingViewController stop:_loadingViewController];
+        [_loadingViewController stop];
         NSLog(@"==fetchJoke fetch success:%@", [JSON description]);
         JokeModel *jokeModel = [[JokeModel alloc] initWithDictionary:JSON[@"data"]];
         jokeModel.jokeId = _visitId;
@@ -99,7 +99,7 @@
         [[UserModel shareInstance] visitJoke:_visitId];
         [self showJoke:jokeModel];
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        [LoadingViewController stop:_loadingViewController];
+        [_loadingViewController stop];
         NSLog(@"===fetchJoke fetch fail:%@", error);
     }];
     [operation start];

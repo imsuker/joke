@@ -77,7 +77,7 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     NSLog(@"==fetchCollects fetch begin:%@", [url description]);
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        [LoadingViewController stop:_loadingViewController];
+        [_loadingViewController stop];
         NSInteger code = [JSON[@"code"] integerValue];
         [self stopLoading];
         if(code == 1){
@@ -99,7 +99,7 @@
         NSLog(@"==fetchCollects fetch success:%@", [JSON description]);
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         [self stopLoading];
-        [LoadingViewController stop:_loadingViewController];
+        [_loadingViewController stop];
         NSLog(@"===fetchCollects fetch fail:%@", error);
         PopHintViewController *pop = [[PopHintViewController alloc] initWithText:@""];
         [self addChildViewController:pop];

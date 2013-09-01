@@ -11,5 +11,5 @@
     IBOutlet UIView *_blackView;
 }
 +(void)stop:(LoadingViewController *)loadingViewController;
-
+-(void)stop;
 @end

@@ -34,6 +34,10 @@
     [loadingViewController.view removeFromSuperview];
     [loadingViewController removeFromParentViewController];
 }
+-(void)stop{
+    [self.view removeFromSuperview];
+    [self removeFromParentViewController];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
