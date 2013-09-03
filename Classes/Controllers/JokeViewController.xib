@@ -92,7 +92,7 @@
 							<object class="IBUIWebView" id="482075866">
 								<reference key="NSNextResponder" ref="1068411344"/>
 								<int key="NSvFlags">290</int>
-								<string key="NSFrame">{{20, 49}, {270, 16}}</string>
+								<string key="NSFrame">{{25, 49}, {272, 16}}</string>
 								<reference key="NSSuperview" ref="1068411344"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="201715690"/>
@@ -111,6 +111,7 @@
 								<string key="NSFrame">{{195, 444}, {105, 30}}</string>
 								<reference key="NSSuperview" ref="1068411344"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -389,17 +390,6 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">JokeViewController</string>
 					<string key="superclassName">UIViewController</string>
-					<object class="NSMutableDictionary" key="actions">
-						<string key="NS.key.0">handleTapLike:</string>
-						<string key="NS.object.0">id</string>
-					</object>
-					<object class="NSMutableDictionary" key="actionInfosByName">
-						<string key="NS.key.0">handleTapLike:</string>
-						<object class="IBActionInfo" key="NS.object.0">
-							<string key="name">handleTapLike:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</object>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="_buttonLike">UIButton</string>
 						<string key="_imageViewScrollViewBackground">UIImageView</string>
