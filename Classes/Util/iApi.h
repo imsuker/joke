@@ -20,6 +20,7 @@
 @property (nonatomic, readonly) NSURL *baseUrl;
 @property (nonatomic, readonly) NSString *allCollects;
 @property (nonatomic, readonly) NSString *collects;
+@property (nonatomic, readonly) NSString *notice;
 
 
 

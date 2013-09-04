@@ -13,6 +13,7 @@
 #import "UserModel.h"
 #import "SettingsViewController.h"
 #import <ShareSDK/ShareSDK.h>
+#import "NoticeViewController.h"
 
 @interface MainViewController ()
 
@@ -41,6 +42,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
+    //获取公告
+    [self fetchNotice];
+    
     
     //设置rightbar样式
     [self showRightBar];
@@ -218,6 +224,31 @@
 }
 -(void)reloadUser{
     [self showRightBar];
+}
+-(void)fetchNotice{
+    NSInteger noticeId = [UserModel shareInstance].noticeId;
+    NSString *urlString = [iApi sharedInstance].notice;
+    urlString = [iApi addUrl:urlString key:@"id" value:[NSString stringWithFormat:@"%d",noticeId]];
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        NSInteger code = [JSON[@"code"] integerValue];
+        if(code == 1){
+            [UserModel shareInstance].noticeId = [JSON[@"data"][@"id"] integerValue];
+            [self showNotice:JSON[@"data"][@"url"]];
+        }else{
+
+        }
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+
+    }];
+    [operation start];
+}
+- (void)showNotice:(NSString *)url{
+    NoticeViewController *notice = [[NoticeViewController alloc] initWithNibName:@"NoticeViewController" bundle:nil];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:notice];
+    notice.url = url;
+    [self.navigationController presentModalViewController:nav animated:YES];
 }
 - (void)didReceiveMemoryWarning
 {

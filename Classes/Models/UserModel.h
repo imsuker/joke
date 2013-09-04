@@ -14,6 +14,7 @@
     NSMutableArray *_arrayLikedIds; //用户所有喜欢的ids
 }
 @property (nonatomic) NSInteger visitId;  //用户最后一次访问的visitId
+@property (nonatomic) NSInteger noticeId;  //最后一次访问的noticeId
 
 //登陆用户的相关信息
 @property (nonatomic) BOOL isLogin;  //是否登陆用户

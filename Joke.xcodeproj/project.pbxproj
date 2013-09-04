@@ -97,6 +97,8 @@
 		3A92842117B2B4F700E3AD54 /* pageright-onpress@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A92841C17B2B4F700E3AD54 /* pageright-onpress@2x.png */; };
 		3A92842317B2B56400E3AD54 /* page@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A92842217B2B56400E3AD54 /* page@2x.png */; };
 		3A92842517B3EA9F00E3AD54 /* contentbox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A92842417B3EA9F00E3AD54 /* contentbox@2x.png */; };
+		3AD0B68817D78C2B002844DE /* NoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0B68617D78C2B002844DE /* NoticeViewController.m */; };
+		3AD0B68917D78C2B002844DE /* NoticeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AD0B68717D78C2B002844DE /* NoticeViewController.xib */; };
 		3AD9CE3617C3D3E0002C13AD /* CollectListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD9CE3517C3D3E0002C13AD /* CollectListViewController.m */; };
 		3AD9CE3F17C50E12002C13AD /* CollectJokeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD9CE3D17C50E12002C13AD /* CollectJokeViewController.m */; };
 		3AD9CE4017C50E12002C13AD /* CollectJokeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AD9CE3E17C50E12002C13AD /* CollectJokeViewController.xib */; };
@@ -337,6 +339,9 @@
 		3A92841C17B2B4F700E3AD54 /* pageright-onpress@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pageright-onpress@2x.png"; sourceTree = "<group>"; };
 		3A92842217B2B56400E3AD54 /* page@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "page@2x.png"; sourceTree = "<group>"; };
 		3A92842417B3EA9F00E3AD54 /* contentbox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "contentbox@2x.png"; sourceTree = "<group>"; };
+		3AD0B68517D78C2B002844DE /* NoticeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticeViewController.h; sourceTree = "<group>"; };
+		3AD0B68617D78C2B002844DE /* NoticeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticeViewController.m; sourceTree = "<group>"; };
+		3AD0B68717D78C2B002844DE /* NoticeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoticeViewController.xib; sourceTree = "<group>"; };
 		3AD9CE3417C3D3E0002C13AD /* CollectListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectListViewController.h; sourceTree = "<group>"; };
 		3AD9CE3517C3D3E0002C13AD /* CollectListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectListViewController.m; sourceTree = "<group>"; };
 		3AD9CE3C17C50E12002C13AD /* CollectJokeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectJokeViewController.h; sourceTree = "<group>"; };
@@ -1167,6 +1172,9 @@
 				43F3C257178EE55A002E0633 /* MainViewController.h */,
 				43F3C258178EE55A002E0633 /* MainViewController.m */,
 				43F3C259178EE55A002E0633 /* MainViewController.xib */,
+				3AD0B68517D78C2B002844DE /* NoticeViewController.h */,
+				3AD0B68617D78C2B002844DE /* NoticeViewController.m */,
+				3AD0B68717D78C2B002844DE /* NoticeViewController.xib */,
 				43E67C4F17AA74DE00953E17 /* JokeViewController.h */,
 				43E67C5017AA74DE00953E17 /* JokeViewController.m */,
 				43E67C5117AA74DE00953E17 /* JokeViewController.xib */,
@@ -1380,6 +1388,7 @@
 				3A7CEB6017CE53CD0062274A /* UMFeedbackViewController.xib in Resources */,
 				3A7CEB6617CF95B90062274A /* AboutUsViewController.xib in Resources */,
 				3A7CEB7217CFA8A90062274A /* PushConfig.plist in Resources */,
+				3AD0B68917D78C2B002844DE /* NoticeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1487,6 +1496,7 @@
 				3A7CEB5E17CE53CD0062274A /* UMFeedbackTableViewCellRight.m in Sources */,
 				3A7CEB5F17CE53CD0062274A /* UMFeedbackViewController.m in Sources */,
 				3A7CEB6517CF95B90062274A /* AboutUsViewController.m in Sources */,
+				3AD0B68817D78C2B002844DE /* NoticeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1564,8 +1574,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: jinglei Cao (YPEGRY8JKN)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: jinglei Cao (YPEGRY8JKN)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/SDK/ShareSDK/Connection\"",
@@ -1590,8 +1600,8 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9FC14FD2-A10E-43F1-AD65-1FCECCD6FE79";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9FC14FD2-A10E-43F1-AD65-1FCECCD6FE79";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1600,8 +1610,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: jinglei Cao (YPEGRY8JKN)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: jinglei Cao (YPEGRY8JKN)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/SDK/ShareSDK/Connection\"",
@@ -1626,8 +1636,8 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9FC14FD2-A10E-43F1-AD65-1FCECCD6FE79";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9FC14FD2-A10E-43F1-AD65-1FCECCD6FE79";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

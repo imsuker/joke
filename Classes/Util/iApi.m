@@ -98,4 +98,9 @@ static iApi * instance;
     url = [iApi addUrl:url key:@"api" value:@"collects"];
     return url;
 }
+-(NSString *)notice{
+    NSString *url = [self prefix:nil];
+    url = [iApi addUrl:url key:@"api" value:@"notice"];
+    return url;
+}
 @end

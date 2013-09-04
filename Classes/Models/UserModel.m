@@ -8,6 +8,8 @@
 
 #define default_value_key_visit_joke_id 1
 #define key_visit_joke_id @"key_visit_joke_id"
+#define default_value_notice_id -1
+#define key_notice_id @"key_notice_id"
 #define key_array_visited_ids @"key_array_visited_ids"
 #define word_separated_visited_ids @","
 #define key_last_visited_date_timeinterval @"key_last_visited_date_timeinterval"
@@ -35,6 +37,13 @@ static UserModel *shareInstance;
     if(!_visitId){
         _visitId = default_value_key_visit_joke_id;
     }
+    
+    //初始化noticeId
+    _noticeId = [[storage stringForKey:key_notice_id] integerValue];
+    if(!_noticeId){
+        _noticeId = default_value_notice_id;
+    }
+    
     
     //初始化用户所有访问过的ids串
     NSString *visited_ids =[storage stringForKey:key_array_visited_ids];
@@ -147,6 +156,12 @@ static UserModel *shareInstance;
     [storage setValue:[_arrayVisitedIds componentsJoinedByString:@","] forKey:key_array_visited_ids];
     [storage synchronize];
     NSLog(@"UserModel has cussess store！");
+}
+-(void)setNoticeId:(NSInteger)noticeId{
+    _noticeId = noticeId;
+    NSUserDefaults *storage = [NSUserDefaults standardUserDefaults];
+    [storage setInteger:noticeId forKey:key_notice_id];
+    [storage synchronize];
 }
 -(void)like:(NSInteger)visitId{
     //本地添加
