@@ -12,9 +12,13 @@
     NSMutableArray *_arrayVisitedIds;  //用户访问过的所有ids串
     NSInteger _visitedCountToday;   //今天访问的总量
     NSMutableArray *_arrayLikedIds; //用户所有喜欢的ids
+    CGFloat _price;
+    NSInteger _maxCountShouldVisit;
 }
 @property (nonatomic) NSInteger visitId;  //用户最后一次访问的visitId
 @property (nonatomic) NSInteger noticeId;  //最后一次访问的noticeId
+@property (nonatomic) NSInteger maxCountShouldVisit; //匿名用户最多可访问的条数
+@property (nonatomic) CGFloat price;//获取价格
 
 //登陆用户的相关信息
 @property (nonatomic) BOOL isLogin;  //是否登陆用户

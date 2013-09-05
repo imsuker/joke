@@ -10,6 +10,7 @@
 #import "LoginViewController.h"
 #import "NavigatorBackBar.h"
 #import "NavigatorTitleLabel.h"
+#import "UserModel.h"
 
 //TODO test
 #import "SignUpViewController.h"
@@ -54,6 +55,12 @@
     [_viewContent addSubview:backgroundImage];
     _viewContent.backgroundColor = [UIColor clearColor];
     [_viewContent sendSubviewToBack:backgroundImage];
+    CGFloat price = [UserModel shareInstance].price;
+    _labelNow.text = [NSString stringWithFormat:_labelNow.text, price];
+    NSString *registerText = [_buttonBuy titleForState:UIControlStateNormal];
+    NSString *registerTextWithPrice = [NSString stringWithFormat:registerText, price];
+    [_buttonBuy setTitle:registerTextWithPrice forState:UIControlStateNormal];
+    
 }
 - (IBAction)handleTapToLogin:(id)sender{
     LoginViewController *login = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];

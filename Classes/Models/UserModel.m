@@ -17,6 +17,8 @@
 #define value_last_visited_id @"value_last_visited_id"
 #define key_array_liked_ids @"key_array_liked_ids"
 #define key_logined_info @"key_logined_info"
+#define key_max_count_should_visit @"key_max_count_should_visit"
+#define key_price @"key_price"
 
 #import "UserModel.h"
 #import "AFNetworking.h"
@@ -58,6 +60,30 @@ static UserModel *shareInstance;
     
     //初始化用户所有喜欢的ids串
     _arrayLikedIds = [storage mutableArrayValueForKey:key_array_liked_ids];
+}
+-(NSInteger)maxCountShouldVisit{
+    if(!_maxCountShouldVisit) {
+        _maxCountShouldVisit = [[NSUserDefaults standardUserDefaults] integerForKey:key_max_count_should_visit];
+    }
+    return _maxCountShouldVisit;
+}
+-(void)setMaxCountShouldVisit:(NSInteger)maxCountShouldVisit{
+    _maxCountShouldVisit = maxCountShouldVisit;
+    NSUserDefaults *storage = [NSUserDefaults standardUserDefaults];
+    [storage setInteger:maxCountShouldVisit forKey:key_max_count_should_visit];
+    [storage synchronize];
+}
+-(CGFloat)price{
+    if(!_price){
+        _price = [[NSUserDefaults standardUserDefaults] floatForKey:key_price];
+    }
+    return _price;
+}
+-(void)setPrice:(CGFloat)price{
+    _price = price;
+    NSUserDefaults *storage = [NSUserDefaults standardUserDefaults];
+    [storage setFloat:price forKey:key_price];
+    [storage synchronize];
 }
 -(NSInteger)countLikedIds{
     return _arrayLikedIds.count;
@@ -113,7 +139,7 @@ static UserModel *shareInstance;
         NSLog(@"has RightToVisit:YES,because visited");
         return YES;
     }
-    if(_visitedCountToday < 10){
+    if(_visitedCountToday < _maxCountShouldVisit){
         NSLog(@"has RightToVisit:YES, and _visitedCountToday :%d",  _visitedCountToday);
         return YES;
     }

@@ -42,25 +42,43 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    
-    //获取公告
-    [self fetchNotice];
-    
-    
-    //设置rightbar样式
-    [self showRightBar];
-    
-    
+    [self showButtonsEnable];
+
     //设置左侧logo
     UIImageView *viewLeftBar = [[UIImageView alloc] initWithFrame:CGRectMake(0, 7, 127, 30)];
     viewLeftBar.image = [UIImage imageNamed:@"logo"];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:viewLeftBar];
     
+    [self showLoadingView];
+    
+    NSString *urlString = [iApi sharedInstance].constant;
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        [_loadingViewController stop];
+        NSInteger code = [JSON[@"code"] integerValue];
+        NSDictionary *data = JSON[@"data"];
+        if(code == 1){
+            [UserModel shareInstance].price = [data[@"vipPrice"] floatValue];
+            [UserModel shareInstance].maxCountShouldVisit = [data[@"freeShow"] integerValue];
+        }
+        [self showMainFlow];
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        [_loadingViewController stop];
+        [self showMainFlow];
+    }];
+    [operation start];
+}
+-(void)showMainFlow{
+    //获取公告
+    [self fetchNotice];
+    
+    //设置rightbar样式
+    [self showRightBar];
+    
     _visitId = [UserModel shareInstance].visitId;
     _next = 0;
     _prev = 0;
-    [self showButtonsEnable];
     [self fetchJoke];
 }
 -(void)showRightBar{
@@ -84,13 +102,16 @@
     UITapGestureRecognizer *tapRightBar = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapLookUser)];
     [rightBar.customView addGestureRecognizer:tapRightBar];
 }
-//获取joke
--(void)fetchJoke{
+-(void)showLoadingView{
     if(!_loadingViewController){
         _loadingViewController = [[LoadingViewController alloc] initWithNibName:@"LoadingViewController" bundle:nil];
     }
     [self addChildViewController:_loadingViewController];
     [self.view addSubview:_loadingViewController.view];
+}
+//获取joke
+-(void)fetchJoke{
+    [self showLoadingView];
     NSString *urlString = [iApi sharedInstance].content;
     urlString = [iApi addUrl:urlString key:@"id" value:[NSString stringWithFormat:@"%d",_visitId]];
     NSURL *url = [NSURL URLWithString:urlString];

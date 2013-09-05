@@ -11,6 +11,8 @@
 @interface VipIntroduceViewController : UIViewController{
     IBOutlet UIButton *_buttonRegistered;
     IBOutlet UIView *_viewContent;
+    IBOutlet UILabel *_labelNow;
+    IBOutlet UIButton *_buttonBuy;
 }
 
 @end

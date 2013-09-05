@@ -21,6 +21,7 @@
 @property (nonatomic, readonly) NSString *allCollects;
 @property (nonatomic, readonly) NSString *collects;
 @property (nonatomic, readonly) NSString *notice;
+@property (nonatomic, readonly) NSString *constant;
 
 
 
