@@ -108,4 +108,14 @@ static iApi * instance;
     url = [iApi addUrl:url key:@"api" value:@"constant"];
     return url;
 }
+-(NSString *)savelastid{
+    NSString *url = [self prefix:nil];
+    url = [iApi addUrl:url key:@"api" value:@"savelastid"];
+    return url;
+}
+-(NSString *)lastid{
+    NSString *url = [self prefix:nil];
+    url = [iApi addUrl:url key:@"api" value:@"lastid"];
+    return url;
+}
 @end

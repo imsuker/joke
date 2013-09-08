@@ -22,6 +22,8 @@
 @property (nonatomic, readonly) NSString *collects;
 @property (nonatomic, readonly) NSString *notice;
 @property (nonatomic, readonly) NSString *constant;
+@property (nonatomic, readonly) NSString *savelastid;
+@property (nonatomic, readonly) NSString *lastid;
 
 
 

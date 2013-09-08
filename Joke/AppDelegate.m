@@ -15,6 +15,7 @@
 #import <TencentOpenAPI/TencentOAuth.h>
 #import <QQConnection/QQConnection.h>
 #import "APService.h"
+#import "AFNetworking.h"
 
 
 @implementation AppDelegate
@@ -113,6 +114,26 @@
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     [[UserModel shareInstance] save];
+    //如果是登陆用户，则读取最后一次的visitid
+    if([UserModel shareInstance].isLogin){
+        NSLog(@"enterbackground and savelastid");
+        NSInteger visitId = [UserModel shareInstance].visitId;
+        NSString *urlString = [iApi sharedInstance].savelastid;
+        urlString = [iApi addUrl:urlString key:@"id" value:[NSString stringWithFormat:@"%d",visitId]];
+        urlString = [iApi addUrl:urlString key:@"token" value:[UserModel shareInstance].token];
+        urlString = [iApi addUrl:urlString key:@"userid" value:[NSString stringWithFormat:@"%d",[UserModel shareInstance].userId]];
+        NSURL *url = [NSURL URLWithString:urlString];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+            NSLog(@"savevisitid to backend finished");
+        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+            NSLog(@"savevisitid to backend failure");
+        }];
+        [operation setShouldExecuteAsBackgroundTaskWithExpirationHandler:^{
+            NSLog(@"savevistid backgroundTaskWithExpirationHandler");
+        }];
+        [operation start];
+    }
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
