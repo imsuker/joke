@@ -16,6 +16,7 @@
     IBOutlet UIButton *_buttonLike;
     IBOutlet UILabel *_labelPassed;
     IBOutlet UIImageView *_imageViewScrollViewBackground;
+    IBOutlet UIImageView *_imageViewDefault;
 }
 @property (nonatomic) JokeModel *jokeModel;
 

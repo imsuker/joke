@@ -12,6 +12,7 @@
 @interface JokeModel : JSONModel
 @property (nonatomic) NSInteger jokeId;
 @property (nonatomic) NSString *title;
+@property (nonatomic) NSDictionary *picDefault;
 @property (nonatomic) NSString *content;
 @property (nonatomic) NSInteger visit;
 @property (nonatomic) NSInteger collect;

@@ -42,6 +42,23 @@
     _labelTitle.text = _jokeModel.title;
     [_labelTitle sizeToFit];
     _yFree += _labelTitle.frame.size.height + _labelTitle.frame.origin.y;
+    
+    //默认图片
+    NSDictionary *picDefault = _jokeModel.picDefault;
+    if(picDefault){
+        NSString *urlPicDefault = picDefault[@"pic"];
+        NSInteger widthPicDefault = [picDefault[@"w"] integerValue];
+        NSInteger heightPicDefault = [picDefault[@"h"] integerValue];
+        if(urlPicDefault && widthPicDefault && heightPicDefault){
+            UIImageView *imageView = [[UIImageView alloc] init];
+            imageView.frame = [self ResizePicBounds:CGRectMake(30, _yFree, widthPicDefault/2, heightPicDefault/2)];
+            [_scrollView addSubview:imageView];
+            [imageView setImageUrl:urlPicDefault];
+            _yFree += imageView.bounds.size.height;
+        }
+    }
+
+    
     NSArray *audios = _jokeModel.audios;
     [audios enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         _yFree += 8;
