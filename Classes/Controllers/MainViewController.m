@@ -98,7 +98,7 @@
 {
     [super viewDidLoad];
     [self showButtonsEnable];
-    [self showSupportGuide];
+    [self performSelector:@selector(showSupportGuide) withObject:nil afterDelay:10.0];
     //设置左侧logo
     UIImageView *viewLeftBar = [[UIImageView alloc] initWithFrame:CGRectMake(0, 7, 127, 30)];
     viewLeftBar.image = [UIImage imageNamed:@"logo"];
