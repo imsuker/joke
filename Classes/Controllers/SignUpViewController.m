@@ -55,6 +55,7 @@
     [Util adjustTextFieldLeftPadding:_textFieldUserName];
     [Util adjustTextFieldLeftPadding:_textFieldPassword];
     [Util adjustTextFieldLeftPadding:_textFieldEmail];
+    _textFieldPassword.secureTextEntry = YES;
 }
 
 -(IBAction)handleTapSignUp:(id)sender{

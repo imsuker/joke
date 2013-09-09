@@ -12,13 +12,13 @@
     NSMutableArray *_arrayVisitedIds;  //用户访问过的所有ids串
     NSInteger _visitedCountToday;   //今天访问的总量
     NSMutableArray *_arrayLikedIds; //用户所有喜欢的ids
-    CGFloat _price;
+    NSInteger _price;
     NSInteger _maxCountShouldVisit;
 }
 @property (nonatomic) NSInteger visitId;  //用户最后一次访问的visitId
 @property (nonatomic) NSInteger noticeId;  //最后一次访问的noticeId
 @property (nonatomic) NSInteger maxCountShouldVisit; //匿名用户最多可访问的条数
-@property (nonatomic) CGFloat price;//获取价格
+@property (nonatomic) NSInteger price;//获取价格
 
 //登陆用户的相关信息
 @property (nonatomic) BOOL isLogin;  //是否登陆用户
@@ -33,6 +33,7 @@
 -(BOOL)hasRightToVisit:(NSInteger)visitId;   //是否有权限看下一个
 -(void)reCountVisitDate;  //重新计算当前的时间戳，当应用第一次启动，但应用从后台切到前台时 调用
 -(void)save; //存储内存的数据到plist  当应用切入到后台时或被关闭时存储
+-(void)saveLastId:(NSInteger)lastId; //把lastId写入storage和内存
 -(void)like:(NSInteger)visitId; //喜欢某个visitId
 -(void)unlike:(NSInteger)visitId; //取消喜欢某个 visitId
 -(BOOL)isLike:(NSInteger)visitId; // 判断该visitId是否喜欢过了

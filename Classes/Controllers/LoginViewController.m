@@ -54,6 +54,8 @@
     //输入框内部左侧边距
     [Util adjustTextFieldLeftPadding:_textFieldAcount];
     [Util adjustTextFieldLeftPadding:_textFieldPassword];
+    
+    _textFieldPassword.secureTextEntry = YES;
 
 }
 //用户点击登录后动作

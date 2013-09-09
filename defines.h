@@ -42,6 +42,9 @@
 #define JD_WORD_BADNETWORK @"您的网络好像有问题~"
 #define JD_WORD_BADINPUT @"输入有误~"
 
+#define JD_WORD_SUPPORT_MESSAGE @"喜欢就支持一下我们吧~"
+#define JD_WORD_SUPPORT_REFUSE @"残忍地拒绝"
+#define JD_WORD_SUPPORT_GO @"支持"
 
 /**
  *

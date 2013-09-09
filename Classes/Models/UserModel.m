@@ -73,16 +73,16 @@ static UserModel *shareInstance;
     [storage setInteger:maxCountShouldVisit forKey:key_max_count_should_visit];
     [storage synchronize];
 }
--(CGFloat)price{
+-(NSInteger)price{
     if(!_price){
-        _price = [[NSUserDefaults standardUserDefaults] floatForKey:key_price];
+        _price = [[NSUserDefaults standardUserDefaults] integerForKey:key_price];
     }
     return _price;
 }
--(void)setPrice:(CGFloat)price{
+-(void)setPrice:(NSInteger)price{
     _price = price;
     NSUserDefaults *storage = [NSUserDefaults standardUserDefaults];
-    [storage setFloat:price forKey:key_price];
+    [storage setInteger :price forKey:key_price];
     [storage synchronize];
 }
 -(NSInteger)countLikedIds{
@@ -182,6 +182,12 @@ static UserModel *shareInstance;
     [storage setValue:[_arrayVisitedIds componentsJoinedByString:@","] forKey:key_array_visited_ids];
     [storage synchronize];
     NSLog(@"UserModel has cussess store！");
+}
+-(void)saveLastId:(NSInteger)lastId{
+    _visitId = lastId;
+    NSUserDefaults *storage = [NSUserDefaults standardUserDefaults];
+    [storage setInteger:lastId forKey:key_visit_joke_id];
+    [storage synchronize];
 }
 -(void)setNoticeId:(NSInteger)noticeId{
     _noticeId = noticeId;

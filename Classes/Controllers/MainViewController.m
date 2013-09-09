@@ -34,16 +34,71 @@
     [super viewDidAppear:animated];
     if(_isFromLogin){
         _isFromLogin = NO;
-        if(_lastJokeViewController){
-            [self tapButtonNext:nil];
+//        if(_lastJokeViewController){
+//            [self tapButtonNext:nil];
+//        }
+        [self showLoadingView];
+        [self fetchLastid];
+    }
+}
+
+-(void)showSupportDialog{
+    _alertViewSupport = [[UIAlertView alloc] initWithTitle:nil message:JD_WORD_SUPPORT_MESSAGE delegate:self cancelButtonTitle:JD_WORD_SUPPORT_REFUSE otherButtonTitles:JD_WORD_SUPPORT_GO, nil];
+    [_alertViewSupport show];
+}
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    NSString *buttonTitle = [alertView buttonTitleAtIndex:buttonIndex];
+    if(_alertViewSupport == alertView){
+        if([buttonTitle isEqualToString:JD_WORD_SUPPORT_GO]){
+            if(NSClassFromString(@"SKStoreProductViewController") == nil){
+                [self supportAppStore];
+                return;
+            }
+            SKStoreProductViewController *sk = [[SKStoreProductViewController alloc] init];
+            sk.delegate = self;
+            LoadingViewController *loadingView = [[LoadingViewController alloc] initWithNibName:@"LoadingViewController" bundle:nil];
+            [self addChildViewController:loadingView];
+            [self.view addSubview:loadingView.view];
+            __weak LoadingViewController *weakLoadingView = loadingView;
+            [sk loadProductWithParameters:@{SKStoreProductParameterITunesItemIdentifier:JD_CONFIG_APPLE_ID} completionBlock:^(BOOL result, NSError *error) {
+                [weakLoadingView stop];
+                if(error){
+                    [self supportAppStore];
+                }else{
+                    [self presentModalViewController:sk animated:YES];
+                }
+            }];
         }
     }
+}
+-(void)supportAppStore{
+    NSString *evaluateString = [NSString stringWithFormat:@"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%@",JD_CONFIG_APPLE_ID];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:evaluateString]];
+}
+-(void)showSupportGuide{
+    NSUserDefaults *storage = [NSUserDefaults standardUserDefaults];
+    NSString *storageVersion = [storage stringForKey:@"key_storage_bundle_version"];
+    NSString *bundleVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
+    if(![bundleVersion isEqualToString:storageVersion]){
+        [storage setValue:bundleVersion forKey:@"key_storage_bundle_version"];
+        [storage setInteger:0 forKey:@"key_storage_support_times"];
+        [storage synchronize];
+        return;
+    }
+    NSInteger times = [storage integerForKey:@"key_storage_support_times"];
+    if(times == 5 || times == 15){
+        [self showSupportDialog];
+    }
+    NSLog(@"times:%d",times);
+    times ++;
+    [storage setInteger:times forKey:@"key_storage_support_times"];
+    [storage synchronize];
 }
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self showButtonsEnable];
-
+    [self showSupportGuide];
     //设置左侧logo
     UIImageView *viewLeftBar = [[UIImageView alloc] initWithFrame:CGRectMake(0, 7, 127, 30)];
     viewLeftBar.image = [UIImage imageNamed:@"logo"];
@@ -55,21 +110,45 @@
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        [_loadingViewController stop];
         NSInteger code = [JSON[@"code"] integerValue];
         NSDictionary *data = JSON[@"data"];
         if(code == 1){
-            [UserModel shareInstance].price = [data[@"vipPrice"] floatValue];
+            [UserModel shareInstance].price = [data[@"vipPrice"] integerValue];
             [UserModel shareInstance].maxCountShouldVisit = [data[@"freeShow"] integerValue];
+        }
+        [self fetchLastid];
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        [_loadingViewController stop];
+        [self fetchLastid];
+    }];
+    [operation start];
+}
+
+-(void)fetchLastid{
+    if(![UserModel shareInstance].isLogin){
+        [self showMainFlow];
+        return;
+    }
+    NSString *urlString = [iApi sharedInstance].lastid;
+    urlString = [iApi addUrl:urlString key:@"token" value:[UserModel shareInstance].token];
+    urlString = [iApi addUrl:urlString key:@"useid" value:[NSString stringWithFormat:@"%d",[UserModel shareInstance].userId]];
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        NSInteger code = [JSON[@"code"] integerValue];
+        NSDictionary *data = JSON[@"data"];
+        if(code == 1){
+            NSInteger lastId = [data[@"id"] integerValue];
+            [[UserModel shareInstance] saveLastId:lastId];
         }
         [self showMainFlow];
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        [_loadingViewController stop];
         [self showMainFlow];
     }];
     [operation start];
 }
 -(void)showMainFlow{
+    [_loadingViewController stop];
     //获取公告
     [self fetchNotice];
     
@@ -106,6 +185,7 @@
     if(!_loadingViewController){
         _loadingViewController = [[LoadingViewController alloc] initWithNibName:@"LoadingViewController" bundle:nil];
     }
+    [_loadingViewController stop];
     [self addChildViewController:_loadingViewController];
     [self.view addSubview:_loadingViewController.view];
 }

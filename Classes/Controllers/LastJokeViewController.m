@@ -7,6 +7,7 @@
 //
 
 #import "LastJokeViewController.h"
+#import "UserModel.h"
 
 @interface LastJokeViewController ()
 
@@ -27,6 +28,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    NSInteger price = [UserModel shareInstance].price;
+    _labelBuy.text = [NSString stringWithFormat:_labelBuy.text, price];
+    _buttonBuy.titleLabel.text = [NSString stringWithFormat:_buttonBuy.titleLabel.text, price];
 }
 
 - (IBAction)handleTapBuy:(id)sender{

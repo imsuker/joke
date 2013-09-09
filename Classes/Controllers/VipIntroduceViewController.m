@@ -55,7 +55,7 @@
     [_viewContent addSubview:backgroundImage];
     _viewContent.backgroundColor = [UIColor clearColor];
     [_viewContent sendSubviewToBack:backgroundImage];
-    CGFloat price = [UserModel shareInstance].price;
+    NSInteger price = [UserModel shareInstance].price;
     _labelNow.text = [NSString stringWithFormat:_labelNow.text, price];
     NSString *registerText = [_buttonBuy titleForState:UIControlStateNormal];
     NSString *registerTextWithPrice = [NSString stringWithFormat:registerText, price];

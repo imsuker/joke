@@ -10,7 +10,9 @@
 #import "JokeViewController.h"
 #import "LoadingViewController.h"
 #import "LastJokeViewController.h"
-@interface MainViewController : UIViewController{
+#import <StoreKit/StoreKit.h>
+
+@interface MainViewController : UIViewController<UIAlertViewDelegate,SKStoreProductViewControllerDelegate>{
     IBOutlet UIButton *_buttonPrev;
     IBOutlet UIButton *_buttonNext;
     IBOutlet UIView *_viewJoke;
@@ -22,6 +24,7 @@
     NSInteger _next;
     LoadingViewController *_loadingViewController;
     LastJokeViewController *_lastJokeViewController;
+    UIAlertView *_alertViewSupport;
 }
 
 

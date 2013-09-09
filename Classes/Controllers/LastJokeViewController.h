@@ -10,5 +10,6 @@
 
 @interface LastJokeViewController : UIViewController{
     IBOutlet UIButton *_buttonBuy;
+    IBOutlet UILabel *_labelBuy;
 }
 @end
