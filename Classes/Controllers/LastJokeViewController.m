@@ -29,8 +29,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     NSInteger price = [UserModel shareInstance].price;
+    NSInteger maxCount = [UserModel shareInstance].maxCountShouldVisit;
     _labelBuy.text = [NSString stringWithFormat:_labelBuy.text, price];
     [_buttonBuy setTitle:[NSString stringWithFormat:_buttonBuy.titleLabel.text, price] forState:UIControlStateNormal];
+    _labelDesc.text = [NSString stringWithFormat:_labelDesc.text,maxCount];
+    _labelTitle.text = [NSString stringWithFormat:_labelTitle.text, maxCount];
 }
 
 - (IBAction)handleTapBuy:(id)sender{

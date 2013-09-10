@@ -13,6 +13,7 @@
     IBOutlet UIView *_viewContent;
     IBOutlet UILabel *_labelNow;
     IBOutlet UIButton *_buttonBuy;
+    IBOutlet UILabel *_labelDesc;
 }
 
 @end

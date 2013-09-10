@@ -61,6 +61,8 @@
     NSString *registerTextWithPrice = [NSString stringWithFormat:registerText, price];
     [_buttonBuy setTitle:registerTextWithPrice forState:UIControlStateNormal];
     
+    _labelDesc.text = [NSString stringWithFormat:_labelDesc.text, [UserModel shareInstance].maxCountShouldVisit];
+    
 }
 - (IBAction)handleTapToLogin:(id)sender{
     LoginViewController *login = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
