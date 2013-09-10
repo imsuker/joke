@@ -122,6 +122,10 @@
         [self fetchLastid];
     }];
     [operation start];
+    //预读取shareSDK配置
+    [ShareSDK waitAppSettingComplete:^{
+        
+    }];
 }
 
 -(void)fetchLastid{
@@ -265,7 +269,9 @@
 }
 
 -(IBAction)handleTapShare:(id)sender{
+    NSLog(@"====shareSDK getAppSettings!");
     [ShareSDK waitAppSettingComplete:^{
+        NSLog(@"====shareSDK getAppSettings success!");
         NSString *url = [NSString stringWithFormat:@"http://www.yuyinxiaohua.com/archives/%d", _visitId];
         NSString *content = [NSString stringWithFormat:@"我在【语音笑话网】听的这个笑话《%@》很搞笑，你也来听听吧 %@",_jokeViewController.jokeModel.title, url];
         
