@@ -291,4 +291,22 @@ static UserModel *shareInstance;
     [operation start];
 }
 
++(void)saveLastIdToBackend{
+    NSInteger visitId = [UserModel shareInstance].visitId;
+    NSString *urlString = [iApi sharedInstance].savelastid;
+    urlString = [iApi addUrl:urlString key:@"id" value:[NSString stringWithFormat:@"%d",visitId]];
+    urlString = [iApi addUrl:urlString key:@"token" value:[UserModel shareInstance].token];
+    urlString = [iApi addUrl:urlString key:@"userid" value:[NSString stringWithFormat:@"%d",[UserModel shareInstance].userId]];
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        NSLog(@"savevisitid to backend finished");
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        NSLog(@"savevisitid to backend failure");
+    }];
+    [operation setShouldExecuteAsBackgroundTaskWithExpirationHandler:^{
+        NSLog(@"savevistid backgroundTaskWithExpirationHandler");
+    }];
+    [operation start];
+}
 @end

@@ -209,6 +209,7 @@
         
     }
     if([idItem isEqual:JD_KEY_SETTINGS_logout]){
+        [UserModel saveLastIdToBackend];
         [[UserModel shareInstance] logout];
         [self.navigationController popToRootViewControllerAnimated:YES];
     }

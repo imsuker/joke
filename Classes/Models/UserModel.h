@@ -40,4 +40,5 @@
 -(void)reFetchLikedIds; //重新获取用户的收藏ids，用户登陆后操作
 -(void)login:(NSDictionary *)info; //登陆
 -(void)logout; //登出
++(void)saveLastIdToBackend; //保存id到后端
 @end
