@@ -30,7 +30,7 @@
     // Do any additional setup after loading the view from its nib.
     NSInteger price = [UserModel shareInstance].price;
     _labelBuy.text = [NSString stringWithFormat:_labelBuy.text, price];
-    _buttonBuy.titleLabel.text = [NSString stringWithFormat:_buttonBuy.titleLabel.text, price];
+    [_buttonBuy setTitle:[NSString stringWithFormat:_buttonBuy.titleLabel.text, price] forState:UIControlStateNormal];
 }
 
 - (IBAction)handleTapBuy:(id)sender{

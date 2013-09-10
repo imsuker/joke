@@ -50,6 +50,7 @@
         NSInteger widthPicDefault = [picDefault[@"w"] integerValue];
         NSInteger heightPicDefault = [picDefault[@"h"] integerValue];
         if(urlPicDefault && widthPicDefault && heightPicDefault){
+            _yFree += 4;
             UIImageView *imageView = [[UIImageView alloc] init];
             imageView.frame = [self ResizePicBounds:CGRectMake(30, _yFree, widthPicDefault/2, heightPicDefault/2)];
             [_scrollView addSubview:imageView];
