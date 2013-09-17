@@ -85,6 +85,14 @@ static UserModel *shareInstance;
     [storage setValue :price forKey:key_price];
     [storage synchronize];
 }
+-(BOOL)isFree{
+    NSInteger intPrice = [_price integerValue];
+    CGFloat floatPrice = [_price floatValue];
+    if(intPrice == floatPrice && intPrice == 0){
+        return YES;
+    }
+    return NO;
+}
 -(NSInteger)countLikedIds{
     return _arrayLikedIds.count;
 }

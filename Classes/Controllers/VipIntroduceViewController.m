@@ -11,8 +11,7 @@
 #import "NavigatorBackBar.h"
 #import "NavigatorTitleLabel.h"
 #import "UserModel.h"
-
-//TODO test
+#import "PopHintViewController.h"
 #import "SignUpViewController.h"
 
 @interface VipIntroduceViewController ()
@@ -55,7 +54,7 @@
     [_viewContent addSubview:backgroundImage];
     _viewContent.backgroundColor = [UIColor clearColor];
     [_viewContent sendSubviewToBack:backgroundImage];
-    NSInteger price = [UserModel shareInstance].price;
+    NSString *price = [UserModel shareInstance].price;
     _labelNow.text = [NSString stringWithFormat:_labelNow.text, price];
     NSString *registerText = [_buttonBuy titleForState:UIControlStateNormal];
     NSString *registerTextWithPrice = [NSString stringWithFormat:registerText, price];
@@ -69,9 +68,15 @@
     [self.navigationController pushViewController:login animated:YES];
 }
 - (IBAction)handleTapToBuy:(id)sender{
-    //TODO  buy
-    SignUpViewController *signup = [[SignUpViewController alloc] initWithNibName:@"SignUpViewController" bundle:nil];
-    [self.navigationController pushViewController:signup animated:YES];
+    if([UserModel shareInstance].isFree){
+        SignUpViewController *signup = [[SignUpViewController alloc] initWithNibName:@"SignUpViewController" bundle:nil];
+        [self.navigationController pushViewController:signup animated:YES];
+    }else{
+        //TODO tobuy
+        PopHintViewController *pop = [[PopHintViewController alloc] initWithText:@"支付宝购买"];
+        [self addChildViewController:pop];
+        [self.view addSubview:pop.view];
+    }
 }
 - (void)didReceiveMemoryWarning
 {

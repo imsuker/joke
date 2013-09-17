@@ -19,6 +19,7 @@
 @property (nonatomic) NSInteger noticeId;  //最后一次访问的noticeId
 @property (nonatomic) NSInteger maxCountShouldVisit; //匿名用户最多可访问的条数
 @property (nonatomic) NSString *price;//获取价格
+@property (nonatomic) BOOL isFree; //是否免费购买
 
 //登陆用户的相关信息
 @property (nonatomic) BOOL isLogin;  //是否登陆用户

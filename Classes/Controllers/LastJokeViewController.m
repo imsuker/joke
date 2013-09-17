@@ -8,6 +8,8 @@
 
 #import "LastJokeViewController.h"
 #import "UserModel.h"
+#import "SignUpViewController.h"
+#import "PopHintViewController.h"
 
 @interface LastJokeViewController ()
 
@@ -28,7 +30,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    NSInteger price = [UserModel shareInstance].price;
+    NSString *price = [UserModel shareInstance].price;
     NSInteger maxCount = [UserModel shareInstance].maxCountShouldVisit;
     _labelBuy.text = [NSString stringWithFormat:_labelBuy.text, price];
     [_buttonBuy setTitle:[NSString stringWithFormat:_buttonBuy.titleLabel.text, price] forState:UIControlStateNormal];
@@ -37,7 +39,15 @@
 }
 
 - (IBAction)handleTapBuy:(id)sender{
-    
+    if([UserModel shareInstance].isFree){
+        SignUpViewController *signup = [[SignUpViewController alloc] initWithNibName:@"SignUpViewController" bundle:nil];
+        [self.navigationController pushViewController:signup animated:YES];
+    }else{
+        //TODO tobuy
+        PopHintViewController *pop = [[PopHintViewController alloc] initWithText:@"支付宝购买"];
+        [self addChildViewController:pop];
+        [self.view addSubview:pop.view];
+    }
 }
 - (void)didReceiveMemoryWarning
 {
