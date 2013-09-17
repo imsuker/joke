@@ -276,7 +276,6 @@
         NSString *content = [NSString stringWithFormat:@"我在【语音笑话网】听的这个笑话《%@》很搞笑，你也来听听吧 %@",_jokeViewController.jokeModel.title, url];
         
         
-        //TODO 根据分享类型修改分享内容
         //构造分享内容
         id<ISSContent> publishContent = [ShareSDK content:content
                                            defaultContent:@"语音笑话网"
@@ -286,7 +285,7 @@
                                               description:@"最用心讲笑话的语音笑话网站，真人语音讲笑话、语音笑话大全"
                                                 mediaType:SSPublishContentMediaTypeNews];
         //添加QQ空间分享内容
-        NSString *urlPic = _jokeViewController.urlPic;
+        NSString *urlPic = _jokeViewController.urlPicQQ;
         if(urlPic == nil) {
             urlPic = @"";
         }
@@ -294,8 +293,8 @@
         
         //添加微博分享内容
         id<ISSCAttachment> imageWeibo;
-        if(_jokeViewController.imageViewPic){
-            imageWeibo = [ShareSDK jpegImageWithImage:_jokeViewController.imageViewPic.image quality:1.0];
+        if(_jokeViewController.imageViewPicWeibo){
+            imageWeibo = [ShareSDK jpegImageWithImage:_jokeViewController.imageViewPicWeibo.image quality:1.0];
         }
         NSString *contentWeibo = [NSString stringWithFormat:@"我在【语音笑话网】听的这个笑话《%@》很搞笑，你也来听听吧 （分享自 @语音笑话网） http://www.yuyinxiaohua.com/archives/%d",_jokeViewController.jokeModel.title,_visitId];
         [publishContent addSinaWeiboUnitWithContent:contentWeibo image:imageWeibo];

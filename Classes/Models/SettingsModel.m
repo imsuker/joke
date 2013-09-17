@@ -40,7 +40,7 @@
                               };
     NSDictionary *logout = @{
                              @"id": JD_KEY_SETTINGS_logout,
-                             @"name":@"退出登陆"
+                             @"name":@"退出登录"
                              };
     if([UserModel shareInstance].isLogin){
         _allItems = @[

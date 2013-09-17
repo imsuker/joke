@@ -47,6 +47,7 @@
     NSDictionary *picDefault = _jokeModel.picDefault;
     if(picDefault){
         NSString *urlPicDefault = picDefault[@"pic"];
+        _urlPicQQ = urlPicDefault;
         NSInteger widthPicDefault = [picDefault[@"w"] integerValue];
         NSInteger heightPicDefault = [picDefault[@"h"] integerValue];
         if(urlPicDefault && widthPicDefault && heightPicDefault){
@@ -56,6 +57,7 @@
             [_scrollView addSubview:imageView];
             [imageView setImageUrl:urlPicDefault];
             _yFree += imageView.bounds.size.height;
+            _imageViewPicWeibo = imageView;
         }
     }
 
@@ -90,8 +92,8 @@
             imageView.accessibilityLanguage = [NSString stringWithFormat:@"%d", idx];
         }
         if(idx == 0){
-            _urlPic = obj[@"pic"];
-            _imageViewPic = imageView;
+            _urlPicQQ = obj[@"pic"];
+            _imageViewPicWeibo = imageView;
         }
     }];
 //    _yFree += 8;
