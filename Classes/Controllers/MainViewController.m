@@ -113,7 +113,7 @@
         NSInteger code = [JSON[@"code"] integerValue];
         NSDictionary *data = JSON[@"data"];
         if(code == 1){
-            [UserModel shareInstance].price = [data[@"vipPrice"] integerValue];
+            [UserModel shareInstance].price = data[@"vipPrice"];
             [UserModel shareInstance].maxCountShouldVisit = [data[@"freeShow"] integerValue];
         }
         [self fetchLastid];

@@ -73,16 +73,16 @@ static UserModel *shareInstance;
     [storage setInteger:maxCountShouldVisit forKey:key_max_count_should_visit];
     [storage synchronize];
 }
--(NSInteger)price{
+-(NSString *)price{
     if(!_price){
-        _price = [[NSUserDefaults standardUserDefaults] integerForKey:key_price];
+        _price = [[NSUserDefaults standardUserDefaults] stringForKey:key_price];
     }
     return _price;
 }
--(void)setPrice:(NSInteger)price{
+-(void)setPrice:(NSString *)price{
     _price = price;
     NSUserDefaults *storage = [NSUserDefaults standardUserDefaults];
-    [storage setInteger :price forKey:key_price];
+    [storage setValue :price forKey:key_price];
     [storage synchronize];
 }
 -(NSInteger)countLikedIds{
