@@ -16,6 +16,7 @@
 #import <QQConnection/QQConnection.h>
 #import "APService.h"
 #import "AFNetworking.h"
+#import <AVFoundation/AVFoundation.h>
 
 
 @implementation AppDelegate
@@ -65,9 +66,24 @@
     [ShareSDK importQQClass:[QQApiInterface class]
             tencentOAuthCls:[TencentOAuth class]];
 }
-
+-(void)remoteControlReceivedWithEvent:(UIEvent *)event{
+    NSLog(@"event.subtype = %d", event.subtype);
+    if(event.type == UIEventTypeRemoteControl){
+        if(event.subtype == UIEventSubtypeRemoteControlPause){
+            [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_STOP_PLAYER object:nil];
+        }
+    }
+}
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //支持切到后台时播放声音
+    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+    [audioSession setCategory:AVAudioSessionCategoryPlayback error:nil];
+    [audioSession setActive:YES error:nil];
+    
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+//    [self becomeFirstResponder];
+
 //    [ShareSDK registerApp:@"7c634688270"];
 //    [self initializePlat];
     
