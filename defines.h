@@ -46,6 +46,7 @@
 #define JD_WORD_SUPPORT_REFUSE @"残忍地拒绝"
 #define JD_WORD_SUPPORT_GO @"支持"
 
+#define JD_WORD_NOSUPPORT_ALIPAY @"暂不支持，敬请期待~"
 /**
  *
  */

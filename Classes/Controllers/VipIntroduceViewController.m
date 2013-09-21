@@ -73,7 +73,7 @@
         [self.navigationController pushViewController:signup animated:YES];
     }else{
         //TODO tobuy
-        PopHintViewController *pop = [[PopHintViewController alloc] initWithText:@"支付宝购买"];
+        PopHintViewController *pop = [[PopHintViewController alloc] initWithText:JD_WORD_NOSUPPORT_ALIPAY];
         [self addChildViewController:pop];
         [self.view addSubview:pop.view];
     }

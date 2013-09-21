@@ -143,7 +143,6 @@ uOS5heiusOS9j+S9oOWQrOWIsOeahOS9jee9rgo177yMVklQ5Lya5ZGY5bqV6YOo5peg5bCP5bm/5ZGK
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{20, 271}, {260, 61}}</string>
 								<reference key="NSSuperview" ref="148291629"/>
-								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
