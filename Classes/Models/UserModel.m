@@ -286,7 +286,11 @@ static UserModel *shareInstance;
         //TODO
         NSInteger code = [JSON[@"code"] integerValue];
         if(code == 1){
-            NSArray *ids = [JSON[@"data"][@"ids"] componentsSeparatedByString:@","];
+            NSString *sIds = JSON[@"data"][@"ids"];
+            NSArray *ids = @[];
+            if([sIds rangeOfString:@","].location != NSNotFound){
+                ids = [JSON[@"data"][@"ids"] componentsSeparatedByString:@","];
+            }
             _arrayLikedIds = [ids mutableCopy];
             NSLog(@"get all collect success:%@", [_arrayLikedIds description]);
         }else{

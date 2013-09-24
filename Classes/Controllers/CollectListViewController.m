@@ -81,8 +81,10 @@
         NSInteger code = [JSON[@"code"] integerValue];
         [self stopLoading];
         if(code == 1){
-            //TODO flag
-            [_collects addObjectsFromArray:JSON[@"data"][@"items"]];
+            NSArray *items = JSON[@"data"][@"items"];
+            if(items && items.count >0){
+                [_collects addObjectsFromArray:JSON[@"data"][@"items"]];
+            }
             if(JSON[@"data"][@"flag"]){
                 _flag = [JSON[@"data"][@"flag"] integerValue];
             }else{
