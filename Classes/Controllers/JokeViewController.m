@@ -51,7 +51,7 @@
         NSInteger widthPicDefault = [picDefault[@"w"] integerValue];
         NSInteger heightPicDefault = [picDefault[@"h"] integerValue];
         if(urlPicDefault && widthPicDefault && heightPicDefault){
-            _yFree += 4;
+            _yFree += 10;
             UIImageView *imageView = [[UIImageView alloc] init];
             imageView.frame = [self ResizePicBounds:CGRectMake(30, _yFree, widthPicDefault/2, heightPicDefault/2)];
             [_scrollView addSubview:imageView];
@@ -60,21 +60,7 @@
             _imageViewPicWeibo = imageView;
         }
     }
-
     
-    NSArray *audios = _jokeModel.audios;
-    [audios enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        _yFree += 8;
-        AudioViewController *audio = [[AudioViewController alloc] initWithNibName:nil bundle:nil];
-        audio.urlAudio = obj;
-        audio.nameSource = [NSString stringWithFormat:@"/%d_%d.mp3",_jokeModel.jokeId, idx];
-        audio.y = _yFree;
-        _yFree += audio.heightView;
-        NSLog(@"====AudioViewController prepared!!!");
-        [self addChildViewController:audio];
-        [_scrollView addSubview:audio.view];
-        audio.view.autoresizingMask = UIViewAutoresizingNone;
-    }];
     NSArray *pics = _jokeModel.pics;
     [pics enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         _yFree += 10;
@@ -84,7 +70,7 @@
         [imageView setImageUrl:obj[@"pic"]];
         _yFree += imageView.bounds.size.height;
         NSString *url = obj[@"url"];
-            if(url && ![@"" isEqual:url]){
+        if(url && ![@"" isEqual:url]){
             UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapPic:)];
             [imageView addGestureRecognizer:tap];
             imageView.userInteractionEnabled = YES;
@@ -96,6 +82,22 @@
             _imageViewPicWeibo = imageView;
         }
     }];
+
+    
+    NSArray *audios = _jokeModel.audios;
+    [audios enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        _yFree += 10;
+        AudioViewController *audio = [[AudioViewController alloc] initWithNibName:nil bundle:nil];
+        audio.urlAudio = obj;
+        audio.nameSource = [NSString stringWithFormat:@"/%d_%d.mp3",_jokeModel.jokeId, idx];
+        audio.y = _yFree;
+        _yFree += audio.heightView;
+        NSLog(@"====AudioViewController prepared!!!");
+        [self addChildViewController:audio];
+        [_scrollView addSubview:audio.view];
+        audio.view.autoresizingMask = UIViewAutoresizingNone;
+    }];
+
 //    _yFree += 8;
     
     _webViewContent.frame = [Util adjustFrame:_webViewContent.frame withY:_yFree];
