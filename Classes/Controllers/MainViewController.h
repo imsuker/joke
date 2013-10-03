@@ -25,6 +25,7 @@
     LoadingViewController *_loadingViewController;
     LastJokeViewController *_lastJokeViewController;
     UIAlertView *_alertViewSupport;
+    BOOL _ShareSDKLoading;
 }
 
 
