@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "LoadingViewController.h"
+#import <StoreKit/StoreKit.h>
 
 @interface SignUpViewController : UIViewController{
     IBOutlet UITextField *_textFieldUserName;
@@ -16,5 +17,6 @@
     IBOutlet UIButton *_buttonSubmit;
     LoadingViewController *_loadingViewController;
 }
-
+@property (nonatomic) NSString *receipt;
+@property (nonatomic) SKPaymentTransaction *transcation;
 @end

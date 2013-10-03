@@ -40,13 +40,18 @@
 - (IBAction)handleTapBuy:(id)sender{
     if([UserModel shareInstance].isFree){
         SignUpViewController *signup = [[SignUpViewController alloc] initWithNibName:@"SignUpViewController" bundle:nil];
-        [self.navigationController pushViewController:signup animated:YES];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:signup];
+        [[UIApplication sharedApplication].keyWindow.rootViewController presentModalViewController:nav animated:YES];
     }else{
         //TODO tobuy
-        PopHintViewController *pop = [[PopHintViewController alloc] initWithText:JD_WORD_NOSUPPORT_ALIPAY];
-        [self addChildViewController:pop];
-        [self.view addSubview:pop.view];
+//        PopHintViewController *pop = [[PopHintViewController alloc] initWithText:JD_WORD_NOSUPPORT_ALIPAY];
+//        [self addChildViewController:pop];
+//        [self.view addSubview:pop.view];
+        [[IAP sharedInstance] start];
     }
+}
+-(void)dealloc{
+
 }
 - (void)didReceiveMemoryWarning
 {

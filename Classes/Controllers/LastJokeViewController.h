@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IAP.h"
 
 @interface LastJokeViewController : UIViewController{
     IBOutlet UIButton *_buttonBuy;

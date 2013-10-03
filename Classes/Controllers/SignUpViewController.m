@@ -35,6 +35,7 @@
     // Do any additional setup after loading the view from its nib.
     //返回按钮
     NavigatorBackBar *backBar = [[NavigatorBackBar alloc] initWithNavigatorController:self.navigationController];
+    backBar.dismiss = YES;
     self.navigationItem.leftBarButtonItem = backBar;
     
     //标题
@@ -42,6 +43,9 @@
     titleLabel.text = @"VIP皇冠会员";
     self.navigationItem.titleView = titleLabel;
     [titleLabel sizeToFit];
+    
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"topmenu"] forBarMetrics:UIBarMetricsDefault];
+
     
     //提交按钮
     [Util adjustBackgroundImage:_buttonSubmit];
@@ -78,13 +82,17 @@
                              @"username" : userName,
                              @"password" : password,
                              @"email" : email,
-                             @"api" : @"signup"
+                             @"api" : @"signup",
+                             @"os" : @"ios",
+                             @"receipt" : _receipt?_receipt:@""
                              };
     [client postPath:@"/" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"sign up reqeust finish, result = %@", [responseObject description]);
         NSInteger code = [responseObject[@"code"] integerValue];
         [_loadingViewController stop];
         if(code == 1){
+            //取消掉交易流程
+            [[SKPaymentQueue defaultQueue] finishTransaction: _transcation];
             [[UserModel shareInstance] login:responseObject[@"data"]];
             NSLog(@"sign up success");
             SignUpSuccessViewController *success = [[SignUpSuccessViewController alloc] initWithNibName:@"SignUpSuccessViewController" bundle:nil];

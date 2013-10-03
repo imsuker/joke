@@ -19,6 +19,7 @@
 #define key_logined_info @"key_logined_info"
 #define key_max_count_should_visit @"key_max_count_should_visit"
 #define key_price @"key_price"
+#define key_purchase_id @"key_purchase_id"
 
 #import "UserModel.h"
 #import "AFNetworking.h"
@@ -83,6 +84,18 @@ static UserModel *shareInstance;
     _price = price;
     NSUserDefaults *storage = [NSUserDefaults standardUserDefaults];
     [storage setValue :price forKey:key_price];
+    [storage synchronize];
+}
+-(NSString *)purchaseId{
+    if(!_purchaseId){
+        _purchaseId = [[NSUserDefaults standardUserDefaults] stringForKey:key_purchase_id];
+    }
+    return _purchaseId;
+}
+-(void)setPurchaseId:(NSString *)purchaseId{
+    _purchaseId = purchaseId;
+    NSUserDefaults *storage = [NSUserDefaults standardUserDefaults];
+    [storage setValue :purchaseId forKey:key_purchase_id];
     [storage synchronize];
 }
 -(BOOL)isFree{

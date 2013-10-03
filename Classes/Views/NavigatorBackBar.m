@@ -26,6 +26,10 @@
     [backView addGestureRecognizer:tapBack];
 }
 -(void)handleTapBack{
-    [_navigatorController popViewControllerAnimated:YES];
+    if(_dismiss){
+        [_navigatorController dismissModalViewControllerAnimated:YES];
+    }else{
+        [_navigatorController popViewControllerAnimated:YES];
+    }
 }
 @end

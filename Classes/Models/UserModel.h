@@ -14,12 +14,14 @@
     NSMutableArray *_arrayLikedIds; //用户所有喜欢的ids
     NSString *_price;
     NSInteger _maxCountShouldVisit;
+    NSString *_purchaseId;
 }
 @property (nonatomic) NSInteger visitId;  //用户最后一次访问的visitId
 @property (nonatomic) NSInteger noticeId;  //最后一次访问的noticeId
 @property (nonatomic) NSInteger maxCountShouldVisit; //匿名用户最多可访问的条数
 @property (nonatomic) NSString *price;//获取价格
 @property (nonatomic) BOOL isFree; //是否免费购买
+@property (nonatomic) NSString *purchaseId; //内购的id
 
 //登陆用户的相关信息
 @property (nonatomic) BOOL isLogin;  //是否登陆用户

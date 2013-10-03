@@ -17,7 +17,7 @@
 #import "APService.h"
 #import "AFNetworking.h"
 #import <AVFoundation/AVFoundation.h>
-
+#import "IAP.h"
 
 @implementation AppDelegate
 
@@ -76,6 +76,7 @@
 }
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [IAP sharedInstance];
     //支持切到后台时播放声音
     AVAudioSession *audioSession = [AVAudioSession sharedInstance];
     [audioSession setCategory:AVAudioSessionCategoryPlayback error:nil];

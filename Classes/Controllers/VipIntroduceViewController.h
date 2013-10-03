@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IAP.h"
 
 @interface VipIntroduceViewController : UIViewController{
     IBOutlet UIButton *_buttonRegistered;
@@ -14,6 +15,7 @@
     IBOutlet UILabel *_labelNow;
     IBOutlet UIButton *_buttonBuy;
     IBOutlet UILabel *_labelDesc;
+    IAP *_iap;
 }
 
 @end

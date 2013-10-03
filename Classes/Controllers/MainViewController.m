@@ -115,6 +115,7 @@
         if(code == 1){
             [UserModel shareInstance].price = data[@"vipPrice"];
             [UserModel shareInstance].maxCountShouldVisit = [data[@"freeShow"] integerValue];
+            [UserModel shareInstance].purchaseId = data[@"iosPurchaseId"];
         }
         [self fetchLastid];
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {

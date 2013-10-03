@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A11811E17FD6015001B85DD /* IAP.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A11811D17FD6015001B85DD /* IAP.m */; };
+		3A13791D17FD9308003BA293 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A13791C17FD9308003BA293 /* Base64.m */; };
+		3A13792117FDD0BC003BA293 /* ModelLoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A13791F17FDD0BC003BA293 /* ModelLoadingViewController.m */; };
+		3A13792217FDD0BC003BA293 /* ModelLoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A13792017FDD0BC003BA293 /* ModelLoadingViewController.xib */; };
 		3A667BF717B54E07007E04F7 /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A667BF517B54E07007E04F7 /* LoadingViewController.m */; };
 		3A667BF817B54E07007E04F7 /* LoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A667BF617B54E07007E04F7 /* LoadingViewController.xib */; };
 		3A667BFB17B767D8007E04F7 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A667BFA17B767D8007E04F7 /* UserModel.m */; };
@@ -225,6 +229,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A11811C17FD6015001B85DD /* IAP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IAP.h; path = Classes/Util/IAP.h; sourceTree = "<group>"; };
+		3A11811D17FD6015001B85DD /* IAP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IAP.m; path = Classes/Util/IAP.m; sourceTree = "<group>"; };
+		3A13791B17FD9308003BA293 /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
+		3A13791C17FD9308003BA293 /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64.m; sourceTree = "<group>"; };
+		3A13791E17FDD0BC003BA293 /* ModelLoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelLoadingViewController.h; sourceTree = "<group>"; };
+		3A13791F17FDD0BC003BA293 /* ModelLoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelLoadingViewController.m; sourceTree = "<group>"; };
+		3A13792017FDD0BC003BA293 /* ModelLoadingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModelLoadingViewController.xib; sourceTree = "<group>"; };
 		3A667BF417B54E07007E04F7 /* LoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingViewController.h; sourceTree = "<group>"; };
 		3A667BF517B54E07007E04F7 /* LoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingViewController.m; sourceTree = "<group>"; };
 		3A667BF617B54E07007E04F7 /* LoadingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingViewController.xib; sourceTree = "<group>"; };
@@ -598,6 +609,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A13791A17FD9308003BA293 /* Base64 */ = {
+			isa = PBXGroup;
+			children = (
+				3A13791B17FD9308003BA293 /* Base64.h */,
+				3A13791C17FD9308003BA293 /* Base64.m */,
+			);
+			path = Base64;
+			sourceTree = "<group>";
+		};
 		3A7CEB1A17CE53CD0062274A /* UmengFeedBack */ = {
 			isa = PBXGroup;
 			children = (
@@ -986,6 +1006,8 @@
 				3A667C0017B7E9E0007E04F7 /* UIImageView+Joke.h */,
 				3A667C0117B7E9E1007E04F7 /* UIImageView+Joke.m */,
 				3A92841117B2AC2600E3AD54 /* defines.h */,
+				3A11811C17FD6015001B85DD /* IAP.h */,
+				3A11811D17FD6015001B85DD /* IAP.m */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -1126,6 +1148,7 @@
 		43F3C229178EDC93002E0633 /* SDK */ = {
 			isa = PBXGroup;
 			children = (
+				3A13791A17FD9308003BA293 /* Base64 */,
 				3A7CEB6917CFA78D0062274A /* Jpush */,
 				3A7CEB1A17CE53CD0062274A /* UmengFeedBack */,
 				3AD9CE8317C7B1A4002C13AD /* ShareSDK */,
@@ -1183,6 +1206,9 @@
 				3A667BF417B54E07007E04F7 /* LoadingViewController.h */,
 				3A667BF517B54E07007E04F7 /* LoadingViewController.m */,
 				3A667BF617B54E07007E04F7 /* LoadingViewController.xib */,
+				3A13791E17FDD0BC003BA293 /* ModelLoadingViewController.h */,
+				3A13791F17FDD0BC003BA293 /* ModelLoadingViewController.m */,
+				3A13792017FDD0BC003BA293 /* ModelLoadingViewController.xib */,
 				3A8FA0FC17BEA4A7005E320E /* PopHintViewController.h */,
 				3A8FA0FD17BEA4A7005E320E /* PopHintViewController.m */,
 				3A8FA0FE17BEA4A7005E320E /* PopHintViewController.xib */,
@@ -1359,6 +1385,7 @@
 				3AD9CE9B17C7B1A4002C13AD /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				3AD9CEAA17C7BD6A002C13AD /* Resource.bundle in Resources */,
 				3AD9CEAC17C7BD6A002C13AD /* ShareSDKLocalizable.strings in Resources */,
+				3A13792217FDD0BC003BA293 /* ModelLoadingViewController.xib in Resources */,
 				3AD9CEB017C7C0C2002C13AD /* ShareSDKiPhoneDefaultShareViewUI.bundle in Resources */,
 				3A7CEB1917CE46EF0062274A /* ChangePasswordViewController.xib in Resources */,
 				3A7CEB4417CE53CD0062274A /* background@2x.png in Resources */,
@@ -1435,6 +1462,7 @@
 				43BBBA6117A7ED2D005BB170 /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */,
 				43BBBA6217A7ED2D005BB170 /* MagicalRecord+Actions.m in Sources */,
 				43BBBA6317A7ED2D005BB170 /* MagicalRecord+ErrorHandling.m in Sources */,
+				3A13791D17FD9308003BA293 /* Base64.m in Sources */,
 				43BBBA6417A7ED2D005BB170 /* MagicalRecord+iCloud.m in Sources */,
 				43BBBA6517A7ED2D005BB170 /* MagicalRecord+Options.m in Sources */,
 				43BBBA6617A7ED2D005BB170 /* MagicalRecord+Setup.m in Sources */,
@@ -1466,6 +1494,7 @@
 				3A667C0217B7E9E1007E04F7 /* UIImageView+Joke.m in Sources */,
 				3A86A1D017B93A5D00D6CDAA /* VipIntroduceViewController.m in Sources */,
 				3A86A1E417BA7DE800D6CDAA /* NavigatorBackBar.m in Sources */,
+				3A13792117FDD0BC003BA293 /* ModelLoadingViewController.m in Sources */,
 				3A86A1E717BA800900D6CDAA /* NavigatorTitleLabel.m in Sources */,
 				3A86A1EB17BBCD0100D6CDAA /* LoginViewController.m in Sources */,
 				3A86A1F217BBE37B00D6CDAA /* SignUpViewController.m in Sources */,
@@ -1497,6 +1526,7 @@
 				3A7CEB5F17CE53CD0062274A /* UMFeedbackViewController.m in Sources */,
 				3A7CEB6517CF95B90062274A /* AboutUsViewController.m in Sources */,
 				3AD0B68817D78C2B002844DE /* NoticeViewController.m in Sources */,
+				3A11811E17FD6015001B85DD /* IAP.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

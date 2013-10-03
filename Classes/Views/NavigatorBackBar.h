@@ -11,5 +11,6 @@
 @interface NavigatorBackBar : UIBarButtonItem{
     __weak UINavigationController *_navigatorController;
 }
+@property (nonatomic) BOOL dismiss;
 -(id)initWithNavigatorController:(UINavigationController *)navigatorController;
 @end
