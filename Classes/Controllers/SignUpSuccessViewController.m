@@ -47,7 +47,9 @@
 }
 
 -(void)handleTapBackBar{
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    UINavigationController *nav = (UINavigationController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+    [nav popToRootViewControllerAnimated:NO];
+    [self.navigationController dismissModalViewControllerAnimated:YES];
 }
 - (void)didReceiveMemoryWarning
 {

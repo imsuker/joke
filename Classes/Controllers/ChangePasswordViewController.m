@@ -98,6 +98,9 @@
     }];
 
 }
+-(IBAction)textfieldTapReturn:(id)sender{
+    [sender resignFirstResponder];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

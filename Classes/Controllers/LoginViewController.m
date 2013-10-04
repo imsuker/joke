@@ -106,7 +106,9 @@
         [self.view addSubview:popError.view];
     }];
 }
-
+-(IBAction)textfieldTapReturn:(id)sender{
+    [sender resignFirstResponder];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

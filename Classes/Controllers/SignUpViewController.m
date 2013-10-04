@@ -111,7 +111,9 @@
     }];
 
 }
-
+-(IBAction)textfieldTapReturn:(id)sender{
+    [sender resignFirstResponder];
+}
 
 -(IBAction)handleTapResignKeyBoard:(id)sender{
     [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];

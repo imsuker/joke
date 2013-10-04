@@ -38,7 +38,7 @@ static IAP * instance;
         _loadingView = [ModelLoadingViewController sharedInstance];
     }
     if([SKPaymentQueue canMakePayments]){
-        _loadingView.text = @"正在连接苹果公司获取信息...";
+        _loadingView.text = @"正在奋力加载信息...";
         [_loadingView show];
         [self getProductInfo];
     }else{
@@ -71,6 +71,8 @@ static IAP * instance;
         switch (transaction.transactionState)
         {
             case SKPaymentTransactionStatePurchased://交易完成
+//                [[SKPaymentQueue defaultQueue] finishTransaction: transaction];
+
                 NSLog(@"交易成功...");
                 [self finishBuy:transaction];
                 [_loadingView hide];
@@ -103,6 +105,7 @@ static IAP * instance;
         SignUpViewController *signup = [[SignUpViewController alloc] initWithNibName:@"SignUpViewController" bundle:nil];
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:signup];
         signup.receipt = str;
+        signup.transcation = transaction;
         [[UIApplication sharedApplication].keyWindow.rootViewController presentModalViewController:nav animated:YES];
     }
 }
