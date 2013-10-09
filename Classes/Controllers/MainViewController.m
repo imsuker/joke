@@ -126,7 +126,7 @@
     //预读取shareSDK配置
     _ShareSDKLoading = YES;
     [ShareSDK waitAppSettingComplete:^{
-        
+        _ShareSDKLoading = NO;
     }];
 }
 
