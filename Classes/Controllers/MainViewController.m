@@ -14,6 +14,7 @@
 #import "SettingsViewController.h"
 #import <ShareSDK/ShareSDK.h>
 #import "NoticeViewController.h"
+#import "PopHintViewController.h"
 
 @interface MainViewController ()
 
@@ -257,12 +258,17 @@
         NSLog(@"====can 't next");
         _buttonNext.enabled = NO;
         //todo has no right and show
-        if(!_lastJokeViewController){
-            _lastJokeViewController = [[LastJokeViewController alloc] initWithNibName:@"LastJokeViewController" bundle:nil];
-            [self addChildViewController:_lastJokeViewController];
-            _lastJokeViewController.view.frame = _viewJoke.bounds;
-            [_viewJoke addSubview:_lastJokeViewController.view];
-        }
+        NSString *message = [NSString stringWithFormat:@"每天只能听%d条文章，明天再来吧~",[UserModel shareInstance].maxCountShouldVisit];
+        PopHintViewController *pop = [[PopHintViewController alloc] initWithText:message];
+        [self addChildViewController:pop];
+        [self.view addSubview:pop.view];
+        return;
+//        if(!_lastJokeViewController){
+//            _lastJokeViewController = [[LastJokeViewController alloc] initWithNibName:@"LastJokeViewController" bundle:nil];
+//            [self addChildViewController:_lastJokeViewController];
+//            _lastJokeViewController.view.frame = _viewJoke.bounds;
+//            [_viewJoke addSubview:_lastJokeViewController.view];
+//        }
     }
 }
 -(void)handleTapLookUser{

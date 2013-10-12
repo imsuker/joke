@@ -50,7 +50,7 @@
                       ];
     }else{
         _allItems = @[
-                      @[account],
+//                      @[account],
                       @[about,feedback,support]
                       ];
     }
