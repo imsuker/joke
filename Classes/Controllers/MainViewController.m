@@ -258,7 +258,7 @@
         NSLog(@"====can 't next");
         _buttonNext.enabled = NO;
         //todo has no right and show
-        NSString *message = [NSString stringWithFormat:@"每天只能听%d条文章，明天再来吧~",[UserModel shareInstance].maxCountShouldVisit];
+        NSString *message = [NSString stringWithFormat:@"今天的%d条听完了，\n请等待更新，\n明天再来听吧！",[UserModel shareInstance].maxCountShouldVisit];
         PopHintViewController *pop = [[PopHintViewController alloc] initWithText:message];
         [self addChildViewController:pop];
         [self.view addSubview:pop.view];

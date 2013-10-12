@@ -1604,8 +1604,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: jinglei Cao (YPEGRY8JKN)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: jinglei Cao (YPEGRY8JKN)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/SDK/ShareSDK/Connection\"",
@@ -1630,8 +1630,8 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "C81507C8-6CB8-4662-A541-CF6F2D54EEC0";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C81507C8-6CB8-4662-A541-CF6F2D54EEC0";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1640,8 +1640,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: jinglei Cao (KYB4ECVSQU)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: jinglei Cao (KYB4ECVSQU)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/SDK/ShareSDK/Connection\"",
@@ -1666,8 +1666,8 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "3325E536-B633-4188-988E-818D9EC52AD7";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3325E536-B633-4188-988E-818D9EC52AD7";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
