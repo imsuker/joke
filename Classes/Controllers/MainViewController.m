@@ -287,29 +287,38 @@
         NSString *url = [NSString stringWithFormat:@"http://www.yuyinxiaohua.com/archives/%d", _visitId];
         NSString *content = [NSString stringWithFormat:@"我在【语音笑话网】听的这个笑话《%@》很搞笑，你也来听听吧 %@",_jokeViewController.jokeModel.title, url];
         
+        id<ISSCAttachment> imageShare = [ShareSDK jpegImageWithImage:[UIImage imageNamed:@"icon@2x.png"] quality:1.0];
         
-        //构造分享内容
-        id<ISSContent> publishContent = [ShareSDK content:content
-                                           defaultContent:@"语音笑话网"
-                                                    image:nil
-                                                    title:@"语音笑话网"
-                                                      url:url
-                                              description:@"最用心讲笑话的语音笑话网站，真人语音讲笑话、语音笑话大全"
-                                                mediaType:SSPublishContentMediaTypeNews];
         //添加QQ空间分享内容
         NSString *urlPic = _jokeViewController.urlPicQQ;
         if(urlPic == nil) {
             urlPic = @"";
         }
+        
+        
+        //构造分享内容
+        id<ISSContent> publishContent = [ShareSDK content:content
+                                           defaultContent:@"语音笑话网"
+                                                    image:imageShare
+                                                    title:@"语音笑话网"
+                                                      url:url
+                                              description:@"最用心讲笑话的语音笑话网站，真人语音讲笑话、语音笑话大全"
+                                                mediaType:SSPublishContentMediaTypeNews];
+        
         [publishContent addQQSpaceUnitWithTitle:INHERIT_VALUE url:INHERIT_VALUE site:INHERIT_VALUE fromUrl:INHERIT_VALUE comment:INHERIT_VALUE summary:INHERIT_VALUE image:[ShareSDK imageWithUrl:urlPic] type:INHERIT_VALUE playUrl:INHERIT_VALUE nswb:INHERIT_VALUE];
         
-        //添加微博分享内容
-        id<ISSCAttachment> imageWeibo;
-        if(_jokeViewController.imageViewPicWeibo){
-            imageWeibo = [ShareSDK jpegImageWithImage:_jokeViewController.imageViewPicWeibo.image quality:1.0];
-        }
+//        //添加微博分享内容
+//        id<ISSCAttachment> imageWeibo;
+//        if(_jokeViewController.imageViewPicWeibo){
+//            imageWeibo = [ShareSDK jpegImageWithImage:_jokeViewController.imageViewPicWeibo.image quality:1.0];
+//        }
         NSString *contentWeibo = [NSString stringWithFormat:@"我在【语音笑话网】听的这个笑话《%@》很搞笑，你也来听听吧 （分享自 @语音笑话网） http://www.yuyinxiaohua.com/archives/%d",_jokeViewController.jokeModel.title,_visitId];
-        [publishContent addSinaWeiboUnitWithContent:contentWeibo image:imageWeibo];
+        [publishContent addSinaWeiboUnitWithContent:contentWeibo image:imageShare];
+        
+        imageShare = [ShareSDK jpegImageWithImage:[UIImage imageNamed:@"icon.png"] quality:1.0];
+        
+        [publishContent addWeixinSessionUnitWithType:[NSNumber numberWithInteger:SSPublishContentMediaTypeNews] content:content title:@"语音笑话网" url:url image:imageShare musicFileUrl:nil extInfo:nil fileData:nil emoticonData:nil];
+        [publishContent addWeixinTimelineUnitWithType:[NSNumber numberWithInteger:SSPublishContentMediaTypeNews] content:content title:[NSString stringWithFormat:@"语音笑话网：%@",_jokeViewController.jokeModel.title] url:url image:imageShare musicFileUrl:nil extInfo:nil fileData:nil emoticonData:nil];
         
         id<ISSShareOptions> shareOptions = [ShareSDK defaultShareOptionsWithTitle:@"分享到"
                                                                   oneKeyShareList:nil
